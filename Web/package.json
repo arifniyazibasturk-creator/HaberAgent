@@ -1,0 +1,18 @@
+{
+  "name": "geopolitical-financial-assistant",
+  "version": "1.0.0",
+  "description": "Günlük Jeopolitik ve Finans Analiz Asistanı Dashboard",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 3000"
+  },
+  "keywords": [
+    "assistant",
+    "geopolitics",
+    "finance",
+    "resmi-gazete",
+    "economics"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

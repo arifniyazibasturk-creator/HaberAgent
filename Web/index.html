@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Günlük Sabah Bülteni - Jeopolitik ve Finans Analiz Asistanı</title>
+  <meta name="description" content="Jeopolitik, ekonomi ve finans alanlarındaki günlük gelişmeleri tarafsız ve kurallara bağlı olarak filtreleyen ve analiz eden profesyonel asistan paneli.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- ==========================================
+         LEFT SIDEBAR: SOURCES & STATUS
+         ========================================== -->
+    <aside class="sidebar">
+      <div class="logo-section">
+        <h1 class="logo-title">
+          <span>🧠</span> AnalizAsistanı
+        </h1>
+        <div class="logo-sub">Jeopolitik & Finans</div>
+      </div>
+      
+      <div class="status-badge">
+        <span>Asistan Durumu: Aktif</span>
+        <span class="pulsing-dot"></span>
+      </div>
+      
+      <span class="section-label">Takip Edilen Kaynaklar</span>
+      <div class="sources-box">
+        <ul class="sources-list" id="sources-list">
+          <!-- Dynamic sources will load here -->
+        </ul>
+      </div>
+      
+      <div class="countdown-box">
+        <span class="section-label" style="margin-bottom: 4px; display: block;">Sonraki Sabah Bülteni</span>
+        <div class="countdown-time" id="countdown-timer">00:00:00</div>
+        <span style="font-size: 0.7rem; color: var(--text-muted);">Günlük saat 09:00 (Europe/Istanbul)</span>
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         MAIN AREA: BULLETINS & SIMULATOR
+         ========================================== -->
+    <main class="main-content">
+      
+      <!-- HEADER -->
+      <header class="main-header">
+        <div class="header-title-box">
+          <h2 id="bulletin-title">Günlük Sabah Bülteni</h2>
+          <p>Tarih: <span id="bulletin-date">--.--.----</span> | Son 24 Saatlik Gelişmeler</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn" id="btn-copy-md" onclick="copyMarkdown()">
+            <span>📋</span> Markdown Kopyala
+          </button>
+          <button class="btn btn-primary" onclick="downloadMarkdown()">
+            <span>📥</span> Dosya Olarak İndir
+          </button>
+        </div>
+      </header>
+
+      <!-- VIEW TOGGLES -->
+      <div class="view-toggles">
+        <button class="toggle-btn active" id="btn-view-visual" onclick="toggleViewMode('visual')">📊 Görsel Dashboard</button>
+        <button class="toggle-btn" id="btn-view-raw" onclick="toggleViewMode('raw')">📄 Ham Markdown</button>
+      </div>
+
+      <!-- VISUAL DASHBOARD VIEW -->
+      <div class="bulletin-view-pane active" id="visual-bulletin-view">
+        
+        <!-- 1. RESMI GAZETE SECTION -->
+        <section class="bulletin-section section-rg">
+          <h3 class="section-header-title" onclick="toggleSection(this)">📜 Resmî Gazete Kararları</h3>
+          <div class="section-content-wrapper">
+            <div id="rg-bulletin-container">
+              <!-- Dynamic Resmi Gazete items -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. ULUSLARARASI ILISKILER SECTION -->
+        <section class="bulletin-section section-ui">
+          <h3 class="section-header-title" onclick="toggleSection(this)">🌍 Uluslararası İlişkiler & Diplomasi</h3>
+          <div class="section-content-wrapper">
+            <div id="ui-bulletin-container">
+              <!-- Dynamic UI items -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 2.5. HUKUK VE MEVZUAT SECTION -->
+        <section class="bulletin-section section-law">
+          <h3 class="section-header-title" onclick="toggleSection(this)">⚖️ Hukuk ve Mevzuat</h3>
+          <div class="section-content-wrapper">
+            <div id="law-bulletin-container">
+              <!-- Dynamic Law items -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. FINANS VE EKONOMI SECTION -->
+        <section class="bulletin-section section-fe">
+          <h3 class="section-header-title" onclick="toggleSection(this)">💹 Finans, Ekonomi ve Piyasalar</h3>
+          <div class="section-content-wrapper">
+            <div id="fe-bulletin-container">
+              <!-- Dynamic Finance items -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. BUGUN TAKIP EDILECEK GELISMELER -->
+        <section class="bulletin-section section-tracking">
+          <h3 class="section-header-title" onclick="toggleSection(this)">📅 Bugün Takip Edilecek Gelişmeler</h3>
+          <div class="section-content-wrapper">
+            <ul class="tracking-list" id="tracking-bulletin-container">
+              <!-- Dynamic tracking list -->
+            </ul>
+          </div>
+        </section>
+
+        <!-- 5. BUGUNUN EN KRITIK 5 GELISMESI -->
+        <section class="bulletin-section section-critical">
+          <h3 class="section-header-title" onclick="toggleSection(this)">🎯 Bugünün En Kritik Gelişmeleri</h3>
+          <div class="section-content-wrapper">
+            <div id="critical-bulletin-container">
+              <!-- Dynamic Top 5 items -->
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RAW MARKDOWN VIEW -->
+      <div class="bulletin-view-pane raw-markdown-pane" id="raw-bulletin-view">
+        <div class="raw-markdown-header">
+          <h4>Kopyalanabilir Rapor Çıktısı</h4>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Sistem promptu formatına uygun olarak hazırlanmıştır.</span>
+        </div>
+        <textarea class="markdown-editor" id="raw-markdown-content" readonly></textarea>
+      </div>
+
+      <!-- INTERACTIVE SIMULATOR (NEWS INJECTOR) -->
+      <section class="simulator-section">
+        <h3 class="section-header-title" style="margin-bottom: 8px;">🛠️ İnteraktif Asistan Simülatörü</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 24px;">
+          Sisteme yeni bir veri enjekte ederek asistanın filtreleme kurallarını ve analiz motorunu test edin.
+        </p>
+
+        <div class="simulator-grid">
+          <!-- Inject Form -->
+          <div class="simulator-form-panel">
+            <form id="news-injector-form" onsubmit="handleInjectNews(event)">
+              
+              <div class="form-group">
+                <label for="inject-category">Kategori</label>
+                <select id="inject-category" class="form-control" onchange="handleInjectorCategoryChange()">
+                  <option value="Resmî Gazete">Resmî Gazete (Filtre Testi)</option>
+                  <option value="Uluslararası İlişkiler">Uluslararası İlişkiler</option>
+                  <option value="Hukuk ve Mevzuat">Hukuk ve Mevzuat</option>
+                  <option value="Finans ve Ekonomi">Finans ve Ekonomi</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="subtype-wrapper">
+                <label for="inject-subtype">Resmî Gazete Konu Tipi</label>
+                <select id="inject-subtype" class="form-control">
+                  <option value="Cumhurbaşkanlığı Kararı">Cumhurbaşkanlığı Kararı (Kabul Edilir)</option>
+                  <option value="Yönetmelik">Yönetmelik (Kabul Edilir)</option>
+                  <option value="Tebliğ">Tebliğ (Konuya göre kontrol edilir)</option>
+                  <option value="Personel Ataması">Personel Ataması (Filtrelenip Elenir)</option>
+                  <option value="Akademik İlan">Üniversite Akademik Kadro İlanı (Filtrelenip Elenir)</option>
+                  <option value="Mahkeme Kararı">Mahkeme Kararı (Filtrelenip Elenir)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="inject-source">Veri Kaynağı</label>
+                <select id="inject-source" class="form-control">
+                  <option value="Türkiye Cumhuriyeti Resmî Gazete">Türkiye Cumhuriyeti Resmî Gazete</option>
+                  <option value="TCMB">TCMB</option>
+                  <option value="Hazine ve Maliye Bakanlığı">Hazine ve Maliye Bakanlığı</option>
+                  <option value="Ticaret Bakanlığı">Ticaret Bakanlığı</option>
+                  <option value="Dışişleri Bakanlığı">Dışişleri Bakanlığı</option>
+                  <option value="Reuters World">Reuters World</option>
+                  <option value="Reuters Markets">Reuters Markets</option>
+                  <option value="AP News">AP News</option>
+                  <option value="Financial Times">Financial Times</option>
+                  <option value="ABD Merkez Bankası (Fed)">ABD Merkez Bankası (Fed)</option>
+                  <option value="NATO">NATO</option>
+                  <option value="Avrupa Birliği">Avrupa Birliği</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="inject-title">Başlık</label>
+                <input type="text" id="inject-title" class="form-control" placeholder="Haber veya karar başlığı..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="inject-body">İçerik Detayı</label>
+                <textarea id="inject-body" class="form-control" placeholder="Haber veya karar metni içeriği..." required></textarea>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="inject-critical">
+                <label for="inject-critical">Bugünün Kritik Gelişmelerine Ekle (Top 5)</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                ⚡ Analize Gönder ve Enjekte Et
+              </button>
+            </form>
+          </div>
+
+          <!-- Pipeline Logs -->
+          <div class="events-pipeline-wrapper">
+            <span class="section-label">Veri Süzgeci Hattı (Giriş Kanalı)</span>
+            <div class="events-pipeline-list" id="events-pipeline-list">
+              <!-- Dynamically generated logs -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="index.js"></script>
+</body>
+</html>
