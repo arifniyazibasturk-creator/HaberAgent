@@ -6,7 +6,7 @@ const path = require('path');
 const FEEDS = [
   {
     name: "Türkiye Cumhuriyeti Resmî Gazete",
-    url: "https://www.resmigazete.gov.tr/rss.xml",
+    url: "https://news.google.com/rss/search?q=\"resmi+gazete\"&hl=tr&gl=TR&ceid=TR:tr",
     category: "Resmî Gazete"
   },
   {
@@ -124,7 +124,8 @@ function callGemini(apiKey, promptText) {
                       whyImportant: { type: "STRING" },
                       whoAffected: { type: "STRING" },
                       followUp: { type: "STRING" }
-                    }
+                    },
+                    required: ["summary", "geopoliticalImpact", "turkeyImpact", "financialImpact", "longTerm", "isCritical"]
                   }
                 },
                 required: ["source", "title", "body", "category", "isRelevant"]
@@ -242,10 +243,31 @@ ${JSON.stringify(allEvents, null, 2)}
     const analysisResult = await callGemini(apiKey, systemPrompt);
     const dateToday = new Date().toISOString().substring(0, 10);
     
+    // Normalize analysis keys to camelCase in case Gemini uses snake_case or different casings
+    const normalizedEvents = (analysisResult.events || []).map(item => {
+      if (item.analysis) {
+        return {
+          ...item,
+          analysis: {
+            summary: item.analysis.summary || "",
+            geopoliticalImpact: item.analysis.geopoliticalImpact || item.analysis.geopolitical_impact || item.analysis.geopolitical || "",
+            turkeyImpact: item.analysis.turkeyImpact || item.analysis.turkey_impact || item.analysis.turkey || "",
+            financialImpact: item.analysis.financialImpact || item.analysis.financial_impact || item.analysis.financial || "",
+            longTerm: item.analysis.longTerm || item.analysis.long_term || item.analysis.longterm || "",
+            isCritical: !!(item.analysis.isCritical || item.analysis.is_critical),
+            whyImportant: item.analysis.whyImportant || item.analysis.why_important || "",
+            whoAffected: item.analysis.whoAffected || item.analysis.who_affected || "",
+            followUp: item.analysis.followUp || item.analysis.follow_up || ""
+          }
+        };
+      }
+      return item;
+    });
+
     // Structure final json
     const outputData = {
       date: dateToday,
-      events: analysisResult.events || []
+      events: normalizedEvents
     };
 
     const targetPath = path.join(__dirname, 'data_parsed.json');
