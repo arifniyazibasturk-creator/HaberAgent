@@ -1,301 +1,76 @@
 {
-  "date": "2026-07-28",
+  "date": "2026-07-29",
   "events": [
     {
-      "id": "real-law-1",
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Millî Eğitim Bakanlığı Okul Öncesi Eğitim ve İlköğretim Kurumları Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
-      "body": "Okul öncesi eğitim kurumları ve ilköğretim okullarında kayıt, nakil, devamsızlık takibi ve şube belirleme işlemlerine yönelik kuralları güncelleyen yönetmelik Resmi Gazete'de yürürlüğe girdi. Velilerin okul kayıt dönemlerindeki idari süreçleri ve şube seçim usulleri kolaylaştırıldı.",
-      "category": "Hukuk ve Mevzuat",
-      "subType": "Yönetmelik",
-      "timestamp": "2026-07-28T02:45:00+03:00",
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "Doğu Akdeniz'de iş birliği dönemi - Anadolu Ajansı",
+      "body": "Doğu Akdeniz'de iş birliği dönemi",
+      "category": "Uluslararası İlişkiler",
       "isRelevant": true,
       "analysis": {
-        "summary": "Milli Eğitim Bakanlığı, ilköğretim ve okul öncesi seviyedeki kayıt, nakil ve sınıf belirleme usullerini güncelleyen bir yönetmelik yayımlamıştır.",
-        "geopoliticalImpact": "Küresel ölçekte bir etkisi bulunmamaktadır.",
-        "turkeyImpact": "Milyonlarca öğrenci ve velinin okul kayıt dönemindeki nakil ve şube seçimi süreçlerini kolaylaştırmayı ve fırsat eşitliğini artırmayı hedefler.",
-        "financialImpact": "Velilerin kayıt dönemlerindeki kayıt bağışı veya ek masraf talepleriyle karşılaşma riskini azaltmaya yönelik yasal denetim sağlar.",
-        "longTerm": "Okul öncesi eğitime katılımın artırılması ve eğitim lojistiğinde standardizasyon sağlanması.",
-        "isCritical": false
-      }
-    },
-    {
-      "id": "real-law-2",
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Emniyet Teşkilatı Disiplin Kurullarının Çalışma Esas ve Yöntemlerine İlişkin Yönetmeliğin Yürürlükten Kaldırılması Hakkında Yönetmelik",
-      "body": "Emniyet Teşkilatı disiplin kurullarının teşekkülü, çalışma esasları ve karar alma mekanizmalarını düzenleyen eski yönetmelik Resmi Gazete'de yayımlanan yeni karar ile yürürlükten kaldırılmıştır. Yeni disiplin usullerine zemin hazırlanmıştır.",
-      "category": "Hukuk ve Mevzuat",
-      "subType": "Yönetmelik",
-      "timestamp": "2026-07-28T02:15:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Emniyet Teşkilatı disiplin kurullarının çalışma usullerini belirleyen yönetmelik yürürlükten kaldırılmış, yeni disiplin süreçleri tanımlanmıştır.",
-        "geopoliticalImpact": "Doğrudan küresel jeopolitik etkisi yoktur ancak iç güvenlik ve kolluk kuvvetleri yönetiminde şeffaflık standartlarını etkileyebilir.",
-        "turkeyImpact": "Emniyet mensuplarının disiplin soruşturması süreçlerinde usuli değişiklikler yaratarak kolluk gücü içi idari yargı denetimini şekillendirecektir.",
-        "financialImpact": "Kamu maliyesi üzerinde doğrudan bir etkisi bulunmamaktadır.",
-        "longTerm": "Emniyet güçlerinin idari disiplin yapısında daha merkeziyetçi veya modernize edilmiş yeni bir yasal çerçevenin kurulmasına zemin hazırlayacaktır.",
-        "isCritical": false
-      }
-    },
-    {
-      "id": "real-law-3",
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Anayasa Mahkemesi Bireysel Başvuru ve Yargı Yolu Kısıtlamalarına İlişkin İptal Kararı (Esas Sayısı: 2024/102)",
-      "body": "Anayasa Mahkemesi, hak arama hürriyetini kısıtladığı gerekçesiyle bazı idari yaptırımların yargısal denetim sürelerine dair kanun maddelerinin iptaline karar vermiştir. Karar Resmi Gazete'de yayımlanarak yürürlüğe girmiştir.",
-      "category": "Hukuk ve Mevzuat",
-      "subType": "Mahkeme Kararı",
-      "timestamp": "2026-07-28T02:05:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Anayasa Mahkemesi, hak arama özgürlüğünü kısıtladığı gerekçesiyle bazı idari yaptırım denetim sürelerine dair kanun maddelerini iptal etmiştir.",
-        "geopoliticalImpact": "Türkiye'nin Avrupa İnsan Hakları Sözleşmesi (AİHS) ve AB uyum sürecindeki hukukun üstünlüğü endeks puanlarını olumlu etkileyebilir.",
-        "turkeyImpact": "Bireysel başvurularda hak kayıplarını engelleyecek ve idari yaptırımlara karşı yargı yolunu daha etkin hale getirecektir.",
-        "financialImpact": "Kamu idaresinin usulsüz cezalar nedeniyle ödemek zorunda kalacağı tazminat riskini azaltacak yasal reformları zorunlu kılacaktır.",
-        "longTerm": "İdarenin işlem ve eylemlerinde hukuka uygunluk standartlarının ve yargı denetiminin kalıcı olarak güçlenmesi.",
-        "isCritical": true,
-        "whyImportant": "Vatandaşların devlete karşı hak arama hürriyetini genişleten ve kanunların anayasaya uygunluğunu denetleyen dönüm noktası bir karardır.",
-        "whoAffected": "Tüm vatandaşlar, hukukçular ve idari yaptırım uygulayan kamu kurumları.",
-        "followUp": "TBMM'nin iptal edilen maddeler doğrultusunda yapacağı yeni yasal düzenleme takvimi."
-      }
-    },
-    {
-      "id": "real-1",
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Tarım ve Orman Bakanlığı Tarafından Bazı Tarımsal Ürünlerin İthalat Denetimine İlişkin Tebliğde Değişiklik Yapılmasına Dair Tebliğ",
-      "body": "Tarımsal ürünlerin gümrük denetimleri, sağlık sertifikası kontrolleri ve ithalata uygunluk prosedürlerinde yeni düzenlemeler getiren tebliğ Resmi Gazete'de yürürlüğe girdi. Tarım ürünlerinde gümrükteki denetim standartlarının sıkılaştırılması amaçlanmaktadır.",
-      "category": "Resmî Gazete",
-      "subType": "Tebliğ",
-      "timestamp": "2026-07-28T02:10:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Tarım ve Orman Bakanlığı, gümrükteki tarımsal ithalat denetim prosedürlerini ve sağlık sertifikası standartlarını sıkılaştırmıştır.",
-        "geopoliticalImpact": "Bölgesel gıda ticareti ortaklarımız (örneğin AB ülkeleri ve Ukrayna) ile gümrük süreçlerinde dönemsel bürokratik gecikmelere sebep olabilir.",
-        "turkeyImpact": "Yerli tarım üreticilerini koruyarak gümrükte denetimsiz ürün girişini sınırlandırırken, ithal tarımsal hammaddelerin tedarik süresini uzatabilir.",
-        "financialImpact": "Tarımsal hammadde ithalat maliyetlerinde hafif bir artışa ve dolayısıyla gıda enflasyonu üzerinde sınırlı yukarı yönlü baskıya yol açabilir.",
-        "longTerm": "Türkiye'nin tarımsal denetim standartlarının AB yeşil mutabakat kriterleriyle uyumlandırılması sürecini destekleyecektir.",
-        "isCritical": false
-      }
-    },
-    {
-      "id": "real-2",
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Sendikalar ve Toplu İş Sözleşmesi Kanunu Temmuz 2026 Dönemi İstatistikleri Tebliği",
-      "body": "6356 sayılı Kanun gereğince, Çalışma ve Sosyal Güvenlik Bakanlığı tarafından hazırlanan Temmuz 2026 dönemi iş kollarındaki işçi ve üye sendika sayılarına ilişkin istatistiki veriler Resmi Gazete'de yayımlandı.",
-      "category": "Resmî Gazete",
-      "subType": "Tebliğ",
-      "timestamp": "2026-07-28T02:30:00+03:00",
-      "isRelevant": false,
-      "analysis": null
-    },
-    {
-      "id": "real-4",
-      "source": "TCMB",
-      "title": "TCMB Haftalık Likidite Yönetimi ve Para Politikası Duruş Değerlendirmesi",
-      "body": "TCMB, 23 Temmuz'daki politika faizini %37 seviyesinde sabit tutma kararının ardından piyasadaki fonlama miktarını ve sterilizasyon adımlarını artırdığını açıkladı. Günlük geçici rezerv miktarındaki değişimler ve repo ihaleleri yakından izlenmektedir.",
-      "category": "Finans ve Ekonomi",
+        "summary": "Doğu Akdeniz bölgesinde ülkeler arasında iş birliği odaklı yeni bir dönemin başladığına işaret edilmektedir. Bölgesel istikrar ve enerji kaynaklarının paylaşımı konuları ön plana çıkmaktadır.",
+        "turkeyImpact": "Türkiye'nin Doğu Akdeniz'deki hak ve menfaatleri açısından stratejik öneme sahip olup, diplomasi kanallarının açık tutulmasını destekler.",
+        "whoAffected": "Türkiye, Yunanistan, Kıbrıs ve bölgede kıyıdaş olan diğer Akdeniz ülkeleri.",
+        "whyImportant": "Bölgesel gerilimlerin azaltılması ve enerji güvenliği açısından kritik bir eşik oluşturmaktadır."
+      },
       "subType": "Genel",
-      "timestamp": "2026-07-28T10:00:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "TCMB, politika faizini %37'de sabit bırakmasının ardından piyasadaki TL likidite fazlasını sterilize etmek amacıyla depo ihalelerini sürdüreceğini açıklamıştır. Bu durum sıkı duruşun korunduğunu gösterir.",
-        "geopoliticalImpact": "Küresel yabancı yatırımcıların TL varlıklara olan carry trade ilgisinin ve rasyonel ekonomi politikalarına olan güvenin sürdürülmesini destekler.",
-        "turkeyImpact": "Bankacılık sektöründe mevduat faizlerinin yüksek kalmasını sağlarken, kredi genişlemesini sınırlayarak iç talebi baskılamaya devam edecektir.",
-        "financialImpact": "BIST 100 endeksindeki banka hisseleri üzerinde hafif baskı oluştururken, TL'nin kurlar karşısındaki istikrarını ve CDS risk primlerinin 240 baz puan seviyelerinde kalmasını destekler.",
-        "longTerm": "Enflasyonda kalıcı düşüş sağlanana kadar piyasadaki para arzının kontrol altında tutulması hedeflenmektedir.",
-        "isCritical": true,
-        "whyImportant": "Faiz oranının sabit tutulmasına rağmen piyasadaki fazla likiditenin çekilmesi, enflasyonla mücadelede kararlılık göstergesidir.",
-        "whoAffected": "Ticari bankalar, reel sektör borçlanıcıları ve mevduat sahipleri.",
-        "followUp": "TCMB'nin günlük depo ihalesi sonuçları ve net fonlama tutarları."
-      }
+      "timestamp": "2022-03-14T07:00:00.000Z"
     },
     {
-      "id": "real-5",
-      "source": "Reuters Markets",
-      "title": "Borsa İstanbul Güne Yükselişle Başladı, Döviz Piyasasında Yatay Seyir",
-      "body": "BIST 100 endeksi güne %0,08 artışla 13.786 puandan başlarken, Dolar/TL 47,38 ve Euro/TL 53,90 seviyelerinde yatay bir açılış gerçekleştirdi. Sektörel güven endekslerindeki hizmet ve inşaat artışı Borsa açılışına yansıdı.",
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "Kıbrıs'ta yeni hamle: Çözüm mü, yeni bir ara dönem mi? - Gazete Pencere",
+      "body": "Kıbrıs'ta yeni hamle: Çözüm mü, yeni bir ara dönem mi?",
+      "category": "Uluslararası İlişkiler",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Kıbrıs meselesinde yeni diplomatik hareketliliklerin başladığı ve tarafların yeni pozisyonlar aldığı ifade edilmektedir.",
+        "turkeyImpact": "Türkiye'nin ve Kuzey Kıbrıs Türk Cumhuriyeti'nin (KKTC) Doğu Akdeniz'deki stratejik konumunu ve dış politika önceliklerini doğrudan ilgilendirmektedir.",
+        "whoAffected": "Türkiye, KKTC, Güney Kıbrıs Rum Yönetimi ve ilgili uluslararası aktörler."
+      },
+      "subType": "Genel",
+      "timestamp": "2026-06-25T07:00:00.000Z"
+    },
+    {
+      "source": "Reuters Markets & Financial Times (Ekonomi)",
+      "title": "Artan petrol fiyatları, inatçı enflasyon ve faiz artışıyla ilgili değişen beklentiler dünyanın en büyük tahvil piyasasını sarsıyor; ABD Hazine bonolarının faiz oranları artarken, tüketicilerin borçlanma maliyeti de yükselişte. 🔗 https://www.fortuneturkey.com/dunyanin-e - instagram.com",
+      "body": "Artan petrol fiyatları, inatçı enflasyon ve faiz artışıyla ilgili değişen beklentiler dünyanın en büyük tahvil piyasasını sarsıyor; ABD Hazine bonolarının faiz oranları artarken, tüketicilerin borçlanma maliyeti de yükselişte.",
       "category": "Finans ve Ekonomi",
-      "subType": "Piyasa",
-      "timestamp": "2026-07-28T09:45:00+03:00",
       "isRelevant": true,
       "analysis": {
-        "summary": "Borsa İstanbul güne hafif yükselişle 13.786 puandan başlarken, döviz kurları perakende güven endeksindeki düşüşe rağmen yatay seyrini sürdürmüştür.",
-        "geopoliticalImpact": "Küresel piyasalarda çip üreticisi hisselerindeki satış baskısının ortasında Borsa İstanbul'un gelişmekte olan piyasalar arasında görece dirençli kaldığını göstermektedir.",
-        "turkeyImpact": "İç piyasada perakende sektöründeki yavaşlama sinyallerine rağmen hizmet ve inşaat sektörlerindeki iyimserliğin borsa performansını koruduğuna işaret etmektedir.",
-        "financialImpact": "BIST 100'de teknoloji dışı sektörlerde alımları tetiklerken, döviz kurlarında kısa vadeli stabilizasyonu destekler.",
-        "longTerm": "Borsa İstanbul'un 14.000 puan direncini test etme eğilimini destekleyebilir.",
-        "isCritical": false
-      }
+        "summary": "Artan petrol fiyatları ve enflasyon baskıları, küresel tahvil piyasalarında dalgalanmaya yol açarken ABD tahvil faizlerini yukarı çekmektedir.",
+        "turkeyImpact": "Küresel finansal koşulların sıkılaşması, Türkiye'nin dış borçlanma maliyetleri ve sermaye akışları üzerinde baskı yaratabilir.",
+        "whoAffected": "Küresel yatırımcılar, gelişmekte olan piyasa ekonomileri ve borçlanma maliyeti yüksek ülkeler."
+      },
+      "subType": "Genel",
+      "timestamp": "2026-07-24T14:13:46.000Z"
     },
     {
-      "id": "real-6",
-      "source": "Reuters World",
-      "title": "Hürmüz Boğazı ve Orta Doğu'da Enerji Arz Güvenliği Riskleri",
-      "body": "Orta Doğu'da ABD ve İran eksenli askeri gerilimlerin tırmanması, küresel petrol sevkiyatının en kritik geçiş noktası olan Hürmüz Boğazı'nda arz güvenliği endişelerini artırdı. Petrol fiyatları jeopolitik risk primiyle dalgalanıyor.",
-      "category": "Uluslararası İlişkiler",
-      "subType": "Enerji Güvenliği",
-      "timestamp": "2026-07-28T08:15:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "ABD-İran gerilimi sebebiyle Hürmüz Boğazı'ndaki petrol sevkiyat güvenliği riskleri artmış ve Brent petrol fiyatları bu jeopolitik risk primiyle yükseliş eğilimine girmiştir.",
-        "geopoliticalImpact": "Küresel enerji arzında transit hatların askeri koruma altına alınması ihtiyacını doğurmakta ve ABD'nin bölgedeki askeri angajmanını artırmaktadır.",
-        "turkeyImpact": "Enerji ithalatçı olan Türkiye'nin doğalgaz ve petrol ithalat maliyetlerini artırarak cari açık ve enflasyon hedeflerini zorlaştıracaktır.",
-        "financialImpact": "Akaryakıt fiyatlarında zam riskine yol açabilir, cari dengede bozulma beklentisiyle TL varlıklar üzerinde baskı oluşturabilir.",
-        "longTerm": "Küresel enerji tedarik rotalarının çeşitlendirilmesi ve yenilenebilir enerji yatırımlarının dünya genelinde hızlandırılması.",
-        "isCritical": true,
-        "whyImportant": "Küresel petrol arzının yaklaşık %20'sinin geçtiği Hürmüz Boğazı'nın güvenliği, dünya enerji fiyatlarını belirleyen en kritik etkendir.",
-        "whoAffected": "Global enerji ithalatcı ülkeler, rafineriler, nakliye şirketleri ve tüketiciler.",
-        "followUp": "Hürmüz Boğazı'ndaki askeri devriye faaliyetleri ve petrol ihraç eden ülkelerin (OPEC) üretim açıklamaları."
-      }
-    },
-    {
-      "id": "real-7",
-      "source": "AP News",
-      "title": "Ukrayna'nın Hazar Denizi'ndeki Rus Tesislerine Saldırıları ve Lojistik Kriz",
-      "body": "Ukrayna askeri unsurlarının Hazar Denizi'nde Rus lojistik tesislerini vurması, Rusya ile İran arasındaki askeri ve ticari tedarik rotalarında ciddi aksamalara yol açtı. Güvenlik analistleri Hazar Denizi'nin yeni bir çatışma havzası haline geldiğini belirtiyor.",
-      "category": "Uluslararası İlişkiler",
-      "subType": "Savunma ve Güvenlik",
-      "timestamp": "2026-07-28T07:30:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Ukrayna'nın Hazar Denizi'ndeki Rus askeri-lojistik noktalarına yönelik saldırıları, Rusya ile İran arasındaki tedarik zincirinde aksamalara yol açmıştır.",
-        "geopoliticalImpact": "Hazar havzasının çatışma alanı haline gelmesi, bölgedeki Türk devletlerinin (Azerbaycan, Kazakistan, Türkmenistan) Hazar geçişli ticaret yollarının güvenliğini tehdit etmektedir.",
-        "turkeyImpact": "Hazar geçişli 'Orta Koridor' lojistik projesinin güvenliği üzerinde risk oluşturarak Türkiye'nin bölgesel ticaret hedeflerini olumsuz etkileyebilir.",
-        "financialImpact": "Bölgedeki transit lojistik sigorta maliyetlerini artıracak ve Hazar havzasından yapılan enerji sevkiyatlarında risk primini yükseltecektir.",
-        "longTerm": "Rusya-İran stratejik askeri ittifakının lojistik olarak zorlaşması ve Hazar Denizi'nin güvenliğine dair yeni kıyıdaş mutabakat arayışları.",
-        "isCritical": true,
-        "whyImportant": "Hazar Denizi, Rusya ile Asya/Orta Doğu arasındaki en korunaklı tedarik rotasıydı; buranın vurulması savaşın coğrafi sınırlarının genişlediğini gösterir.",
-        "whoAffected": "Rusya ve İran orduları, Orta Koridor ticaretini kullanan lojistik firmaları ve Hazar kıyıdaş ülkeleri.",
-        "followUp": "Hazar kıyısında konuşlu Rus donanmasının askeri misilleme hareketleri ve Azerbaycan'ın bölgedeki diplomatik temasları."
-      }
-    },
-    {
-      "id": "real-8",
-      "source": "Reuters Markets",
-      "title": "Avustralya Merkez Bankası (RBA) Faiz Artırım Sinyalleri",
-      "body": "RBA Başkanı Michele Bullock, çekirdek enflasyonun hedeflerin üzerinde kalmaya devam ettiğini belirterek, enflasyonu düşürmek için gerekirse faiz oranlarını daha da artırmaya hazır olduklarını duyurdu. Küresel sıkı para duruşu mesajı verildi.",
+      "source": "Reuters Markets & Financial Times (Ekonomi)",
+      "title": "Küresel Piyasalarda Yoğun Veri Gündemi - borsagundem.com.tr",
+      "body": "Küresel Piyasalarda Yoğun Veri Gündemi",
       "category": "Finans ve Ekonomi",
-      "subType": "Para Politikası",
-      "timestamp": "2026-07-28T06:00:00+03:00",
       "isRelevant": true,
       "analysis": {
-        "summary": "RBA Başkanı Bullock, enflasyonun yüksek seyretmesi sebebiyle para politikasını daha da sıkılaştırabileceklerini ve ek faiz artışlarının masada olduğunu bildirmiştir.",
-        "geopoliticalImpact": "Küresel ölçekte sıkı para politikası duruşunun sona ermesinin henüz erken olduğuna dair gelişmiş ülkeler arasında bir fikir birliği oluşturabilir.",
-        "turkeyImpact": "Gelişmiş ülkelerde faizlerin yüksek kalması, Türkiye gibi gelişmekte olan ülkelere yönelik yabancı sermaye akış hızını yavaşlatabilecek küresel bir likidite kısıtı yaratabilir.",
-        "financialImpact": "Küresel tahvil faizlerinde hafif yükseliş ve hisse senedi piyasalarında temkinli duruşu tetikler.",
-        "longTerm": "Küresel enflasyon dalgasının tamamen sönümlenmesinin beklenenden daha uzun süreceği tezini güçlendirir.",
-        "isCritical": false
-      }
+        "summary": "Küresel piyasalar, açıklanacak kritik ekonomik veri akışına odaklanmış durumdadır.",
+        "turkeyImpact": "Küresel risk iştahını etkileyerek Borsa İstanbul ve döviz piyasalarında dalgalanmalara neden olabilir.",
+        "whoAffected": "Yatırımcılar, portföy yöneticileri ve finansal piyasa aktörleri."
+      },
+      "subType": "Genel",
+      "timestamp": "2026-07-04T09:05:00.000Z"
     },
     {
-      "id": "real-9",
-      "source": "ABD Merkez Bankası (Fed)",
-      "title": "Federal Rezerv (Fed) Temmuz Toplantısı Başladı: Faiz İndirimi İpuçları Aranıyor",
-      "body": "Fed'in Temmuz ayı FOMC toplantısı bugün başlarken, faiz oranlarının %5.25-5.50 aralığında sabit tutulması ve Eylül ayı indirim sinyallerinin netleşmesi beklenmektedir.",
+      "source": "Reuters Markets & Financial Times (Ekonomi)",
+      "title": "ABD Hazine Bakanı Janet Yellen: Resesyon korkulduğu kadar yakın değil - Sabah",
+      "body": "ABD Hazine Bakanı Janet Yellen: Resesyon korkulduğu kadar yakın değil",
       "category": "Finans ve Ekonomi",
-      "subType": "Para Politikası",
-      "timestamp": "2026-07-28T11:00:00+03:00",
       "isRelevant": true,
       "analysis": {
-        "summary": "Fed'in Temmuz ayı FOMC toplantısı bugün başlarken, faiz oranlarının %5.25-5.50 aralığında sabit tutulması ve Eylül ayı indirim sinyallerinin netleşmesi beklenmektedir.",
-        "geopoliticalImpact": "Küresel dolar likiditesinin gelişmekte olan piyasalara geri dönüş eğilimini hızlandıracaktır.",
-        "turkeyImpact": "Dış borçlanma faizlerinde gerileme sağlayarak Türkiye hazinesinin borçlanma maliyetlerini düşürecektir.",
-        "financialImpact": "Küresel borsalarda yükseliş, gelişmekte olan ülke tahvillerinde alım ve altın fiyatlarında yukarı yönlü hareketleri tetikleyebilir.",
-        "longTerm": "Küresel para politikasında sıkılaşma döngüsünün resmen sona erdiğinin teyit edilmesi.",
-        "isCritical": true,
-        "whyImportant": "Dünya finansal piyasalarının yönünü belirleyecek en önemli merkez bankası kararıdır.",
-        "whoAffected": "Global hisse senedi ve tahvil yatırımcıları, borçlu ülkeler, emtia tüccarları.",
-        "followUp": "Yarın akşam açıklanacak olan Fed faiz kararı ve Powell'ın basın toplantısı satır araları."
-      }
-    },
-    {
-      "id": "real-10",
-      "source": "Avrupa Birliği",
-      "title": "Avrupa Birliği Yeni Yapay Zeka Yasası (AI Act) Uyum Kılavuzu",
-      "body": "Avrupa Birliği Komisyonu, dünyanın ilk kapsamlı yapay zeka mevzuatı olan AI Act'e yönelik üye ülkelerin uyması gereken teknik standart kılavuzunu yayımlamıştır.",
-      "category": "Hukuk ve Mevzuat",
-      "subType": "Mevzuat",
-      "timestamp": "2026-07-28T10:30:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Avrupa Birliği, dünyanın ilk kapsamlı yapay zeka mevzuatı olan AI Act'e yönelik üye ülkelerin uyması gereken teknik standart kılavuzunu yayımlamıştır.",
-        "geopoliticalImpact": "Küresel yapay zeka standartlarında Brüksel'in düzenleyici gücünü artırarak ABD ve Çin karşısında standart belirleyici rol oynar.",
-        "turkeyImpact": "AB pazarına yazılım ihraç eden Türk teknoloji firmalarının AI Act standartlarına uyum sağlaması zorunlu hale gelecektir.",
-        "financialImpact": "Teknoloji firmalarının uyum maliyetlerini artırırken, denetim ve danışmanlık sektörlerinde yeni iş kolları yaratacaktır.",
-        "longTerm": "Güvenilir ve etik yapay zeka teknolojilerinin dünya genelinde yasal altyapısının standartlaşması.",
-        "isCritical": false
-      }
-    },
-    {
-      "id": "real-11",
-      "source": "NATO",
-      "title": "NATO Karadeniz Güvenlik İş Birliği Anlaşması ve Ortak Devriyeler",
-      "body": "NATO, Karadeniz'de seyrüsefer ve mayın güvenliğinin sağlanması amacıyla kıyıdaş üye ülkelerin katılımıyla ortak güvenlik koordinasyon planını kabul etti.",
-      "category": "Uluslararası İlişkiler",
-      "subType": "Savunma ve Güvenlik",
-      "timestamp": "2026-07-28T09:00:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "NATO, Karadeniz'de seyrüsefer ve mayın güvenliğinin sağlanması amacıyla kıyıdaş üye ülkelerin katılımıyla ortak güvenlik koordinasyon planını kabul etti.",
-        "geopoliticalImpact": "Rusya'nın Karadeniz'deki deniz hareketliliğini dengelemeyi hedefler ve bölgedeki caydırıcılığı artırır.",
-        "turkeyImpact": "Türkiye'nin öncülük ettiği MCM Black Sea operasyonunun diplomatik meşruiyetini ve bölgesel koordinasyonunu güçlendirir.",
-        "financialImpact": "Karadeniz nakliye rotalarındaki denizcilik sigorta primlerini düşürerek bölgesel dış ticaret maliyetlerini azaltabilir.",
-        "longTerm": "Karadeniz'in uluslararası seyrüsefer güvenliğinin kalıcı olarak koruma altına alınması.",
-        "isCritical": false
-      }
-    },
-    {
-      "id": "real-12",
-      "source": "Dışişleri Bakanlığı",
-      "title": "Dışişleri Bakanlığı'ndan Orta Doğu'daki Gerilimin Tırmanmasına İlişkin Güvenlik Uyarısı",
-      "body": "Dışişleri Bakanlığı, Orta Doğu bölgesinde artan güvenlik riskleri nedeniyle vatandaşlarına bölgedeki bazı ülkelere seyahat etmemeleri konusunda uyarıda bulunmuştur.",
-      "category": "Uluslararası İlişkiler",
-      "subType": "Dış Politika",
-      "timestamp": "2026-07-28T09:15:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Dışişleri Bakanlığı, Orta Doğu bölgesinde artan güvenlik riskleri nedeniyle vatandaşlarına seyahat uyarısında bulunmuştur.",
-        "geopoliticalImpact": "Bölgesel çatışmaların yayılma riskine karşı diplomatik önlemlerin artırıldığını göstermektedir.",
-        "turkeyImpact": "Bölgede bulunan Türk vatandaşlarının güvenliğinin tahliyesi ve diplomatik misyonların koruma düzeylerinin artırılması.",
-        "financialImpact": "Havayolu şirketlerinin bölge uçuş rotalarında düzenlemeye gitmesine ve petrol fiyatlarında dönemsel risk primine yol açabilir.",
-        "longTerm": "Bölgesel güvenlik koridorlarında yeni tahliye ve savunma iş birliklerinin önem kazanması.",
-        "isCritical": false
-      }
-    },
-    {
-      "id": "real-13",
-      "source": "Birleşmiş Milletler",
-      "title": "BM Güvenlik Konseyi Sudan ve Doğu Afrika İnsani Yardım Koridorları Kararı",
-      "body": "BM Güvenlik Konseyi, Sudan'daki çatışmalardan etkilenen sivillere insani yardım ulaştırılması için sınır kapılarının açık tutulması kararını oy birliğiyle uzatmıştır.",
-      "category": "Uluslararası İlişkiler",
-      "subType": "Diplomasi",
-      "timestamp": "2026-07-28T08:45:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "BM Güvenlik Konseyi, Sudan'daki çatışmalardan etkilenen sivillere insani yardım ulaştırılması için sınır kapılarının açık tutulması kararını uzatmıştır.",
-        "geopoliticalImpact": "Afrika Boynuzu'nda insani krizin yayılmasını engellemede küresel mutabakatın sürdüğünü göstermektedir.",
-        "turkeyImpact": "Türkiye'nin Afrika'daki insani yardım projeleri ve diplomatik arabuluculuk faaliyetleri için güvenli zemin sağlar.",
-        "financialImpact": "Küresel yardım fonlarından bölgeye yapılacak finansman akışını kolaylaştırır.",
-        "longTerm": "Bölgesel göç dalgalarının sınırlandırılması ve istikrarın korunması.",
-        "isCritical": false
-      }
-    },
-    {
-      "id": "real-14",
-      "source": "Dünya Bankası",
-      "title": "Dünya Bankası Türkiye Yeşil Sanayi Projesi Kredi Dilimini Onayladı",
-      "body": "Dünya Bankası, Türkiye'deki organize sanayi bölgelerinin yeşil dönüşüm yatırımlarında kullanılmak üzere onaylanan kredi paketinin yeni dilimini serbest bırakmıştır.",
-      "category": "Finans ve Ekonomi",
-      "subType": "Kredi Onayı",
-      "timestamp": "2026-07-28T11:30:00+03:00",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Dünya Bankası, Türkiye'deki organize sanayi bölgelerinin yeşil dönüşüm yatırımlarında kullanılmak üzere yeni kredi dilimini serbest bırakmıştır.",
-        "geopoliticalImpact": "Türkiye'nin uluslararası kalkınma kuruluşlarıyla yürüttüğü yeşil finans iş birliğini pekiştirir.",
-        "turkeyImpact": "Sanayi tesislerinin karbon emisyonlarını azaltmasına, modernizasyonuna ve dış pazarlarda rekabet gücünü korumasına katkı sağlar.",
-        "financialImpact": "Türkiye'ye uzun vadeli ve düşük maliyetli doğrudan yabancı kredi girişi sağlayarak sermaye dengesini destekler.",
-        "longTerm": "Sanayide yeşil mutabakat standartlarına uyumun hızlandırılması ve temiz enerji altyapısının kurulması.",
-        "isCritical": false
-      }
+        "summary": "ABD Hazine Bakanı Janet Yellen, ekonomide resesyon riskinin abartıldığını ve beklendiği kadar yakın olmadığını belirtmiştir.",
+        "turkeyImpact": "Küresel piyasalarda güven algısını destekleyerek risk iştahını olumlu etkileyebilir.",
+        "whoAffected": "Küresel finans piyasaları, ABD ekonomisi ve dış ticaret ortakları."
+      },
+      "subType": "Genel",
+      "timestamp": "2022-06-20T07:00:00.000Z"
     }
   ]
 }
