@@ -400,7 +400,7 @@ function isResmiGazeteItemRelevant(item) {
 // Get filtered items for the active bulletin
 function getProcessedEvents() {
   let items = state.events.map(item => {
-    const isRelevant = item.analysis !== null && isResmiGazeteItemRelevant(item);
+    const isRelevant = item.analysis != null && isResmiGazeteItemRelevant(item);
     return {
       ...item,
       isRelevant

@@ -141,7 +141,7 @@ function callGemini(apiKey, promptText) {
                     required: ["summary", "geopoliticalImpact", "turkeyImpact", "financialImpact", "longTerm", "isCritical"]
                   }
                 },
-                required: ["source", "title", "body", "category", "isRelevant"]
+                required: ["source", "title", "body", "category", "isRelevant", "analysis"]
               }
             }
           },
