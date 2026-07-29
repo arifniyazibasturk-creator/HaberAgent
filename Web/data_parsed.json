@@ -2,75 +2,89 @@
   "date": "2026-07-29",
   "events": [
     {
-      "source": "Reuters World & AP News (Jeopolitik)",
-      "title": "Doğu Akdeniz'de iş birliği dönemi - Anadolu Ajansı",
-      "body": "Doğu Akdeniz'de iş birliği dönemi",
-      "category": "Uluslararası İlişkiler",
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Resmi Gazete'de yayımlandı! MEB'den okul yönetmeliğinde kapsamlı değişiklik: Arama yetkisi, devamsızlık şartı, disiplin ve kayıt...",
+      "body": "MEB'den okul yönetmeliğinde kapsamlı değişiklik yapılarak arama yetkisi, devamsızlık şartı ve disiplin kuralları yeniden düzenlendi.",
+      "category": "Hukuk ve Mevzuat",
       "isRelevant": true,
-      "analysis": {
-        "summary": "Doğu Akdeniz bölgesinde ülkeler arasında iş birliği odaklı yeni bir dönemin başladığına işaret edilmektedir. Bölgesel istikrar ve enerji kaynaklarının paylaşımı konuları ön plana çıkmaktadır.",
-        "turkeyImpact": "Türkiye'nin Doğu Akdeniz'deki hak ve menfaatleri açısından stratejik öneme sahip olup, diplomasi kanallarının açık tutulmasını destekler.",
-        "whoAffected": "Türkiye, Yunanistan, Kıbrıs ve bölgede kıyıdaş olan diğer Akdeniz ülkeleri.",
-        "whyImportant": "Bölgesel gerilimlerin azaltılması ve enerji güvenliği açısından kritik bir eşik oluşturmaktadır."
-      },
       "subType": "Genel",
-      "timestamp": "2022-03-14T07:00:00.000Z"
+      "timestamp": "2026-07-28T07:54:00.000Z"
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Karar Resmi Gazete'de yayımlandı. Kamu kurumları için KVKK kararı",
+      "body": "Kamu kurumlarının Kişisel Verileri Koruma Kanunu (KVKK) kapsamındaki yükümlülüklerine dair yeni kararlar Resmi Gazete'de yayımlandı.",
+      "category": "Hukuk ve Mevzuat",
+      "isRelevant": true,
+      "subType": "Cumhurbaşkanlığı Kararı",
+      "timestamp": "2026-07-28T02:28:37.000Z"
     },
     {
       "source": "Reuters World & AP News (Jeopolitik)",
-      "title": "Kıbrıs'ta yeni hamle: Çözüm mü, yeni bir ara dönem mi? - Gazete Pencere",
-      "body": "Kıbrıs'ta yeni hamle: Çözüm mü, yeni bir ara dönem mi?",
+      "title": "Kıbrıs'ta yeni hamle: Çözüm mü, yeni bir ara dönem mi?",
+      "body": "Kıbrıs meselesine yönelik diplomatik hareketlilik ve yeni olası süreçler tartışılmaya devam ediyor.",
       "category": "Uluslararası İlişkiler",
       "isRelevant": true,
-      "analysis": {
-        "summary": "Kıbrıs meselesinde yeni diplomatik hareketliliklerin başladığı ve tarafların yeni pozisyonlar aldığı ifade edilmektedir.",
-        "turkeyImpact": "Türkiye'nin ve Kuzey Kıbrıs Türk Cumhuriyeti'nin (KKTC) Doğu Akdeniz'deki stratejik konumunu ve dış politika önceliklerini doğrudan ilgilendirmektedir.",
-        "whoAffected": "Türkiye, KKTC, Güney Kıbrıs Rum Yönetimi ve ilgili uluslararası aktörler."
-      },
       "subType": "Genel",
       "timestamp": "2026-06-25T07:00:00.000Z"
     },
     {
       "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Artan petrol fiyatları, inatçı enflasyon ve faiz artışıyla ilgili değişen beklentiler dünyanın en büyük tahvil piyasasını sarsıyor; ABD Hazine bonolarının faiz oranları artarken, tüketicilerin borçlanma maliyeti de yükselişte. 🔗 https://www.fortuneturkey.com/dunyanin-e - instagram.com",
-      "body": "Artan petrol fiyatları, inatçı enflasyon ve faiz artışıyla ilgili değişen beklentiler dünyanın en büyük tahvil piyasasını sarsıyor; ABD Hazine bonolarının faiz oranları artarken, tüketicilerin borçlanma maliyeti de yükselişte.",
+      "title": "Artan petrol fiyatları, inatçı enflasyon ve faiz artışıyla ilgili değişen beklentiler dünyanın en büyük tahvil piyasasını sarsıyor",
+      "body": "Artan petrol fiyatları ve enflasyon beklentileri küresel tahvil piyasalarını etkilerken borçlanma maliyetlerini artırıyor.",
       "category": "Finans ve Ekonomi",
       "isRelevant": true,
-      "analysis": {
-        "summary": "Artan petrol fiyatları ve enflasyon baskıları, küresel tahvil piyasalarında dalgalanmaya yol açarken ABD tahvil faizlerini yukarı çekmektedir.",
-        "turkeyImpact": "Küresel finansal koşulların sıkılaşması, Türkiye'nin dış borçlanma maliyetleri ve sermaye akışları üzerinde baskı yaratabilir.",
-        "whoAffected": "Küresel yatırımcılar, gelişmekte olan piyasa ekonomileri ve borçlanma maliyeti yüksek ülkeler."
-      },
       "subType": "Genel",
       "timestamp": "2026-07-24T14:13:46.000Z"
     },
     {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Küresel Piyasalarda Yoğun Veri Gündemi - borsagundem.com.tr",
-      "body": "Küresel Piyasalarda Yoğun Veri Gündemi",
-      "category": "Finans ve Ekonomi",
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "MEB OKUL ÖNCESİ EĞİTİM VE İLKÖĞRETİM KURUMLARI YÖNETMELİĞİ'NDE YAPILAN DEĞİŞİKLİK",
+      "body": "Milli Eğitim Bakanlığı okul öncesi ve ilköğretim kurumları yönetmeliğinde resmi değişiklikler yapıldı.",
+      "category": "Hukuk ve Mevzuat",
       "isRelevant": true,
-      "analysis": {
-        "summary": "Küresel piyasalar, açıklanacak kritik ekonomik veri akışına odaklanmış durumdadır.",
-        "turkeyImpact": "Küresel risk iştahını etkileyerek Borsa İstanbul ve döviz piyasalarında dalgalanmalara neden olabilir.",
-        "whoAffected": "Yatırımcılar, portföy yöneticileri ve finansal piyasa aktörleri."
-      },
-      "subType": "Genel",
-      "timestamp": "2026-07-04T09:05:00.000Z"
+      "subType": "Akademik İlan",
+      "timestamp": "2026-07-28T10:09:31.000Z"
     },
     {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "ABD Hazine Bakanı Janet Yellen: Resesyon korkulduğu kadar yakın değil - Sabah",
-      "body": "ABD Hazine Bakanı Janet Yellen: Resesyon korkulduğu kadar yakın değil",
-      "category": "Finans ve Ekonomi",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "ABD Hazine Bakanı Janet Yellen, ekonomide resesyon riskinin abartıldığını ve beklendiği kadar yakın olmadığını belirtmiştir.",
-        "turkeyImpact": "Küresel piyasalarda güven algısını destekleyerek risk iştahını olumlu etkileyebilir.",
-        "whoAffected": "Küresel finans piyasaları, ABD ekonomisi ve dış ticaret ortakları."
-      },
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Sınav ve atama sonuçlarında yeni dönem! Resmi Gazete'de yayımlandı - Uzmanpara",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMi2AFBVV95cUxNS2Y2T05xeVllel9GX2VXbnEwTzdVM1BLejljMndhd1p1SkppQWdGdkhjMDAwcndHNXJkeDhVTHR4V3dXZ3JXUUpOcTJabGhCY3dFTV9Pb0ZzYUVhNHd6U0U0a2U5ZS1mT3A4UlVqRjYxc0xPT3luMWgyZlVKbHdxUlFzVlRXTVdCUGtfRkpxSkdZa3VwcElCcW1ob1JhdUlKRjVSTVJmQXlDX1dhcUhXUUpVdmszVjkyZmlFSDZ5MU8xSGNOazJpeFZIQ2NnYlpkZWlHQ2Fod1g?oc=5\" target=\"_blank\">Sınav ve atama sonuçlarında yeni dönem! Resmi Gazete'de yayımlandı</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Uzmanpara</font>",
+      "category": "Resmî Gazete",
+      "subType": "Personel Ataması",
+      "timestamp": "2026-07-28T04:21:00.000Z",
+      "isRelevant": false,
+      "analysis": null
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Resmi Gazete'de bugün (29.07.2026) - Bloomberght",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE1oc19MMk03Ukt2SGhad2hHX2xUazdMR21FRTg2UEVVVTJVTHFkLXl2MWUzSTBEUjR0ZlhNdll6eHg3YkIyNlBYSHBpaGVLNmhsUWJjdVFIOEpDZ0lQbnRNc3hmUXlOb05mR2hnNmpHQ1dVQjlQ?oc=5\" target=\"_blank\">Resmi Gazete'de bugün (29.07.2026)</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Bloomberght</font>",
+      "category": "Resmî Gazete",
       "subType": "Genel",
-      "timestamp": "2022-06-20T07:00:00.000Z"
+      "timestamp": "2026-07-28T21:18:28.000Z",
+      "isRelevant": false,
+      "analysis": null
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "2026 ÖĞRENCİ AFFI SON DAKİKA || Öğrenci affı çıktı mı, Resmi Gazete'de yayımlandı mı? - Hürriyet",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxNZjh2QkRxWGRhWVJwUkhsc01EVmpOdW9wUHdZbElNTGVEcXgxR0hCNnc4cnlfRG54Tjd1OV9uOVU1TDZDVlJIaDgtczhwbE5kQUIyVWJlb0wzSEVDeURYQWdzSjk5aFNydWZSNHRhUXo1anZFdDhocDRZM0NUcDdqclFNTlQ1bHk5T1JQUTloRnlzR2FhdlBCUktNaWVJZ0JLVzRVWk84SHpXNWVXUm45Rm9JdzNmUjc4c0U2dUVjSHgwOTRya3lEQQ?oc=5\" target=\"_blank\">2026 ÖĞRENCİ AFFI SON DAKİKA || Öğrenci affı çıktı mı, Resmi Gazete'de yayımlandı mı?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Hürriyet</font>",
+      "category": "Resmî Gazete",
+      "subType": "Genel",
+      "timestamp": "2026-07-29T09:23:00.000Z",
+      "isRelevant": false,
+      "analysis": null
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Resmi Gazete'de yayımlandı: Emniyet'in 46 yıllık yönetmeliği yürürlükten kaldırıldı - T24",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxNWmRhSmw3ZHN4TzZXZHRtZXBQZWhNTzE2N0lkWGNpNVpmdG5JRmFEcE4wYmdGVUhNNUt4dnNPb1g2NndOaVBZMHZUbUllaW5tUVB6Wlh6VzJJSENhY2ltNDJ0OVZtUnl1RGFuSjhieVdDdkp2U1lXdnh3QjlBNDRWRFZhcE1ROEdjcmZwMk9OZkd1YWhTNHlEajNIMExfZXRDcWgtWmZpaUFBZzF6Nm1nOGRqYXk?oc=5\" target=\"_blank\">Resmi Gazete'de yayımlandı: Emniyet'in 46 yıllık yönetmeliği yürürlükten kaldırıldı</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">T24</font>",
+      "category": "Resmî Gazete",
+      "subType": "Genel",
+      "timestamp": "2026-07-28T10:04:00.000Z",
+      "isRelevant": false,
+      "analysis": null
     }
   ]
 }
