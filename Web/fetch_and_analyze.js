@@ -55,7 +55,6 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
     const titleMatch = content.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/) || content.match(/<title>([\s\S]*?)<\/title>/);
     const descMatch = content.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/) || content.match(/<description>([\s\S]*?)<\/description>/);
     const pubDateMatch = content.match(/<pubDate>([\s\S]*?)<\/pubDate>/);
-    const linkMatch = content.match(/<link>([\s\S]*?)<\/link>/);
     
     if (titleMatch) {
       // Decode HTML entities a bit
@@ -87,6 +86,20 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
   }
   
   return items;
+}
+
+// Local pre-filtering logic to avoid sending obviously irrelevant items to AI
+function isItemPotentiallyRelevant(item) {
+  if (item.category !== "Resmî Gazete") return true; // Always analyze geopolitics and finance news
+  
+  const relevantKeywords = [
+    "ithalat", "ihracat", "vergi", "faiz", "gümrük", "karar sayısı", "tarife", 
+    "enerji", "yatırım", "finans", "banka", "tahvil", "kamu ihale", "anlaşma", "protokol",
+    "yönetmelik", "tebliğ", "hukuk", "karar", "mahkeme", "anayasa", "iptal", "disiplin", "okul"
+  ];
+  
+  const text = (item.title + " " + item.body).toLowerCase();
+  return relevantKeywords.some(keyword => text.includes(keyword));
 }
 
 // Call Gemini API with Structured JSON Schema output
@@ -133,7 +146,8 @@ function callGemini(apiKey, promptText) {
             }
           },
           required: ["date", "events"]
-        }
+        },
+        maxOutputTokens: 8192
       }
     });
 
@@ -172,111 +186,4 @@ function callGemini(apiKey, promptText) {
 
 // Main function
 async function run() {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    console.error("HATA: GEMINI_API_KEY ortam değişkeni tanımlı değil!");
-    process.exit(1);
-  }
-
-  console.log("Haberler ve RSS kaynakları taranıyor...");
-  let allEvents = [];
-
-  for (const feed of FEEDS) {
-    try {
-      console.log(`Taranyor: ${feed.name}`);
-      const xml = await fetchUrl(feed.url);
-      const items = parseRss(xml, feed.category, feed.name);
-      console.log(`-> ${items.length} içerik bulundu.`);
-      // Limit to 10 newest items per feed to avoid overloading prompt context
-      allEvents = allEvents.concat(items.slice(0, 10));
-    } catch (err) {
-      console.error(`HATA: ${feed.name} RSS'i alınamadı:`, err.message);
-    }
-  }
-
-  if (allEvents.length === 0) {
-    console.error("HATA: Hiçbir kaynaktan veri alınamadı!");
-    process.exit(1);
-  }
-
-  console.log(`Toplam ${allEvents.length} içerik Gemini ile analiz edilmek üzere paketleniyor...`);
-
-  // Build the prompt containing prompt guidelines
-  const systemPrompt = `
-Sen profesyonel bir jeopolitik, ekonomi, finans ve hukuk analiz asistanısın.
-
-Görevin: Sana sunulan son 24 saatlik haberleri ve resmi duyuruları incele ve kurallara göre analiz et.
-
-Filtreleme Kuralları:
-Aşağıdaki konular dışındaki haberleri 'isRelevant': false olarak işaretle.
-- Uluslararası İlişkiler (Dış politika, diplomasi, savaşlar, yaptırımlar, NATO, AB, BM, ABD, Rusya, Çin, Orta Doğu, Türk dış politikası, Savunma sanayii, Enerji güvenliği, Uluslararası ticaret)
-- Finans ve Ekonomi (TCMB, Faiz, Enflasyon, Vergi düzenlemeleri, Resmi Gazete'deki ekonomik kararlar, Gümrük mevzuatı, İhracat, İthalat, Borsa İstanbul, Döviz piyasası, Altın, Petrol, CDS, Tahvil)
-- Hukuk ve Mevzuat (Emniyet, okul, eğitim veya idari yönetmelikler, kanun değişiklikleri, AYM ve Danıştay kararları, ulusal hukuki reformlar ve anlaşmalar)
-
-Resmî Gazete Kuralları:
-Resmî Gazete'deki kararlardan YALNIZCA ekonomi, finans, vergi, bankacılık, ticaret, gümrük, yatırım, kamu ihaleleri, dış ticaret, enerji, uluslararası anlaşmalar, cumhurbaşkanlığı kararları, yönetmelik, tebliğ ve hukuki kararları seç.
-Önemli yasal reformlar, yönetmelik değişiklikleri (MEB, Emniyet vb.) ve AYM kararlarını 'isRelevant': true yap ve kategorisini 'Hukuk ve Mevzuat' olarak ata.
-Önemsiz bireysel personel atamaları, üniversite kadro ilanları ve küçük bireysel mahkeme ilanlarını 'isRelevant': false yap.
-
-Analiz Formatı:
-Kabul edilen her haber için 'analysis' objesi içinde şu bilgileri doldur (Kategori 'Hukuk ve Mevzuat' ise de bu alanları doldur):
-- summary: Kısa özet (en fazla 3 cümle)
-- geopoliticalImpact: Jeopolitik etkisi (Eğer hukuk haberiyse uluslararası etkilerini veya AB/AİHM uyumunu değerlendir)
-- turkeyImpact: Türkiye açısından etkisi
-- financialImpact: Finansal etkisi
-- longTerm: Uzun vadeli olası sonuçları
-- isCritical: Eğer en kritik 5 gelişmeden biriyse true, değilse false yap.
-- whyImportant: (Sadece isCritical true ise doldur) Neden önemli?
-- whoAffected: (Sadece isCritical true ise doldur) Kimleri etkiliyor?
-- followUp: (Sadece isCritical true ise doldur) Önümüzdeki günlerde ne takip edilmeli?
-
-Yazım Kuralları:
-- Tarafsız ol.
-- Spekülasyon yapma.
-- Gereksiz ayrıntıya girme.
-
-Analiz Edilecek İçerikler:
-${JSON.stringify(allEvents, null, 2)}
-`;
-
-  try {
-    const analysisResult = await callGemini(apiKey, systemPrompt);
-    const dateToday = new Date().toISOString().substring(0, 10);
-    
-    // Normalize analysis keys to camelCase in case Gemini uses snake_case or different casings
-    const normalizedEvents = (analysisResult.events || []).map(item => {
-      if (item.analysis) {
-        return {
-          ...item,
-          analysis: {
-            summary: item.analysis.summary || "",
-            geopoliticalImpact: item.analysis.geopoliticalImpact || item.analysis.geopolitical_impact || item.analysis.geopolitical || "",
-            turkeyImpact: item.analysis.turkeyImpact || item.analysis.turkey_impact || item.analysis.turkey || "",
-            financialImpact: item.analysis.financialImpact || item.analysis.financial_impact || item.analysis.financial || "",
-            longTerm: item.analysis.longTerm || item.analysis.long_term || item.analysis.longterm || "",
-            isCritical: !!(item.analysis.isCritical || item.analysis.is_critical),
-            whyImportant: item.analysis.whyImportant || item.analysis.why_important || "",
-            whoAffected: item.analysis.whoAffected || item.analysis.who_affected || "",
-            followUp: item.analysis.followUp || item.analysis.follow_up || ""
-          }
-        };
-      }
-      return item;
-    });
-
-    // Structure final json
-    const outputData = {
-      date: dateToday,
-      events: normalizedEvents
-    };
-
-    const targetPath = path.join(__dirname, 'data_parsed.json');
-    fs.writeFileSync(targetPath, JSON.stringify(outputData, null, 2), 'utf-8');
-    console.log(`BAŞARILI: Güncel sabah bülteni analizi '${targetPath}' dosyasına yazıldı!`);
-  } catch (err) {
-    console.error("HATA: Gemini API analizi sırasında bir hata oluştu:", err);
-    process.exit(1);
-  }
-}
-
-run();
+  const apiKey = process.env.GEM
