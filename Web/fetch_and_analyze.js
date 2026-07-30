@@ -138,7 +138,7 @@ function callGemini(apiKey, promptText) {
                       whoAffected: { type: "STRING" },
                       followUp: { type: "STRING" }
                     },
-                    required: ["summary", "geopoliticalImpact", "turkeyImpact", "financialImpact", "longTerm", "isCritical"]
+                    required: ["summary", "geopoliticalImpact", "turkeyImpact", "financialImpact", "longTerm", "isCritical", "whyImportant", "whoAffected", "followUp"]
                   }
                 },
                 required: ["source", "title", "body", "category", "isRelevant", "analysis"]
@@ -242,15 +242,15 @@ Resmî Gazete'deki kararlardan YALNIZCA ekonomi, finans, vergi, bankacılık, ti
 
 Analiz Formatı:
 Kabul edilen her haber için 'analysis' objesi içinde şu bilgileri doldur (Kategori 'Hukuk ve Mevzuat' ise de bu alanları doldur):
-- summary: Kısa özet (en fazla 3 cümle)
+- summary: Olayın ne olduğunu, neden kaynaklandığını ve en önemli detaylarını içeren 3-5 cümlelik kapsamlı, açıklayıcı ve tatmin edici bir özet yazın (1-2 cümlelik çok kısa veya belirsiz özetler kesinlikle yazmayın).
 - geopoliticalImpact: Jeopolitik etkisi (Eğer hukuk haberiyse uluslararası etkilerini veya AB/AİHM uyumunu değerlendir)
 - turkeyImpact: Türkiye açısından etkisi
 - financialImpact: Finansal etkisi
 - longTerm: Uzun vadeli olası sonuçları
 - isCritical: Eğer en kritik 5 gelişmeden biriyse true, değilse false yap.
-- whyImportant: (Sadece isCritical true ise doldur) Neden önemli?
-- whoAffected: (Sadece isCritical true ise doldur) Kimleri etkiliyor?
-- followUp: (Sadece isCritical true ise doldur) Önümüzdeki günlerde ne takip edilmeli?
+- whyImportant: Bu gelişmenin neden önemli olduğu (en az 2 cümle, her haber için kesinlikle detaylıca doldurulmalı, asla boş bırakılmamalı).
+- whoAffected: Bu gelişmenin kimleri veya hangi sektörleri/ülkeleri etkilediği (en az 2 cümle, her haber için kesinlikle detaylıca doldurulmalı, asla boş bırakılmamalı).
+- followUp: Önümüzdeki günlerde bu gelişmeye dair nelerin takip edilmesi gerektiği (en az 2 cümle, her haber için kesinlikle detaylıca doldurulmalı, asla boş bırakılmamalı).
 
 Yazım Kuralları:
 - Tarafsız ol.

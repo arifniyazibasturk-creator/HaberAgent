@@ -19,7 +19,8 @@
     <!-- ==========================================
          LEFT SIDEBAR: SOURCES & STATUS
          ========================================== -->
-    <aside class="sidebar">
+    <aside class="sidebar open">
+      <button class="sidebar-close-btn" onclick="toggleSidebar(false)">✕</button>
       <div class="logo-section">
         <h1 class="logo-title">
           <span>🧠</span> AnalizAsistanı
@@ -45,6 +46,7 @@
         <span style="font-size: 0.7rem; color: var(--text-muted);">Günlük saat 09:00 (Europe/Istanbul)</span>
       </div>
     </aside>
+    <div class="sidebar-overlay active" id="sidebar-overlay" onclick="toggleSidebar(false)"></div>
 
     <!-- ==========================================
          MAIN AREA: BULLETINS & SIMULATOR
@@ -53,6 +55,7 @@
       
       <!-- HEADER -->
       <header class="main-header">
+        <button class="menu-toggle-btn" id="menu-toggle-btn" onclick="toggleSidebar()">☰</button>
         <div class="header-title-box">
           <h2 id="bulletin-title">Günlük Sabah Bülteni</h2>
           <p>Tarih: <span id="bulletin-date">--.--.----</span> | Son 24 Saatlik Gelişmeler</p>

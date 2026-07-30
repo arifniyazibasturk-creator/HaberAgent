@@ -1109,6 +1109,33 @@ async function loadBulletinData() {
   }
 }
 
+// Toggle left sidebar drawer on mobile
+window.toggleSidebar = function(forceState) {
+  const sidebar = document.querySelector(".sidebar");
+  const overlay = document.getElementById("sidebar-overlay");
+  if (!sidebar) return;
+  
+  let isOpen = sidebar.classList.contains("open");
+  
+  if (forceState !== undefined) {
+    if (forceState) {
+      sidebar.classList.add("open");
+      if (overlay) overlay.classList.add("active");
+    } else {
+      sidebar.classList.remove("open");
+      if (overlay) overlay.classList.remove("active");
+    }
+  } else {
+    if (isOpen) {
+      sidebar.classList.remove("open");
+      if (overlay) overlay.classList.remove("active");
+    } else {
+      sidebar.classList.add("open");
+      if (overlay) overlay.classList.add("active");
+    }
+  }
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Load dynamic data from json if available
   await loadBulletinData();
