@@ -28,6 +28,30 @@ const FEEDS = [
   }
 ];
 
+// Helper to decode standard and numerical HTML entities in RSS feeds
+function decodeHtmlEntities(str) {
+  if (!str) return "";
+  return str
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&ouml;/g, 'ö')
+    .replace(/&Ouml;/g, 'Ö')
+    .replace(/&uuml;/g, 'ü')
+    .replace(/&Uuml;/g, 'Ü')
+    .replace(/&ccedil;/g, 'ç')
+    .replace(/&Ccedil;/g, 'Ç')
+    .replace(/&gbreve;/g, 'ğ')
+    .replace(/&Gbreve;/g, 'Ğ')
+    .replace(/&scedil;/g, 'ş')
+    .replace(/&Scedil;/g, 'Ş')
+    .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec)) // Decimal entities like &#305; (ı), &#287; (ğ)
+    .replace(/&#x([0-9a-f]+);/gi, (match, hex) => String.fromCharCode(parseInt(hex, 16))); // Hexadecimal entities
+}
+
 // Helper to fetch URL content natively in CommonJS Node
 function fetchUrl(url) {
   return new Promise((resolve, reject) => {
@@ -36,6 +60,7 @@ function fetchUrl(url) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
       }
     }, (res) => {
+      res.setEncoding('utf8'); // Ensure multi-byte UTF-8 streams are decoded correctly
       let data = '';
       res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => { resolve(data); });
@@ -57,9 +82,9 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
     const pubDateMatch = content.match(/<pubDate>([\s\S]*?)<\/pubDate>/);
     
     if (titleMatch) {
-      // Decode HTML entities a bit
-      let title = titleMatch[1].replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').trim();
-      let body = descMatch ? descMatch[1].replace(/<[^>]*>/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').trim() : "";
+      // Decode HTML entities and strip XML/HTML tags
+      let title = decodeHtmlEntities(titleMatch[1].replace(/<[^>]*>/g, '').trim());
+      let body = descMatch ? decodeHtmlEntities(descMatch[1].replace(/<[^>]*>/g, '').trim()) : "";
       let pubDate = pubDateMatch ? pubDateMatch[1].trim() : new Date().toISOString();
       
       // Determine specific subType for Resmi Gazete
@@ -162,6 +187,7 @@ function callGemini(apiKey, promptText) {
     };
 
     const req = https.request(options, (res) => {
+      res.setEncoding('utf8'); // Decode Gemini API response as UTF-8 stream
       let data = '';
       res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => {
@@ -179,7 +205,7 @@ function callGemini(apiKey, promptText) {
     });
 
     req.on('error', (e) => { reject(e); });
-    req.write(postData);
+    req.write(postData, 'utf8'); // Ensure explicitly encoded as UTF-8
     req.end();
   });
 }
