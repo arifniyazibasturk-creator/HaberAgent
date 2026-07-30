@@ -221,10 +221,18 @@ async function run() {
   
   let analyzedEvents = [];
   const dateToday = new Date().toISOString().substring(0, 10);
+  const BATCH_SIZE = 4; // Process in small batches of 4 to ensure high reliability and zero truncation
 
   if (toAnalyze.length > 0) {
-    // Build the prompt containing prompt guidelines
-    const systemPrompt = `
+    for (let i = 0; i < toAnalyze.length; i += BATCH_SIZE) {
+      const batch = toAnalyze.slice(i, i + BATCH_SIZE);
+      const batchNum = Math.floor(i / BATCH_SIZE) + 1;
+      const totalBatches = Math.ceil(toAnalyze.length / BATCH_SIZE);
+      
+      console.log(`Gemini analizi yapılıyor: Paket ${batchNum} / ${totalBatches} (${batch.length} haber)...`);
+
+      // Build the prompt containing prompt guidelines for this specific batch
+      const systemPrompt = `
 Sen profesyonel bir jeopolitik, ekonomi, finans ve hukuk analiz asistanısın.
 
 Görevin: Sana sunulan son 24 saatlik haberleri ve resmi duyuruları incele ve kurallara göre analiz et.
@@ -258,15 +266,23 @@ Yazım Kuralları:
 - Gereksiz ayrıntıya girme.
 
 Analiz Edilecek İçerikler:
-${JSON.stringify(toAnalyze, null, 2)}
+${JSON.stringify(batch, null, 2)}
 `;
 
-    try {
-      const analysisResult = await callGemini(apiKey, systemPrompt);
-      analyzedEvents = analysisResult.events || [];
-    } catch (err) {
-      console.error("HATA: Gemini API analizi sırasında bir hata oluştu:", err);
-      process.exit(1);
+      try {
+        const analysisResult = await callGemini(apiKey, systemPrompt);
+        if (analysisResult.events) {
+          analyzedEvents = analyzedEvents.concat(analysisResult.events);
+        }
+        
+        // Wait 2 seconds between batch calls to prevent rate limits on Gemini API
+        if (i + BATCH_SIZE < toAnalyze.length) {
+          await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+      } catch (err) {
+        console.error(`HATA: Paket ${batchNum} analiz edilirken hata oluştu:`, err);
+        process.exit(1);
+      }
     }
   }
 
