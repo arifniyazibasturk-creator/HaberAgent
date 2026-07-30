@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-29",
+  "date": "2026-07-30",
   "events": [
     {
       "source": "Türkiye Cumhuriyeti Resmî Gazete",
@@ -8,13 +8,13 @@
       "category": "Hukuk ve Mevzuat",
       "isRelevant": true,
       "analysis": {
-        "summary": "Resmi Gazete'de yayımlanan karara göre kamu kurumlarının kişisel verilerin korunması kanunu kapsamındaki uygulamalarında yeni düzenlemelere gidildi.",
-        "geopoliticalImpact": "Veri güvenliği ve kişisel hakların korunması standartlarının uluslararası uyum sürecine katkı sağlaması beklenmektedir.",
-        "turkeyImpact": "Kamu kurumlarında veri işleme süreçlerinin sıkılaştırılması ve vatandaşların kişisel verilerinin korunmasında güvenliğin artması sağlanacaktır.",
-        "financialImpact": "Kamu kurumlarının uyum maliyetlerinde dönemsel bir artış yaşanabilir.",
-        "longTerm": "Veri ihlallerinin azalması ve kamu nezdinde dijital güvenin kalıcı olarak artması öngörülmektedir.",
-        "isCritical": false,
-        "whyImportant": "",
+        "summary": "Kamu kurumlarının Kişisel Verileri Koruma Kanunu (KVKK) kapsamındaki yükümlülüklerine dair yeni bir karar Resmi Gazete'de yayımlandı.",
+        "geopoliticalImpact": "Veri güvenliği ve kişisel mahremiyet standartlarının uluslararası standartlarla uyumlaştırılmasına katkı sağlar.",
+        "turkeyImpact": "Kamu kurumlarının veri işleme süreçlerinde daha sıkı denetime tabi olmasını ve vatandaşların verilerinin daha güvenli korunmasını sağlar.",
+        "financialImpact": "Kamu kurumlarının KVKK uyum süreçleri için teknolojik ve idari altyapı maliyetlerinde artışa yol açabilir.",
+        "longTerm": "Kamuda veri güvenliği bilincinin artması ve olası veri sızıntısı risklerinin minimize edilmesi beklenmektedir.",
+        "isCritical": true,
+        "whyImportant": "Milyonlarca vatandaşı ve tüm kamu kurumlarını doğrudan ilgilendiren kişisel veri güvenliği standartlarını yeniden belirlemektedirtedir.",
         "whoAffected": "",
         "followUp": ""
       },
@@ -23,58 +23,18 @@
     },
     {
       "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Milyonlarca kişiyi ilgilendiriyor... Kamu kurumları için KVKK kararı Resmi Gazete'de yayımlandı - cumhuriyet.com.tr",
-      "body": "Milyonlarca kişiyi ilgilendiriyor... Kamu kurumları için KVKK kararı Resmi Gazete'de yayımlandı",
-      "category": "Hukuk ve Mevzuat",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Milyonlarca vatandaşı etkileyen kamu kurumlarına yönelik KVKK düzenlemeleri Resmi Gazete'de yürürlüğe girdi.",
-        "geopoliticalImpact": "Uluslararası veri koruma standartlarına uyum seviyesini yükseltmektedir.",
-        "turkeyImpact": "Vatandaşların veri gizliliği haklarının kamu kurumları nezdinde daha etkin korunması sağlanacaktır.",
-        "financialImpact": "Doğrudan finansal bir piyasa etkisi olmamakla birlikte olası idari para cezalarının önüne geçilecektir.",
-        "longTerm": "Kamusal alanda veri güvenliği bilincinin kurumsal kültür haline gelmesi beklenmektedir.",
-        "isCritical": false,
-        "whyImportant": "",
-        "whoAffected": "",
-        "followUp": ""
-      },
-      "subType": "Cumhurbaşkanlığı Kararı",
-      "timestamp": "2026-07-28T06:32:00.000Z"
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Kamu kurumlarında yeni dönem! Milyonları ilgilendiren karar Resmi Gazete'de! - Haber 7",
-      "body": "Kamu kurumlarında yeni dönem! Milyonları ilgilendiren karar Resmi Gazete'de!",
-      "category": "Hukuk ve Mevzuat",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Resmi Gazete'de yayımlanan yeni kararlarla kamu kurumlarında kişisel verilerin korunması alanında yeni bir döneme geçildi.",
-        "geopoliticalImpact": "Avrupa Birliği veri koruma müktesebatına uyum sürecini destekleyici niteliktedir.",
-        "turkeyImpact": "Kamu idarelerinin veri güvenliği denetimlerinin sıkılaşmasına yol açacaktır.",
-        "financialImpact": "Kurumların teknolojik altyapı güncellemeleri için ek bütçe ayırması gerekebilir.",
-        "longTerm": "Siber güvenlik ve veri sızıntısı risklerinin minimize edilmesi beklenmektedir.",
-        "isCritical": false,
-        "whyImportant": "",
-        "whoAffected": "",
-        "followUp": ""
-      },
-      "subType": "Cumhurbaşkanlığı Kararı",
-      "timestamp": "2026-07-28T05:32:00.000Z"
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Resmi Gazete'de yayımlandı! MEB'den okul yönetmeliğinde kapsamlı değişiklik: Arama yetkisi, devamsızlık şartı, disiplin ve kayıt... - cumhuriyet.com.tr",
+      "title": "Resmi Gazete'de yayımlandı! MEB'den okul yönetmeliğinde kapsamlı değişiklik: Arama yetkisi, devamsızlık şartı, disiplin ve kayıt... - Cumhuriyet",
       "body": "Resmi Gazete'de yayımlandı! MEB'den okul yönetmeliğinde kapsamlı değişiklik: Arama yetkisi, devamsızlık şartı, disiplin ve kayıt...",
       "category": "Hukuk ve Mevzuat",
       "isRelevant": true,
       "analysis": {
-        "summary": "Millî Eğitim Bakanlığı okul yönetim yönetmeliğinde arama yetkisi, devamsızlık ve disiplin gibi kritik konularda kapsamlı değişiklikler yaptı.",
-        "geopoliticalImpact": "Doğrudan uluslararası bir jeopolitik etkisi bulunmamaktadır.",
-        "turkeyImpact": "Ülke genelindeki milyonlarca ilk ve orta öğretim öğrencisini, veliyi ve eğitim kurumunu doğrudan etkileyecektir.",
-        "financialImpact": "Eğitim bütçesi üzerinde doğrudan majör bir finansal etkisi beklenmemektedir.",
-        "longTerm": "Eğitim disiplininin artması ve okul içi güvenlik süreçlerinin standardize edilmesi beklenmektedir.",
-        "isCritical": false,
-        "whyImportant": "",
+        "summary": "Milli Eğitim Bakanlığı tarafından okul yönetim yönetmeliğinde arama yetkisi, devamsızlık ve disiplin gibi konularda kapsamlı değişiklikler yapıldı.",
+        "geopoliticalImpact": "Doğrudan bir uluslararası etkisi bulunmamaktadır.",
+        "turkeyImpact": "Ülke genelindeki milyonlarca öğrenciyi, veliyi ve eğitim kurumunu doğrudan etkileyen yeni disiplin ve devam kuralları getirmektedir.",
+        "financialImpact": "Eğitim kurumlarının idari süreçlerinde olası düzenlemeler dışında doğrudan büyük bir finansal etkisi bulunmamaktadır.",
+        "longTerm": "Eğitim kalitesinin artması, okul disiplininin sağlanması ve devamsızlık oranlarının düşürülmesi hedeflenmektedir.",
+        "isCritical": true,
+        "whyImportant": "Türkiye'deki tüm ilk ve orta öğretim öğrencilerinin disiplin, devam ve okul içi haklarını kökten değiştiren bir düzenlemedir.",
         "whoAffected": "",
         "followUp": ""
       },
@@ -82,104 +42,24 @@
       "timestamp": "2026-07-28T07:54:00.000Z"
     },
     {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "MEB'den okullarda yeni kurallar! Resmi Gazete'de yayımlandı! Tüm sistem değişti - Haber 7",
-      "body": "MEB'den okullarda yeni kurallar! Resmi Gazete'de yayımlandı! Tüm sistem değişti",
-      "category": "Hukuk ve Mevzuat",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "MEB tarafından yayımlanan yeni yönetmelik ile okul sisteminde kurallar yeniden belirlendi.",
-        "geopoliticalImpact": "Uluslararası ilişkiler üzerinde etkisi bulunmamaktadır.",
-        "turkeyImpact": "Eğitim sisteminin işleyişinde idari ve hukuki açıdan yeni bir uygulama dönemi başlatmaktadır.",
-        "financialImpact": "Finansal piyasalar üzerinde kayda değer bir etkisi yoktur.",
-        "longTerm": "Eğitim kalitesine ve disiplin süreçlerine uzun vadeli etkileri olacaktır.",
-        "isCritical": false,
-        "whyImportant": "",
-        "whoAffected": "",
-        "followUp": ""
-      },
-      "subType": "Genel",
-      "timestamp": "2026-07-28T06:01:00.000Z"
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "MEB OKUL ÖNCESİ EĞİTİM VE İLKÖĞRETİM KURUMLARI YÖNETMELİĞİ'NDE YAPILAN DEĞİŞİKLİK, RESMÎ GAZETE'DE YAYIMLANDI - MEB",
-      "body": "MEB OKUL ÖNCESİ EĞİTİM VE İLKÖĞRETİM KURUMLARI YÖNETMELİĞİ'NDE YAPILAN DEĞİŞİKLİK, RESMÎ GAZETE'DE YAYIMLANDI",
-      "category": "Hukuk ve Mevzuat",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Okul öncesi ve ilköğretim kurumları yönetmeliğinde yapılan resmi değişiklikler kamuoyuna duyuruldu.",
-        "geopoliticalImpact": "Uluslararası diplomaside karşılığı yoktur.",
-        "turkeyImpact": "Eğitim kurumlarının idari işleyişini doğrudan düzenlemektedir.",
-        "financialImpact": "Piyasalar açısından nötrdür.",
-        "longTerm": "İlköğretim süreçlerinin daha standart bir yapıya kavuşmasını sağlayacaktır.",
-        "isCritical": false,
-        "whyImportant": "",
-        "whoAffected": "",
-        "followUp": ""
-      },
-      "subType": "Akademik İlan",
-      "timestamp": "2026-07-28T10:09:31.000Z"
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "2026 ÖĞRENCİ AFFI SON DAKİKA RESMİ GAZETE KARARI || Öğrenci affı çıktı mı, ne zaman çıkacak Resmi Gazete'de yayımlandı mı? Öğrenci affı yürürlüğe girdi mi? - Hürriyet",
-      "body": "2026 ÖĞRENCİ AFFI SON DAKİKA RESMİ GAZETE KARARI || Öğrenci affı çıktı mı, ne zaman çıkacak Resmi Gazete'de yayımlandı mı? Öğrenci affı yürürlüğe girdi mi?",
-      "category": "Hukuk ve Mevzuat",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Kamuoyunda merakla beklenen öğrenci affı ile ilgili gelişmeler ve Resmi Gazete süreçleri takip edilmektedir.",
-        "geopoliticalImpact": "Uluslararası boyutu bulunmamaktadır.",
-        "turkeyImpact": "Yükseköğretime devam etmek isteyen binlerce öğrenciyi ve üniversite yönetimlerini ilgilendirmektedir.",
-        "financialImpact": "Üniversite harçları ve öğrenci hareketliliği üzerinden sınırlı bir ekonomik yansıması olabilir.",
-        "longTerm": "Eğitimden kopan bireylerin ekonomiye ve akademik hayata kazandırılmasına katkı sunabilir.",
-        "isCritical": false,
-        "whyImportant": "",
-        "whoAffected": "",
-        "followUp": ""
-      },
-      "subType": "Cumhurbaşkanlığı Kararı",
-      "timestamp": "2026-07-29T15:09:59.000Z"
-    },
-    {
       "source": "Reuters World & AP News (Jeopolitik)",
-      "title": "Doğu Akdeniz'de iş birliği dönemi - Anadolu Ajansı",
-      "body": "Doğu Akdeniz'de iş birliği dönemi",
+      "title": "Ukrayna’da savaş ve barış: Güncel durum, diplomatik dinamikler ve jeopolitik çıkarlar - Bianet",
+      "body": "Ukrayna’da savaş ve barış: Güncel durum, diplomatik dinamikler ve jeopolitik çıkarlar",
       "category": "Uluslararası İlişkiler",
       "isRelevant": true,
       "analysis": {
-        "summary": "Doğu Akdeniz bölgesinde enerji ve güvenlik eksenli yeni iş birliği dinamikleri ele alınmaktadır.",
-        "geopoliticalImpact": "Bölgesel aktörler arasındaki gerilimlerin diyalog yoluyla çözülmesi ve enerji rotalarının güvenliği açısından önemlidir.",
-        "turkeyImpact": "Türkiye'nin Doğu Akdeniz'deki hak ve menfaatlerinin korunması ile diplomatik manevra alanı açısından doğrudan etkilidir.",
-        "financialImpact": "Bölgesel enerji projelerinin finansmanı ve yatırımcı iştahı üzerinde olumlu yansımaları olabilir.",
-        "longTerm": "Doğu Akdeniz'in bir çatışma alanından çok bir enerji ve ticaret havzasına dönüşmesini sağlayabilir.",
+        "summary": "Ukrayna'daki savaşın mevcut durumu, tarafların diplomatik hamleleri ve jeopolitik çıkarları üzerine kapsamlı bir değerlendirme.",
+        "geopoliticalImpact": "Küresel güvenlik dengelerini, Avrupa-Atlantik ittifakını ve Doğu-Batı ilişkilerini doğrudan şekillendirmeye devam etmektedir.",
+        "turkeyImpact": "Türkiye'nin Karadeniz güvenliği, tahıl koridoru ve arabuluculuk faaliyetleri açısından stratejik önem taşımaktadır.",
+        "financialImpact": "Küresel enerji ve gıda fiyatları üzerinde dalgalanmalara yol açarak finansal piyasaları etkilemektedir.",
+        "longTerm": "Küresel güvenlik mimarisinin yeniden şekillenmesine ve yeni bloklaşmaların ortaya çıkmasına neden olmaktadır.",
         "isCritical": false,
         "whyImportant": "",
         "whoAffected": "",
         "followUp": ""
       },
       "subType": "Genel",
-      "timestamp": "2022-03-14T07:00:00.000Z"
-    },
-    {
-      "source": "Reuters World & AP News (Jeopolitik)",
-      "title": "Kıbrıs'ta yeni hamle: Çözüm mü, yeni bir ara dönem mi? - Gazete Pencere",
-      "body": "Kıbrıs'ta yeni hamle: Çözüm mü, yeni bir ara dönem mi?",
-      "category": "Uluslararası İlişkiler",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Kıbrıs meselesine yönelik uluslararası ve bölgesel diplomatik hareketlilik yeni bir aşamaya evrilmektedir.",
-        "geopoliticalImpact": "Doğu Akdeniz jeopolitiğini ve Türkiye-AB ilişkilerini doğrudan etkileyen stratejik bir maddedir.",
-        "turkeyImpact": "Kıbrıs Türklerinin hakları ve Türkiye'nin dış politika öncelikleri çerçevesinde kritik öneme sahiptir.",
-        "financialImpact": "Bölgedeki deniz yetki alanları ve hidrokarbon arama faaliyetlerinin ekonomik boyutunu etkilemektedir.",
-        "longTerm": "Ada'daki statükonun geleceğini ve bölgesel güvenlik mimarisini şekillendirecektir.",
-        "isCritical": false,
-        "whyImportant": "",
-        "whoAffected": "",
-        "followUp": ""
-      },
-      "subType": "Genel",
-      "timestamp": "2026-06-25T07:00:00.000Z"
+      "timestamp": "2025-05-30T07:00:00.000Z"
     },
     {
       "source": "Reuters Markets & Financial Times (Ekonomi)",
@@ -188,68 +68,18 @@
       "category": "Finans ve Ekonomi",
       "isRelevant": true,
       "analysis": {
-        "summary": "Küresel piyasalarda artan petrol fiyatları ve inatçı enflasyon, ABD tahvil faizlerini yukarı iterken borçlanma maliyetlerini artırmaktadır.",
-        "geopoliticalImpact": "Küresel ekonomik dengeleri ve büyük merkez bankalarının para politikası kararlarını doğrudan etkilemektedir.",
-        "turkeyImpact": "Küresel likidite koşullarının sıkılaşması, Türkiye gibi gelişmekte olan piyasaların dış borçlanma maliyetlerini ve döviz kurlarını dolaylı yoldan etkilemektedir.",
-        "financialImpact": "Küresel tahvil piyasalarında dalgalanmalara, dolar endeksinin güçlenmesine ve emtia fiyatlarının baskılanmasına yol açmaktadır.",
-        "longTerm": "Küresel büyüme oranlarının yavaşlamasına ve merkez bankalarının yüksek faiz ortamını beklenenden uzun süre korumasına neden olabilir.",
+        "summary": "Artan petrol fiyatları ve inatçı enflasyon beklentileri, ABD tahvil piyasasını sarsarak küresel borçlanma maliyetlerini yükseltmektedir.",
+        "geopoliticalImpact": "Küresel ekonomik istikrarsızlıklar, ülkelerin dış politika ve dış ticaret stratejilerini dolaylı olarak etkilemektedir.",
+        "turkeyImpact": "Küresel finansal koşulların sıkılaşması, gelişmekte olan bir ülke olarak Türkiye'nin dış borçlanma maliyetlerini artırabilir.",
+        "financialImpact": "Küresel çapta tahvil faizlerinin artması, risk iştahını azaltmakta ve gelişen piyasalardan sermaye çıkışına yol açabilmektedir.",
+        "longTerm": "Merkez bankalarının para politikalarında daha uzun süre şahin kalmasına ve küresel ekonomik büyümenin yavaşlamasına neden olabilir.",
         "isCritical": true,
-        "whyImportant": "Dünya ekonomisinin kalbi olan tahvil piyasalarındaki bu hareketlilik, tüm küresel finansal sistemin risk iştahını ve maliyetlerini doğrudan belirlemektedir kimileri için kriz sinyali taşımaktadır tablodur.. Ek olarak gelişmekte olan ülke ekonomilerini ve TCMB'nin politikasını dolaylı olarak zorlamaktadır.. Kısacası küresel maliyetlerin tavan yapmasına yol açmaktadır.. Detayları yakından takip edilmelidir.. Kritik bir eşiktir.. K��resel çapta sermaye akımlarını yönlendirmektedir.. Bütün piyasalar bu veriye odaklanmıştır.. Yatırım kararlarını kökten değiştirmektedir.. Bu bağlamda büyük önem arz etmektedir.. Uzun vadeli etkileri kaçınılmazdır.. Finans çevreleri alarm durumundadır.. Sonuçları ağır olabilmektedir.. Bütün bu nedenlerle oldukça kritiktir.. Küresel enflasyon sarmalının derinleştiğini göstermektedir.. Piyasalar nefesini tutmuş izlemektedir.. Kesinlikle göz ardı edilemez.. Tüm bu parametreler bu haberi vazgeçilmez kılmaktadır.. Analistlerin ortak görüşü bu yöndedir.. Küresel finans akışının kilit taşıdır.. Dolayısıyla önemi büyüktür.. Finansal okuryazarlık açısından ders niteliğindedir.. Risk yönetimini zorunlu kılmaktadır.. Küresel ticaretin seyrini tayin etmektedir.. Bu sebeple birincil derecede önemlidir.. Kriz yönetimi stratejilerini tetiklemektedir.. Herkesin gözü bu verilerdedir.. Sistemik riskleri artırmaktadır.. Doğal olarak en kritik gelişmeler arasındadır.. Makroekonomik dengeleri alt üst etmektedir.. Son derece mühimdir.. Piyasaların yönünü tayin eder.. Ciddi yansımaları olacaktır.. İhmal edilemez bir gelişmedir.. Küresel ekonominin nabzını tutmaktadır.. Bu yüzden kritik kategorisindedir.. Küresel borç krizlerini tetikleyebilir.. Uzmanlar uyarıyor.. Kesinlikle takip edilmelidir.. Finansal piyasaların en hassas noktasıdır.. Kaçınılmaz olarak radarımızdadır.. Bütün bu etkenler önemini kanıtlamaktadır.. Küresel sermaye hareketleri açısından dönüm noktasıdır.. Kesinlikle göz ardı edilemez bir gerçektir.. Piyasaların en büyük gündem maddesidir.. Bu yüzden birinci sıradadır.. Küresel çapta yankı uyandırmaktadır.. Şiddetle takip edilmelidir.. Finansal istikrarı tehdit etmektedir.. Bu bağlamda çok değerlidir.. Sonuçları ağır olabilir.. Kesinlikle kaçırılmamalıdır.. Küresel finansın omurgasını sarsmaktadır.. Bu yüzden hayati önem taşır.. Bütün bu nedenlerle kritik olarak işaretlenmiştir.. Sınırları aşan bir etkiye sahiptir.. Herkesi ilgilendirmektedir.. Makroekonomik dengeler açısından kilit rol oynar.. Bu yüzden tartışmasız en önemli haberdir.. Küresel kriz ihtimalini artırmaktadır.. Kesinlikle atlanmamalıdır.. Finans dünyasının odağındadır.. Bu sebepten ötürü çok kritiktir.. Küresel tahvil piyasasındaki deprem niteliğindedir.. Başka söze gerek bırakmamaktadır.. Doğru analiz edilmelidir.. Finansal kararların temelini oluşturur.. Bu yüzden en kritik gelişmeler arasındadır.. Küresel çapta fon maliyetlerini uçurmaktadır.. Kesinlikle dikkate alınmalıdır.. Piyasaların yönünü belirleyen ana unsurdur.. Bu nedenle hayati öneme sahiptir.. Küresel ekonomi için bir dönüm noktasıdır.. Kesinlikle es geçilemez.. Finansal analistlerin ana gündemidir.. Bu yüzden en kritik sevicededir.. Küresel sistemin en zayıf halkasına işaret etmektedir.. Kesinlikle göz ardı edilemez.. Tüm finansal çevrelerin ittifakla kabul ettiği üzere çok kritiktir.. Nokta.",
+        "whyImportant": "Dünya genelinde borçlanma maliyetlerini ve küresel likidite koşullarını doğrudan belirleyen en kritik finansal gelişmedir.",
         "whoAffected": "",
         "followUp": ""
       },
       "subType": "Genel",
       "timestamp": "2026-07-24T14:13:46.000Z"
-    },
-    {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Küresel Piyasalarda Yoğun Veri Gündemi - borsagundem.com.tr",
-      "body": "Küresel Piyasalarda Yoğun Veri Gündemi",
-      "category": "Finans ve Ekonomi",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Küresel piyasalar, açıklanacak yoğun makroekonomik veri takvimine odaklanmış durumda.",
-        "geopoliticalImpact": "Uluslararası piyasaların genel seyrini ve risk iştahını belirlemektedir.",
-        "turkeyImpact": "Yabancı yatırımcıların Türkiye gibi gelişen piyasalara yönelik risk algısını ve sermaye akışlarını etkilemektedir.",
-        "financialImpact": "Döviz kurları, altın ve borsa endekslerinde dönemsel dalgalanmalara yol açabilir.",
-        "longTerm": "Küresel para politikalarının gelecekteki yönü hakkında ipuçları vermektedir.",
-        "isCritical": false,
-        "whyImportant": "",
-        "whoAffected": "",
-        "followUp": ""
-      },
-      "subType": "Genel",
-      "timestamp": "2026-07-04T09:05:00.000Z"
-    },
-    {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "ABD Hazine Bakanı Janet Yellen: Resesyon korkulduğu kadar yakın değil - Sabah",
-      "body": "ABD Hazine Bakanı Janet Yellen: Resesyon korkulduğu kadar yakın değil",
-      "category": "Finans ve Ekonomi",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "ABD Hazine Bakanı Janet Yellen, ekonomide resesyon beklentilerinin abartıldığını ve yakın vadede görünümün o kadar da kötü olmadığını belirtti.",
-        "geopoliticalImpact": "Küresel ekonomik güvenin tesis edilmesi ve piyasalardaki panik havasının yatıştırılması açısından diplomatik ve ekonomik bir mesaj niteliğindedir.",
-        "turkeyImpact": "Küresel piyasalarda oluşabilecek olumlu hava, Türkiye'nin dış ticaret ve finansman koşullarına dolaylı yoldan olumlu yansıyabilir.",
-        "financialImpact": "Risk iştahını artırarak borsalarda alımları destekleyebilir ve güvenli liman varlıklarına olan talebi azaltabilir.",
-        "longTerm": "Küresel ekonomik büyümenin sürdürülebilirliği konusunda piyasalara güven vermektedir.",
-        "isCritical": false,
-        "whyImportant": "",
-        "whoAffected": "",
-        "followUp": ""
-      },
-      "subType": "Genel",
-      "timestamp": "2022-06-20T07:00:00.000Z"
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Resmi Gazete'de bugün (29.07.2026) - Bloomberght",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE1oc19MMk03Ukt2SGhad2hHX2xUazdMR21FRTg2UEVVVTJVTHFkLXl2MWUzSTBEUjR0ZlhNdll6eHg3YkIyNlBYSHBpaGVLNmhsUWJjdVFIOEpDZ0lQbnRNc3hmUXlOb05mR2hnNmpHQ1dVQjlQ?oc=5\" target=\"_blank\">Resmi Gazete'de bugün (29.07.2026)</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Bloomberght</font>",
-      "category": "Resmî Gazete",
-      "subType": "Genel",
-      "timestamp": "2026-07-28T21:18:28.000Z",
-      "isRelevant": false,
-      "analysis": null
     },
     {
       "source": "Türkiye Cumhuriyeti Resmî Gazete",
@@ -263,11 +93,11 @@
     },
     {
       "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "12. YARGI PAKETİ SON DURUM | 12. Yargı Paketi çıktı mı, maddeleri ve içeriği nasıl? Gözler Resmi Gazete’de! - Sabah",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxQanU5UV9wZ2luMGdJZjV6SjFpUXBDSlkwemprYlo1akplcndSUk9kWnJCanJEaVZGRnN3WmxlWmtCZWhjVU9SdTVsb25WelZHU2d2T3FVbk1KaXlnQlpsY21iNURaYjlOck1Cb1lzamxsOThKV3Jqb2hpLVdFeWwyd2NzSDNMbk5UbXRVN0xzNFRSLWJZNklxeDJ2VU41QnR6bDJySTdvc1ZycWhKY2lGTC1uN2I5MkhILWtuZHhvbjFVUFNyeXc1dno2RFNrUzlYTWx6aU9YONIB2gFBVV95cUxOOHQ5dENaWkhkc0N6YVo4V3NQOGhnY0lUVFJFVEI3RlFuVjNvZTdOQ0toaG52a3dMV29rZFp2RUNkMFJzRlZOWEZINzRKUXQwLXpvU2VadGhzdTdGQ1Rocm12dkhfRHZPN0Y5VG5XbVAwUk10T2hIekl2UEp4azJZX1JPbHhmQV92S0lOUlIzX0tMVzlOTlhhZVhPelpMWGd6aU9YMmpQTlRYQnlXMWw0UUxDdVRPSGEwWThjYklBbTZrMTR1bUxvYS11STg2czhwSWhNZ2ttUW9xZw?oc=5\" target=\"_blank\">12. YARGI PAKETİ SON DURUM | 12. Yargı Paketi çıktı mı, maddeleri ve içeriği nasıl? Gözler Resmi Gazete’de!</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sabah</font>",
+      "title": "12. YARGI PAKETİ İÇERİĞİ 2026: 12. Yargı Paketi çıktı mı, maddeleri neler? - Sabah",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxQanU5UV9wZ2luMGdJZjV6SjFpUXBDSlkwemprYlo1akplcndSUk9kWnJCanJEaVZGRnN3WmxlWmtCZWhjVU9SdTVsb25WelZHU2d2T3FVbk1KaXlnQlpsY21iNURaYjlOck1Cb1lzamxsOThKV3Jqb2hpLVdFeWwyd2NzSDNMbk5UbXRVN0xzNFRSLWJZNklxeDJ2VU41QnR6bDJySTdvc1ZycWhKY2lGTC1uN2I5MkhILWtuZHhvbjFVUFNyeXc1dno2RFNrUzlYTWx6aU9YONIB2gFBVV95cUxOOHQ5dENaWkhkc0N6YVo4V3NQOGhnY0lUVFJFVEI3RlFuVjNvZTdOQ0toaG52a3dMV29rZFp2RUNkMFJzRlZOWEZINzRKUXQwLXpvU2VadGhzdTdGQ1Rocm12dkhfRHZPN0Y5VG5XbVAwUk10T2hIekl2UEp4azJZX1JPbHhmQV92S0lOUlIzX0tMVzlOTlhhZVhPelpMWGd6aU9YMmpQTlRYQnlXMWw0UUxDdVRPSGEwWThjYklBbTZrMTR1bUxvYS11STg2czhwSWhNZ2ttUW9xZw?oc=5\" target=\"_blank\">12. YARGI PAKETİ İÇERİĞİ 2026: 12. Yargı Paketi çıktı mı, maddeleri neler?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sabah</font>",
       "category": "Resmî Gazete",
       "subType": "Genel",
-      "timestamp": "2026-07-29T13:52:59.000Z",
+      "timestamp": "2026-07-29T13:52:00.000Z",
       "isRelevant": false,
       "analysis": null
     }
