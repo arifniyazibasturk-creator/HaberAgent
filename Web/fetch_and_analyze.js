@@ -266,29 +266,24 @@ function sendEmail(apiKey, toEmails, subject, htmlContent) {
   });
 }
 
-// Generate premium dark-mode HTML template for daily newsletter
+// Generate premium dark-mode HTML template for daily newsletter (Critical developments only)
 function generateHtmlEmail(date, events) {
   const relevantEvents = events.filter(e => e.isRelevant && e.analysis);
   const criticalEvents = relevantEvents.filter(e => e.analysis.isCritical).slice(0, 5);
   
-  // Group events by category
-  const categories = {
-    "Uluslararası İlişkiler": relevantEvents.filter(e => e.category === "Uluslararası İlişkiler"),
-    "Hukuk ve Mevzuat": relevantEvents.filter(e => e.category === "Hukuk ve Mevzuat"),
-    "Finans ve Ekonomi": relevantEvents.filter(e => e.category === "Finans ve Ekonomi"),
-    "Resmî Gazete": relevantEvents.filter(e => e.category === "Resmî Gazete")
-  };
-  
   let criticalHtml = "";
   if (criticalEvents.length > 0) {
     criticalHtml = `
-      <div style="background-color: #1a1515; border-left: 4px solid #ef4444; padding: 15px; border-radius: 8px; margin-bottom: 25px;">
-        <h3 style="color: #ef4444; margin-top: 0; font-family: sans-serif; font-size: 16px;">🚨 Günün Kritik Gelişmeleri</h3>
+      <div style="background-color: #1a1515; border-left: 4px solid #ef4444; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+        <h3 style="color: #ef4444; margin-top: 0; font-family: sans-serif; font-size: 16px; margin-bottom: 15px;">🚨 Günün Kritik Gelişmeleri</h3>
         <ol style="margin: 0; padding-left: 20px; color: #f8fafc; font-family: sans-serif; font-size: 13px; line-height: 1.6;">
           ${criticalEvents.map(e => `
-            <li style="margin-bottom: 12px;">
-              <strong><a href="${e.link || '#'}" style="color: #ef4444; text-decoration: underline;">${e.title}</a></strong>
-              <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">📌 <strong>Neden Önemli:</strong> ${e.analysis.whyImportant}</div>
+            <li style="margin-bottom: 15px; border-bottom: 1px dashed rgba(255, 255, 255, 0.08); padding-bottom: 12px;">
+              <strong><a href="${e.link || '#'}" style="color: #ef4444; text-decoration: underline; font-size: 14px;">📌 ${e.title}</a></strong>
+              <div style="color: #f8fafc; font-size: 12px; margin-top: 6px; background: rgba(255, 255, 255, 0.02); padding: 8px; border-radius: 4px; border: 1px dashed rgba(255, 255, 255, 0.04);">
+                <strong>📄 Kısa Özet:</strong> ${e.analysis.summary}
+              </div>
+              <div style="color: #94a3b8; font-size: 12px; margin-top: 6px;">📌 <strong>Neden Önemli:</strong> ${e.analysis.whyImportant}</div>
               <div style="color: #94a3b8; font-size: 12px;">👥 <strong>Kimleri Etkiliyor:</strong> ${e.analysis.whoAffected}</div>
               <div style="color: #94a3b8; font-size: 12px;">🔍 <strong>Takip Edilecek:</strong> ${e.analysis.followUp}</div>
             </li>
@@ -296,59 +291,10 @@ function generateHtmlEmail(date, events) {
         </ol>
       </div>
     `;
-  }
-  
-  let sectionsHtml = "";
-  const catIcons = {
-    "Uluslararası İlişkiler": "🌍",
-    "Hukuk ve Mevzuat": "⚖️",
-    "Finans ve Ekonomi": "💰",
-    "Resmî Gazete": "📜"
-  };
-  
-  const catColors = {
-    "Uluslararası İlişkiler": "#f59e0b",
-    "Hukuk ve Mevzuat": "#a855f7",
-    "Finans ve Ekonomi": "#06b6d4",
-    "Resmî Gazete": "#f59e0b"
-  };
-
-  for (const [catName, catItems] of Object.entries(categories)) {
-    if (catItems.length === 0) continue;
-    
-    sectionsHtml += `
-      <div style="margin-bottom: 25px;">
-        <h3 style="color: ${catColors[catName]}; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 6px; font-family: sans-serif; font-size: 15px; margin-top: 20px;">
-          ${catIcons[catName]} ${catName}
-        </h3>
-        ${catItems.map(item => `
-          <div style="background-color: #131926; border: 1px solid rgba(255, 255, 255, 0.04); border-left: 3px solid ${catColors[catName]}; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-            <h4 style="color: #f8fafc; margin-top: 0; margin-bottom: 8px; font-family: sans-serif; font-size: 14px;">
-              <a href="${item.link || '#'}" style="color: #f8fafc; text-decoration: none;">📌 ${item.title}</a>
-            </h4>
-            <div style="font-size: 12px; color: #f8fafc; line-height: 1.5; margin-bottom: 10px; font-family: sans-serif; background: rgba(255, 255, 255, 0.01); padding: 8px; border-radius: 4px; border: 1px dashed rgba(255, 255, 255, 0.04);">
-              <strong>📄 Kısa Özet:</strong> ${item.analysis.summary}
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-family: sans-serif; font-size: 11px; color: #94a3b8; line-height: 1.4;">
-              <tr>
-                <td style="padding: 3px 0; width: 90px; vertical-align: top; font-weight: bold; color: #64748b;">Jeopolitik:</td>
-                <td style="padding: 3px 0; vertical-align: top;">${item.analysis.geopoliticalImpact}</td>
-              </tr>
-              <tr>
-                <td style="padding: 3px 0; vertical-align: top; font-weight: bold; color: #64748b;">Türkiye:</td>
-                <td style="padding: 3px 0; vertical-align: top;">${item.analysis.turkeyImpact}</td>
-              </tr>
-              <tr>
-                <td style="padding: 3px 0; vertical-align: top; font-weight: bold; color: #64748b;">Finansal:</td>
-                <td style="padding: 3px 0; vertical-align: top;">${item.analysis.financialImpact}</td>
-              </tr>
-              <tr>
-                <td style="padding: 3px 0; vertical-align: top; font-weight: bold; color: #64748b;">Uzun Vade:</td>
-                <td style="padding: 3px 0; vertical-align: top;">${item.analysis.longTerm}</td>
-              </tr>
-            </table>
-          </div>
-        `).join('')}
+  } else {
+    criticalHtml = `
+      <div style="background-color: #131926; border-left: 4px solid #ef4444; padding: 20px; border-radius: 8px; text-align: center; color: #94a3b8; font-family: sans-serif; font-size: 13px;">
+        📢 Bugün için kritik seviyede sınıflandırılmış özel bir gelişme bulunmamaktadır. Tüm günlük gelişmeleri ve detaylı analizleri web dashboard üzerinden inceleyebilirsiniz.
       </div>
     `;
   }
@@ -368,14 +314,11 @@ function generateHtmlEmail(date, events) {
           <h2 style="color: #f8fafc; margin: 0; font-family: sans-serif; font-size: 18px; font-weight: bold;">
             🧠 AnalizAsistanı Sabah Raporu
           </h2>
-          <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 11px;">Tarih: ${date} | Son 24 Saatlik Gelişmeler</p>
+          <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 11px;">Tarih: ${date} | Kritik Gelişmeler Bülteni</p>
         </div>
 
         <!-- Critical Events -->
         ${criticalHtml}
-
-        <!-- Sections -->
-        ${sectionsHtml}
 
         <!-- Footer -->
         <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; margin-top: 25px; text-align: center; font-size: 10px; color: #64748b;">
