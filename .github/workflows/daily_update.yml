@@ -2,7 +2,7 @@ name: Daily Geopolitical & Financial Assistant Update
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Every 5 minutes (for testing)
+    - cron: '0 6 * * *' # Every morning at 09:00 AM Istanbul time (06:00 AM UTC)
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 permissions:
