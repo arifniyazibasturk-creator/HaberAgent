@@ -888,6 +888,8 @@ function createAnalysisCard(item) {
   return card;
 }
 
+
+
 // Switch between visual tabs in Resmi Gazete
 window.switchRgTab = function(type) {
   const relList = document.getElementById("rg-relevant-list");
@@ -1158,11 +1160,31 @@ window.subscribeEmail = function() {
     return;
   }
   
-  // Save locally
-  localStorage.setItem("subscribed_email", email);
-  msgEl.textContent = "Başarıyla kaydedildi! Raporlar bu adrese iletilecektir.";
-  msgEl.className = "sub-msg success";
-  emailInput.value = "";
+  // Show loading state
+  msgEl.textContent = "Kaydediliyor...";
+  msgEl.className = "sub-msg";
+  msgEl.style.display = "block";
+  
+  // Submit to Google Sheet Web App
+  fetch("https://script.google.com/macros/s/AKfycbzZR2jLwFmUBE8xtHaKmcFHK6vUV5KOCb7Wr2cMIw4R9Xdr2Mxq4_6hNb39zFGo75Kf/exec", {
+    method: "POST",
+    mode: "no-cors", // Required to bypass CORS restrictions on Google Scripts
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email: email })
+  })
+  .then(() => {
+    localStorage.setItem("subscribed_email", email);
+    msgEl.textContent = "Başarıyla kaydoldunuz! Raporlar bu adrese iletilecektir.";
+    msgEl.className = "sub-msg success";
+    emailInput.value = "";
+  })
+  .catch(err => {
+    console.error(err);
+    msgEl.textContent = "Kayıt sırasında hata oluştu. Lütfen tekrar deneyin.";
+    msgEl.className = "sub-msg error";
+  });
 };
 
 document.addEventListener("DOMContentLoaded", async () => {

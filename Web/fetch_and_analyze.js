@@ -52,19 +52,31 @@ function decodeHtmlEntities(str) {
     .replace(/&#x([0-9a-f]+);/gi, (match, hex) => String.fromCharCode(parseInt(hex, 16))); // Hexadecimal entities
 }
 
-// Helper to fetch URL content natively in CommonJS Node
-function fetchUrl(url) {
+// Helper to fetch URL content natively in CommonJS Node, supporting HTTP redirects
+function fetchUrl(url, maxRedirects = 5) {
   return new Promise((resolve, reject) => {
-    https.get(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    const get = (targetUrl, depth) => {
+      if (depth > maxRedirects) {
+        reject(new Error("Too many redirects"));
+        return;
       }
-    }, (res) => {
-      res.setEncoding('utf8'); // Ensure multi-byte UTF-8 streams are decoded correctly
-      let data = '';
-      res.on('data', (chunk) => { data += chunk; });
-      res.on('end', () => { resolve(data); });
-    }).on('error', (err) => { reject(err); });
+      https.get(targetUrl, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+      }, (res) => {
+        // Handle HTTP redirects (status code 3xx)
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          get(res.headers.location, depth + 1);
+          return;
+        }
+        res.setEncoding('utf8'); // Ensure multi-byte UTF-8 streams are decoded correctly
+        let data = '';
+        res.on('data', (chunk) => { data += chunk; });
+        res.on('end', () => { resolve(data); });
+      }).on('error', (err) => { reject(err); });
+    };
+    get(url, 0);
   });
 }
 
@@ -213,6 +225,170 @@ function callGemini(apiKey, promptText) {
   });
 }
 
+// Send Email via Resend REST API
+function sendEmail(apiKey, toEmails, subject, htmlContent) {
+  return new Promise((resolve, reject) => {
+    const to = Array.isArray(toEmails) ? toEmails : toEmails.split(',').map(e => e.trim());
+    
+    const postData = JSON.stringify({
+      from: "AnalizAsistanı <onboarding@resend.dev>",
+      to: to,
+      subject: subject,
+      html: htmlContent
+    });
+
+    const options = {
+      hostname: 'api.resend.com',
+      path: '/emails',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve(JSON.parse(data));
+        } else {
+          reject(new Error(`Resend API HTTP ${res.statusCode}: ${data}`));
+        }
+      });
+    });
+
+    req.on('error', (e) => { reject(e); });
+    req.write(postData);
+    req.end();
+  });
+}
+
+// Generate premium dark-mode HTML template for daily newsletter
+function generateHtmlEmail(date, events) {
+  const relevantEvents = events.filter(e => e.isRelevant && e.analysis);
+  const criticalEvents = relevantEvents.filter(e => e.analysis.isCritical).slice(0, 5);
+  
+  // Group events by category
+  const categories = {
+    "Uluslararası İlişkiler": relevantEvents.filter(e => e.category === "Uluslararası İlişkiler"),
+    "Hukuk ve Mevzuat": relevantEvents.filter(e => e.category === "Hukuk ve Mevzuat"),
+    "Finans ve Ekonomi": relevantEvents.filter(e => e.category === "Finans ve Ekonomi"),
+    "Resmî Gazete": relevantEvents.filter(e => e.category === "Resmî Gazete")
+  };
+  
+  let criticalHtml = "";
+  if (criticalEvents.length > 0) {
+    criticalHtml = `
+      <div style="background-color: #1a1515; border-left: 4px solid #ef4444; padding: 15px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #ef4444; margin-top: 0; font-family: sans-serif; font-size: 16px;">🚨 Günün Kritik Gelişmeleri</h3>
+        <ol style="margin: 0; padding-left: 20px; color: #f8fafc; font-family: sans-serif; font-size: 13px; line-height: 1.6;">
+          ${criticalEvents.map(e => `
+            <li style="margin-bottom: 12px;">
+              <strong><a href="${e.link || '#'}" style="color: #ef4444; text-decoration: underline;">${e.title}</a></strong>
+              <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">📌 <strong>Neden Önemli:</strong> ${e.analysis.whyImportant}</div>
+              <div style="color: #94a3b8; font-size: 12px;">👥 <strong>Kimleri Etkiliyor:</strong> ${e.analysis.whoAffected}</div>
+              <div style="color: #94a3b8; font-size: 12px;">🔍 <strong>Takip Edilecek:</strong> ${e.analysis.followUp}</div>
+            </li>
+          `).join('')}
+        </ol>
+      </div>
+    `;
+  }
+  
+  let sectionsHtml = "";
+  const catIcons = {
+    "Uluslararası İlişkiler": "🌍",
+    "Hukuk ve Mevzuat": "⚖️",
+    "Finans ve Ekonomi": "💰",
+    "Resmî Gazete": "📜"
+  };
+  
+  const catColors = {
+    "Uluslararası İlişkiler": "#f59e0b",
+    "Hukuk ve Mevzuat": "#a855f7",
+    "Finans ve Ekonomi": "#06b6d4",
+    "Resmî Gazete": "#f59e0b"
+  };
+
+  for (const [catName, catItems] of Object.entries(categories)) {
+    if (catItems.length === 0) continue;
+    
+    sectionsHtml += `
+      <div style="margin-bottom: 25px;">
+        <h3 style="color: ${catColors[catName]}; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 6px; font-family: sans-serif; font-size: 15px; margin-top: 20px;">
+          ${catIcons[catName]} ${catName}
+        </h3>
+        ${catItems.map(item => `
+          <div style="background-color: #131926; border: 1px solid rgba(255, 255, 255, 0.04); border-left: 3px solid ${catColors[catName]}; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <h4 style="color: #f8fafc; margin-top: 0; margin-bottom: 8px; font-family: sans-serif; font-size: 14px;">
+              <a href="${item.link || '#'}" style="color: #f8fafc; text-decoration: none;">📌 ${item.title}</a>
+            </h4>
+            <div style="font-size: 12px; color: #f8fafc; line-height: 1.5; margin-bottom: 10px; font-family: sans-serif; background: rgba(255, 255, 255, 0.01); padding: 8px; border-radius: 4px; border: 1px dashed rgba(255, 255, 255, 0.04);">
+              <strong>📄 Kısa Özet:</strong> ${item.analysis.summary}
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-family: sans-serif; font-size: 11px; color: #94a3b8; line-height: 1.4;">
+              <tr>
+                <td style="padding: 3px 0; width: 90px; vertical-align: top; font-weight: bold; color: #64748b;">Jeopolitik:</td>
+                <td style="padding: 3px 0; vertical-align: top;">${item.analysis.geopoliticalImpact}</td>
+              </tr>
+              <tr>
+                <td style="padding: 3px 0; vertical-align: top; font-weight: bold; color: #64748b;">Türkiye:</td>
+                <td style="padding: 3px 0; vertical-align: top;">${item.analysis.turkeyImpact}</td>
+              </tr>
+              <tr>
+                <td style="padding: 3px 0; vertical-align: top; font-weight: bold; color: #64748b;">Finansal:</td>
+                <td style="padding: 3px 0; vertical-align: top;">${item.analysis.financialImpact}</td>
+              </tr>
+              <tr>
+                <td style="padding: 3px 0; vertical-align: top; font-weight: bold; color: #64748b;">Uzun Vade:</td>
+                <td style="padding: 3px 0; vertical-align: top;">${item.analysis.longTerm}</td>
+              </tr>
+            </table>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Günlük Sabah Bülteni</title>
+    </head>
+    <body style="background-color: #0b0f17; color: #f8fafc; font-family: sans-serif; padding: 20px; margin: 0;">
+      <div style="max-width: 600px; margin: 0 auto; background-color: #0f1422; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+        
+        <!-- Header -->
+        <div style="border-bottom: 2px solid rgba(255, 255, 255, 0.08); padding-bottom: 12px; margin-bottom: 20px;">
+          <h2 style="color: #f8fafc; margin: 0; font-family: sans-serif; font-size: 18px; font-weight: bold;">
+            🧠 AnalizAsistanı Sabah Raporu
+          </h2>
+          <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 11px;">Tarih: ${date} | Son 24 Saatlik Gelişmeler</p>
+        </div>
+
+        <!-- Critical Events -->
+        ${criticalHtml}
+
+        <!-- Sections -->
+        ${sectionsHtml}
+
+        <!-- Footer -->
+        <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; margin-top: 25px; text-align: center; font-size: 10px; color: #64748b;">
+          Bu rapor AnalizAsistanı tarafından otomatik olarak hazırlanmıştır.<br>
+          <a href="https://haber-agent.vercel.app" style="color: #06b6d4; text-decoration: none; font-weight: bold;">Canlı Dashboard'u Görüntüle</a>
+        </div>
+
+      </div>
+    </body>
+    </html>
+  `;
+}
+
 // Main function
 async function run() {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -273,7 +449,7 @@ Aşağıdaki konular dışındaki haberleri 'isRelevant': false olarak işaretle
 - Hukuk ve Mevzuat (Emniyet, okul, eğitim veya idari yönetmelikler, kanun değişiklikleri, AYM ve Danıştay kararları, ulusal hukuki reformlar ve anlaşmalar)
 
 Resmî Gazete Kuralları:
-Resmî Gazete'deki kararlardan YALNIZCA ekonomi, finans, vergi, bankacılık, ticaret, gümrük, yatırım, kamu ihaleleri, dış ticaret, enerji, uluslararası anlaşmalar, cumhurbaşkanlığı kararları, yönetmelik, tebliğ ve hukuki kararları seç.
+Resmî Gazete'deki kararlardan YALNIZCA ekonomi, finans, vergi, bankacılık, ticaret, gümrük, yatırım, kamu ihaleleri, dış ticaret, energy, uluslararası anlaşmalar, cumhurbaşkanlığı kararları, yönetmelik, tebliğ ve hukuki kararları seç.
 Önemli yasal reformlar, yönetmelik değişiklikleri (MEB, Emniyet vb.) ve AYM kararlarını 'isRelevant': true yap ve kategorisini 'Hukuk ve Mevzuat' olarak ata.
 Önemsiz bireysel personel atamaları, üniversite kadro ilanları ve küçük bireysel mahkeme ilanlarını 'isRelevant': false yap.
 
@@ -322,6 +498,9 @@ ${JSON.stringify(batch, null, 2)}
     }
   }
 
+  // Only keep relevant analyzed events. Discard all skipped/irrelevant items to prevent generic placeholder leaks.
+  const combinedEvents = analyzedEvents.filter(item => item.isRelevant === true);
+
   // Format skipped events to output schema
   const formattedSkipped = skipped.map(item => ({
     ...item,
@@ -329,10 +508,10 @@ ${JSON.stringify(batch, null, 2)}
     analysis: null
   }));
 
-  const combinedEvents = [...analyzedEvents, ...formattedSkipped];
+  const finalEventsList = [...combinedEvents, ...formattedSkipped];
 
   // Normalize analysis keys to camelCase in case Gemini uses snake_case or different casings
-  const normalizedEvents = combinedEvents.map(item => {
+  const normalizedEvents = finalEventsList.map(item => {
     if (item.analysis) {
       return {
         ...item,
@@ -365,6 +544,56 @@ ${JSON.stringify(batch, null, 2)}
   } catch (err) {
     console.error("HATA: Dosyaya yazma sırasında bir hata oluştu:", err);
     process.exit(1);
+  }
+
+  // Trigger email dispatch if configured in secrets
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const toEmail = process.env.TO_EMAIL;
+  
+  if (resendApiKey) {
+    console.log("E-posta alıcıları Google E-Tablo'dan çekiliyor...");
+    let recipientEmails = [];
+    
+    // Add default email from Secrets if configured
+    if (toEmail) {
+      toEmail.split(',').forEach(e => recipientEmails.push(e.trim().toLowerCase()));
+    }
+    
+    try {
+      // Fetch subscribers from the Google Sheets Web App URL
+      const webAppUrl = "https://script.google.com/macros/s/AKfycbzZR2jLwFmUBE8xtHaKmcFHK6vUV5KOCb7Wr2cMIw4R9Xdr2Mxq4_6hNb39zFGo75Kf/exec";
+      const jsonText = await fetchUrl(webAppUrl);
+      const sheetEmails = JSON.parse(jsonText);
+      if (Array.isArray(sheetEmails)) {
+        sheetEmails.forEach(e => {
+          const email = e.trim().toLowerCase();
+          if (email && email.includes('@')) {
+            recipientEmails.push(email);
+          }
+        });
+      }
+    } catch (sheetErr) {
+      console.warn("UYARI: E-Tablo abone listesi alınamadı (doGet tanımlanmamış veya yayında değil):", sheetErr.message);
+    }
+    
+    // Deduplicate and filter emails
+    const uniqueRecipients = [...new Set(recipientEmails)];
+    
+    if (uniqueRecipients.length > 0) {
+      console.log(`E-posta bülteni ${uniqueRecipients.length} aboneye gönderiliyor... Liste:`, uniqueRecipients);
+      try {
+        const emailSubject = `AnalizAsistanı: Günlük Sabah Raporu (${dateToday})`;
+        const emailHtml = generateHtmlEmail(dateToday, normalizedEvents);
+        await sendEmail(resendApiKey, uniqueRecipients.join(','), emailSubject, emailHtml);
+        console.log("BAŞARILI: Sabah bülteni e-postaları tüm abonelere başarıyla gönderildi!");
+      } catch (emailErr) {
+        console.error("HATA: E-posta gönderimi sırasında hata oluştu:", emailErr.message);
+      }
+    } else {
+      console.log("Bilgi: E-posta gönderilecek herhangi bir alıcı bulunamadı.");
+    }
+  } else {
+    console.log("Bilgi: E-posta gönderimi yapılandırılmadı (RESEND_API_KEY eksik).");
   }
 }
 
