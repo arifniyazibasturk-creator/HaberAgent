@@ -279,7 +279,14 @@ Resmî Gazete'deki kararlardan YALNIZCA ekonomi, finans, vergi, bankacılık, ti
 
 Analiz Formatı:
 Kabul edilen her haber için 'analysis' objesi içinde şu bilgileri doldur (Kategori 'Hukuk ve Mevzuat' ise de bu alanları doldur):
-- summary: Haber özetini yazın. Özet çok uzun olmamalı (en fazla 3 cümle) ancak son derece somut, bilgilendirici ve açıklayıcı olmalıdır. "Değişiklik yapıldı", "kurallar değişti" gibi genel ve kapalı ifadeler yerine; yapılan değişikliğin ne olduğunu (örneğin: hangi maddelerin değiştiğini, yeni kuralların ne getirdiğini veya kararın içeriğini) ilk okuyuşta tam olarak anlaşılacak şekilde somut detaylarıyla yazın.
+- summary: Haber özetini yazın. Özet çok uzun olmamalı (en fazla 3-4 cümle) ancak son derece somut, bilgilendirici ve açıklayıcı olmalıdır.
+  * ÖZET YAZIMINDA ALTIN KURALLAR:
+    1. Haber özetlerinin ucunu kesinlikle açık veya belirsiz bırakmayın. "Değişiklik yapıldı", "kurallar değişti", "kararlar ve duyurular yayımlandı" gibi genel, içi boş ve hiçbir bilgi içermeyen ifadeler KESİNLİKLE YASAKTIR.
+    2. Kararın ne olduğunu, ne ile ilgili alındığını, hangi somut kuralların/maddelerin değiştiğini ve doğrudan sonucunun ne olacağını ilk okuyuşta tam olarak anlaşılacak şekilde somut detaylarıyla yazın.
+    3. ÖRNEK KÖTÜ ÖZET (YASAK): "Milli Eğitim Bakanlığı okul yönetmeliğinde bazı önemli değişiklikler yaptı."
+    4. ÖRNEK KÖTÜ ÖZET (YASAK): "Resmi Gazete'nin güncel sayısında kararlar ve duyurular kamuoyunun bilgisine sunulmuştur."
+    5. ÖRNEK İYİ ÖZET (İSTENEN): "Milli Eğitim Bakanlığı okul öncesi yönetmeliğini değiştirerek; okula kayıt yaşını 36-68 ay aralığına çekti, velilerden alınan aylık aidat sistemini kaldırdı ve ders sürelerini 50 dakikadan 40 dakikaya indirdi."
+    6. EĞER elinizdeki haber veya Resmi Gazete içeriği somut detaylar (maddeler, oranlar, isimler vb.) İÇERMİYORSA ve sadece "Resmi Gazete yayımlandı" gibi boş bir başlıktan ibaretse, bu haberi kesinlikle 'isRelevant': false yapıp eleyin! Yalnızca içeriğinde somut bilgi olan haberleri kabul edin.
 - geopoliticalImpact: Jeopolitik etkisi (Eğer hukuk haberiyse uluslararası etkilerini veya AB/AİHM uyumunu değerlendir)
 - turkeyImpact: Türkiye açısından etkisi
 - financialImpact: Finansal etkisi
