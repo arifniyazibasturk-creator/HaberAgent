@@ -23,6 +23,8 @@ jobs:
       - name: Run Scraper and Analyzer
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
         run: |
           cd Web
           node fetch_and_analyze.js
