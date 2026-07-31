@@ -67,9 +67,21 @@ function fetchUrl(url, maxRedirects = 5) {
       }, (res) => {
         // Handle HTTP redirects (status code 3xx)
         if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-          get(res.headers.location, depth + 1);
+          let nextUrl = res.headers.location;
+          if (nextUrl.startsWith('/')) {
+            const parsedUrl = new URL(targetUrl);
+            nextUrl = `${parsedUrl.protocol}//${parsedUrl.host}${nextUrl}`;
+          }
+          get(nextUrl, depth + 1);
           return;
         }
+        
+        // Reject on HTTP error status codes (e.g. 403, 429, 503)
+        if (res.statusCode !== 200) {
+          reject(new Error(`HTTP status code ${res.statusCode}`));
+          return;
+        }
+        
         res.setEncoding('utf8'); // Ensure multi-byte UTF-8 streams are decoded correctly
         let data = '';
         res.on('data', (chunk) => { data += chunk; });
