@@ -115,15 +115,96 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+/* Subscription Box & Headline Link styling */
+.subscription-box {
+  background: rgba(168, 85, 247, 0.05);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  margin-top: 20px;
+}
+.sub-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sub-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  transition: var(--transition-smooth);
+}
+.sub-input:focus {
+  border-color: var(--accent-purple);
+  outline: none;
+  background: rgba(0, 0, 0, 0.4);
+}
+.sub-btn {
+  background: var(--accent-purple);
+  color: var(--text-primary);
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.sub-btn:hover {
+  background: #b56ff9;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+.sub-msg {
+  font-size: 0.7rem;
+  margin-top: 8px;
+  display: none;
+  line-height: 1.3;
+}
+.sub-msg.success {
+  color: var(--accent-emerald);
+  display: block;
+}
+.sub-msg.error {
+  color: var(--accent-ruby);
+  display: block;
+}
+
+.analysis-card-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  display: inline-block;
+  cursor: pointer;
+}
+.analysis-card-link:hover {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+}
+
 @media (max-width: 900px) {
   .app-container {
     grid-template-columns: 1fr;
-    height: 100vh;
-    overflow: hidden;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
   }
   .main-content {
     padding: 16px;
+    height: auto;
+    min-height: 100vh;
     overflow-x: hidden;
+    overflow-y: visible;
+  }
+  .section-content-wrapper {
+    max-height: 480px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 6px;
   }
   .sidebar {
     position: fixed;

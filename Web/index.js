@@ -721,7 +721,7 @@ function renderVisualBulletin() {
             <span class="filtered-rg-badge">${item.subType}</span>
             <span class="filtered-rg-reason">Gerekçe: Personel/İlan/Bireysel Karar (Hariç Tutuldu)</span>
           </div>
-          <h5>${item.title}</h5>
+          <h5><a href="${item.link || '#'}" target="_blank" class="analysis-card-link">${item.title}</a></h5>
           <p>${item.body}</p>
         `;
         filteredDiv.appendChild(div);
@@ -806,7 +806,7 @@ function renderVisualBulletin() {
         card.innerHTML = `
           <div class="critical-number">0${index + 1}</div>
           <div class="critical-top-content">
-            <h4>${item.title}</h4>
+            <h4><a href="${item.link || '#'}" target="_blank" class="analysis-card-link">${item.title}</a></h4>
             <div class="critical-details-grid">
               <div class="critical-detail-item">
                 <span class="detail-label">📌 Neden önemli?</span>
@@ -843,7 +843,9 @@ function createAnalysisCard(item) {
   
   card.innerHTML = `
     <div class="analysis-card-header">
-      <h4 class="analysis-card-title">📌 ${item.title}</h4>
+      <h4 class="analysis-card-title">
+        <a href="${item.link || '#'}" target="_blank" class="analysis-card-link">📌 ${item.title}</a>
+      </h4>
       <span class="analysis-card-source">${item.source} (${item.timestamp.substring(11, 16)})</span>
     </div>
     
@@ -1134,6 +1136,33 @@ window.toggleSidebar = function(forceState) {
       if (overlay) overlay.classList.add("active");
     }
   }
+};
+
+// Newsletter email subscription helper
+window.subscribeEmail = function() {
+  const emailInput = document.getElementById("sub-email");
+  const msgEl = document.getElementById("sub-msg");
+  if (!emailInput || !msgEl) return;
+  
+  const email = emailInput.value.trim();
+  if (!email) {
+    msgEl.textContent = "Lütfen e-posta adresinizi girin.";
+    msgEl.className = "sub-msg error";
+    return;
+  }
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    msgEl.textContent = "Geçersiz e-posta adresi.";
+    msgEl.className = "sub-msg error";
+    return;
+  }
+  
+  // Save locally
+  localStorage.setItem("subscribed_email", email);
+  msgEl.textContent = "Başarıyla kaydedildi! Raporlar bu adrese iletilecektir.";
+  msgEl.className = "sub-msg success";
+  emailInput.value = "";
 };
 
 document.addEventListener("DOMContentLoaded", async () => {

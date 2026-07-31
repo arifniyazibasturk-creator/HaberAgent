@@ -76,10 +76,11 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
   for (const match of matches) {
     const content = match[1];
     
-    // Extract title, description/body, and pubDate
+    // Extract title, description/body, pubDate, and link
     const titleMatch = content.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/) || content.match(/<title>([\s\S]*?)<\/title>/);
     const descMatch = content.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/) || content.match(/<description>([\s\S]*?)<\/description>/);
     const pubDateMatch = content.match(/<pubDate>([\s\S]*?)<\/pubDate>/);
+    const linkMatch = content.match(/<link><!\[CDATA\[([\s\S]*?)\]\]><\/link>/) || content.match(/<link>([\s\S]*?)<\/link>/);
     
     if (titleMatch) {
       // Decode HTML entities and strip XML/HTML tags
@@ -105,7 +106,8 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
         body: body || title,
         category: defaultCategory,
         subType,
-        timestamp: new Date(pubDate).toISOString()
+        timestamp: new Date(pubDate).toISOString(),
+        link: linkMatch ? linkMatch[1].trim() : ""
       });
     }
   }
@@ -150,6 +152,7 @@ function callGemini(apiKey, promptText) {
                   subType: { type: "STRING" },
                   timestamp: { type: "STRING" },
                   isRelevant: { type: "BOOLEAN" },
+                  link: { type: "STRING" },
                   analysis: {
                     type: "OBJECT",
                     properties: {
@@ -166,7 +169,7 @@ function callGemini(apiKey, promptText) {
                     required: ["summary", "geopoliticalImpact", "turkeyImpact", "financialImpact", "longTerm", "isCritical", "whyImportant", "whoAffected", "followUp"]
                   }
                 },
-                required: ["source", "title", "body", "category", "isRelevant", "analysis"]
+                required: ["source", "title", "body", "category", "isRelevant", "analysis", "link"]
               }
             }
           },
@@ -276,7 +279,7 @@ Resmî Gazete'deki kararlardan YALNIZCA ekonomi, finans, vergi, bankacılık, ti
 
 Analiz Formatı:
 Kabul edilen her haber için 'analysis' objesi içinde şu bilgileri doldur (Kategori 'Hukuk ve Mevzuat' ise de bu alanları doldur):
-- summary: Olayın ne olduğunu, neden kaynaklandığını ve en önemli detaylarını içeren 3-5 cümlelik kapsamlı, açıklayıcı ve tatmin edici bir özet yazın (1-2 cümlelik çok kısa veya belirsiz özetler kesinlikle yazmayın).
+- summary: Haber özetini yazın. Özet çok uzun olmamalı (en fazla 3 cümle) ancak son derece somut, bilgilendirici ve açıklayıcı olmalıdır. "Değişiklik yapıldı", "kurallar değişti" gibi genel ve kapalı ifadeler yerine; yapılan değişikliğin ne olduğunu (örneğin: hangi maddelerin değiştiğini, yeni kuralların ne getirdiğini veya kararın içeriğini) ilk okuyuşta tam olarak anlaşılacak şekilde somut detaylarıyla yazın.
 - geopoliticalImpact: Jeopolitik etkisi (Eğer hukuk haberiyse uluslararası etkilerini veya AB/AİHM uyumunu değerlendir)
 - turkeyImpact: Türkiye açısından etkisi
 - financialImpact: Finansal etkisi

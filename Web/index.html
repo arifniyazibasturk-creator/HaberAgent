@@ -45,6 +45,18 @@
         <div class="countdown-time" id="countdown-timer">00:00:00</div>
         <span style="font-size: 0.7rem; color: var(--text-muted);">Günlük saat 09:00 (Europe/Istanbul)</span>
       </div>
+
+      <div class="subscription-box">
+        <span class="section-label" style="margin-bottom: 8px; display: block;">📧 Bülten Aboneliği</span>
+        <p style="font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.35;">
+          Günlük analizleri her sabah e-posta ile almak için kaydolun.
+        </p>
+        <div class="sub-form">
+          <input type="email" id="sub-email" placeholder="E-posta adresiniz" class="sub-input" />
+          <button class="sub-btn" onclick="subscribeEmail()">Abone Ol</button>
+        </div>
+        <div id="sub-msg" class="sub-msg"></div>
+      </div>
     </aside>
     <div class="sidebar-overlay active" id="sidebar-overlay" onclick="toggleSidebar(false)"></div>
 
