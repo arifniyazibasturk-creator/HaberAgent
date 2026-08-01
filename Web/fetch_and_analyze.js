@@ -237,7 +237,7 @@ function callGemini(apiKey, promptText) {
   });
 }
 
-// Send Email via Gmail SMTP Server (Port 465 SSL/TLS) natively in Node.js
+// Send Email via Gmail SMTP Server (Port 465 SSL/TLS) natively in Node.js, supporting multi-line replies
 function sendEmail(user, pass, to, subject, html) {
   const tls = require('tls');
   return new Promise((resolve, reject) => {
@@ -246,7 +246,7 @@ function sendEmail(user, pass, to, subject, html) {
     });
 
     let step = 0;
-    let response = '';
+    let buffer = '';
 
     const send = (cmd) => {
       socket.write(cmd + '\r\n');
@@ -254,18 +254,29 @@ function sendEmail(user, pass, to, subject, html) {
 
     socket.setEncoding('utf8');
     socket.on('data', (data) => {
-      response += data;
+      buffer += data;
 
-      if (data.endsWith('\n') || data.includes('\r\n')) {
-        const lines = response.split('\r\n');
-        const lastLine = lines[lines.length - 2] || lines[0];
-        const code = lastLine.substring(0, 3);
-        response = ''; // Reset reading buffer
+      // Process lines from SMTP socket stream
+      while (true) {
+        const lineEnd = buffer.indexOf('\n');
+        if (lineEnd === -1) break;
 
+        const line = buffer.substring(0, lineEnd).replace(/\r$/, '');
+        buffer = buffer.substring(lineEnd + 1);
+
+        const code = line.substring(0, 3);
+        const separator = line.charAt(3); // '-' indicates multi-line intermediate, ' ' indicates final line
+
+        // If it's a multi-line intermediate reply, skip processing until we hit the final line
+        if (separator === '-') {
+          continue;
+        }
+
+        // Process only once the final line of the reply is received
         if (step === 0 && code === '220') {
           send('EHLO localhost');
           step = 1;
-        } else if (step === 1 && (code === '250' || code === '220')) {
+        } else if (step === 1 && code === '250') {
           send('AUTH LOGIN');
           step = 2;
         } else if (step === 2 && code === '334') {
@@ -305,7 +316,7 @@ function sendEmail(user, pass, to, subject, html) {
           resolve();
         } else if (code.startsWith('4') || code.startsWith('5')) {
           socket.end();
-          reject(new Error(`SMTP Error: ${lastLine}`));
+          reject(new Error(`SMTP Error [Step ${step}]: ${line}`));
         }
       }
     });
