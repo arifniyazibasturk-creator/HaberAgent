@@ -656,7 +656,7 @@ function renderEventsList() {
     card.innerHTML = `
       <div class="pipeline-card-header">
         <span class="badge ${badgeClass}">${badgeText}</span>
-        <span class="pipeline-time">${item.timestamp.substring(11, 16)}</span>
+        <span class="pipeline-time">${(item.timestamp && item.timestamp.length >= 16) ? item.timestamp.substring(11, 16) : "09:00"}</span>
       </div>
       <h4 class="pipeline-title">${item.title}</h4>
       <p class="pipeline-desc">${item.body.substring(0, 100)}...</p>
@@ -846,7 +846,7 @@ function createAnalysisCard(item) {
       <h4 class="analysis-card-title">
         <a href="${item.link || '#'}" target="_blank" class="analysis-card-link">📌 ${item.title}</a>
       </h4>
-      <span class="analysis-card-source">${item.source} (${item.timestamp.substring(11, 16)})</span>
+      <span class="analysis-card-source">${item.source} (${(item.timestamp && item.timestamp.length >= 16) ? item.timestamp.substring(11, 16) : "09:00"})</span>
     </div>
     
     <div class="analysis-summary-box">

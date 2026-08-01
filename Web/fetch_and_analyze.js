@@ -193,7 +193,7 @@ function callGemini(apiKey, promptText) {
                     required: ["summary", "geopoliticalImpact", "turkeyImpact", "financialImpact", "longTerm", "isCritical", "whyImportant", "whoAffected", "followUp"]
                   }
                 },
-                required: ["source", "title", "body", "category", "isRelevant", "analysis", "link"]
+                required: ["source", "title", "body", "category", "subType", "timestamp", "isRelevant", "analysis", "link"]
               }
             }
           },
@@ -237,44 +237,88 @@ function callGemini(apiKey, promptText) {
   });
 }
 
-// Send Email via Resend REST API
-function sendEmail(apiKey, toEmails, subject, htmlContent) {
+// Send Email via Gmail SMTP Server (Port 465 SSL/TLS) natively in Node.js
+function sendEmail(user, pass, to, subject, html) {
+  const tls = require('tls');
   return new Promise((resolve, reject) => {
-    const to = Array.isArray(toEmails) ? toEmails : toEmails.split(',').map(e => e.trim());
-    
-    const postData = JSON.stringify({
-      from: "AnalizAsistanı <onboarding@resend.dev>",
-      to: to,
-      subject: subject,
-      html: htmlContent
+    const socket = tls.connect(465, 'smtp.gmail.com', {}, () => {
+      // SMTP Connection established
     });
 
-    const options = {
-      hostname: 'api.resend.com',
-      path: '/emails',
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(postData)
-      }
+    let step = 0;
+    let response = '';
+
+    const send = (cmd) => {
+      socket.write(cmd + '\r\n');
     };
 
-    const req = https.request(options, (res) => {
-      let data = '';
-      res.on('data', (chunk) => { data += chunk; });
-      res.on('end', () => {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          resolve(JSON.parse(data));
-        } else {
-          reject(new Error(`Resend API HTTP ${res.statusCode}: ${data}`));
+    socket.setEncoding('utf8');
+    socket.on('data', (data) => {
+      response += data;
+
+      if (data.endsWith('\n') || data.includes('\r\n')) {
+        const lines = response.split('\r\n');
+        const lastLine = lines[lines.length - 2] || lines[0];
+        const code = lastLine.substring(0, 3);
+        response = ''; // Reset reading buffer
+
+        if (step === 0 && code === '220') {
+          send('EHLO localhost');
+          step = 1;
+        } else if (step === 1 && (code === '250' || code === '220')) {
+          send('AUTH LOGIN');
+          step = 2;
+        } else if (step === 2 && code === '334') {
+          // Send base64 username
+          send(Buffer.from(user).toString('base64'));
+          step = 3;
+        } else if (step === 3 && code === '334') {
+          // Send base64 password
+          send(Buffer.from(pass).toString('base64'));
+          step = 4;
+        } else if (step === 4 && code === '235') {
+          send(`MAIL FROM:<${user}>`);
+          step = 5;
+        } else if (step === 5 && code === '250') {
+          send(`RCPT TO:<${to}>`);
+          step = 6;
+        } else if (step === 6 && code === '250') {
+          send('DATA');
+          step = 7;
+        } else if (step === 7 && code === '354') {
+          const emailData = [
+            `From: "AnalizAsistanı" <${user}>`,
+            `To: <${to}>`,
+            `Subject: ${subject}`,
+            'MIME-Version: 1.0',
+            'Content-Type: text/html; charset=UTF-8',
+            '',
+            html,
+            '.'
+          ].join('\r\n');
+          send(emailData);
+          step = 8;
+        } else if (step === 8 && code === '250') {
+          send('QUIT');
+          step = 9;
+          socket.end();
+          resolve();
+        } else if (code.startsWith('4') || code.startsWith('5')) {
+          socket.end();
+          reject(new Error(`SMTP Error: ${lastLine}`));
         }
-      });
+      }
     });
 
-    req.on('error', (e) => { reject(e); });
-    req.write(postData);
-    req.end();
+    socket.on('error', (err) => {
+      reject(err);
+    });
+
+    socket.on('close', () => {
+      if (step < 9) {
+        reject(new Error('SMTP Connection closed prematurely'));
+      }
+    });
   });
 }
 
@@ -467,9 +511,11 @@ ${JSON.stringify(batch, null, 2)}
 
   // Normalize analysis keys to camelCase in case Gemini uses snake_case or different casings
   const normalizedEvents = finalEventsList.map(item => {
+    const defaultTimestamp = new Date().toISOString();
     if (item.analysis) {
       return {
         ...item,
+        timestamp: item.timestamp || defaultTimestamp,
         analysis: {
           summary: item.analysis.summary || "",
           geopoliticalImpact: item.analysis.geopoliticalImpact || item.analysis.geopolitical_impact || item.analysis.geopolitical || "",
@@ -483,7 +529,10 @@ ${JSON.stringify(batch, null, 2)}
         }
       };
     }
-    return item;
+    return {
+      ...item,
+      timestamp: item.timestamp || defaultTimestamp
+    };
   });
 
   // Structure final json
@@ -502,10 +551,11 @@ ${JSON.stringify(batch, null, 2)}
   }
 
   // Trigger email dispatch if configured in secrets
-  const resendApiKey = process.env.RESEND_API_KEY;
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailPass = process.env.GMAIL_PASS;
   const toEmail = process.env.TO_EMAIL;
   
-  if (resendApiKey) {
+  if (gmailUser && gmailPass) {
     console.log("E-posta alıcıları Google E-Tablo'dan çekiliyor...");
     let recipientEmails = [];
     
@@ -536,19 +586,23 @@ ${JSON.stringify(batch, null, 2)}
     
     if (uniqueRecipients.length > 0) {
       console.log(`E-posta bülteni ${uniqueRecipients.length} aboneye gönderiliyor... Liste:`, uniqueRecipients);
-      try {
-        const emailSubject = `AnalizAsistanı: Günlük Sabah Raporu (${dateToday})`;
-        const emailHtml = generateHtmlEmail(dateToday, normalizedEvents);
-        await sendEmail(resendApiKey, uniqueRecipients.join(','), emailSubject, emailHtml);
-        console.log("BAŞARILI: Sabah bülteni e-postaları tüm abonelere başarıyla gönderildi!");
-      } catch (emailErr) {
-        console.error("HATA: E-posta gönderimi sırasında hata oluştu:", emailErr.message);
+      const emailSubject = `AnalizAsistanı: Günlük Sabah Raporu (${dateToday})`;
+      const emailHtml = generateHtmlEmail(dateToday, normalizedEvents);
+      
+      for (const email of uniqueRecipients) {
+        try {
+          console.log(`Gönderiliyor: ${email}`);
+          await sendEmail(gmailUser, gmailPass, email, emailSubject, emailHtml);
+          console.log(`BAŞARILI: E-posta '${email}' adresine gönderildi!`);
+        } catch (emailErr) {
+          console.error(`HATA: '${email}' adresine e-posta gönderilemedi:`, emailErr.message);
+        }
       }
     } else {
       console.log("Bilgi: E-posta gönderilecek herhangi bir alıcı bulunamadı.");
     }
   } else {
-    console.log("Bilgi: E-posta gönderimi yapılandırılmadı (RESEND_API_KEY eksik).");
+    console.log("Bilgi: E-posta gönderimi yapılandırılmadı (GMAIL_USER veya GMAIL_PASS eksik).");
   }
 }
 
