@@ -3,6 +3,8 @@ name: Daily Geopolitical & Financial Assistant Update
 on:
   schedule:
     - cron: '0 6 * * *' # Every morning at 09:00 AM Istanbul time (06:00 AM UTC)
+  repository_dispatch:
+    types: [daily_update]
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 permissions:
@@ -23,7 +25,8 @@ jobs:
       - name: Run Scraper and Analyzer
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
         run: |
           cd Web
