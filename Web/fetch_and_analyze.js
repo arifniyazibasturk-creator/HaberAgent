@@ -11,7 +11,7 @@ const FEEDS = [
   },
   {
     name: "TCMB",
-    url: "https://www.tcmb.gov.tr/wps/wcm/connect/tcmb+tr/tcmb+tr/rss/duyurular",
+    url: "https://news.google.com/rss/search?q=site:tcmb.gov.tr&hl=tr&gl=TR&ceid=TR:tr",
     category: "Finans ve Ekonomi"
   },
   {
