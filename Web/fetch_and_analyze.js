@@ -240,6 +240,11 @@ function callGemini(apiKey, promptText) {
 // Send Email via Gmail SMTP Server (Port 465 SSL/TLS) natively in Node.js, supporting multi-line replies
 function sendEmail(user, pass, to, subject, html) {
   const tls = require('tls');
+  
+  // Sanitize email parameters by trimming spaces and stripping quotes
+  const cleanUser = user.trim().replace(/['"]/g, '');
+  const cleanTo = to.trim().replace(/['"]/g, '');
+
   return new Promise((resolve, reject) => {
     const socket = tls.connect(465, 'smtp.gmail.com', {}, () => {
       // SMTP Connection established
@@ -281,25 +286,25 @@ function sendEmail(user, pass, to, subject, html) {
           step = 2;
         } else if (step === 2 && code === '334') {
           // Send base64 username
-          send(Buffer.from(user).toString('base64'));
+          send(Buffer.from(cleanUser).toString('base64'));
           step = 3;
         } else if (step === 3 && code === '334') {
           // Send base64 password
           send(Buffer.from(pass).toString('base64'));
           step = 4;
         } else if (step === 4 && code === '235') {
-          send(`MAIL FROM:<${user}>`);
+          send(`MAIL FROM:<${cleanUser}>`);
           step = 5;
         } else if (step === 5 && code === '250') {
-          send(`RCPT TO:<${to}>`);
+          send(`RCPT TO:<${cleanTo}>`);
           step = 6;
         } else if (step === 6 && code === '250') {
           send('DATA');
           step = 7;
         } else if (step === 7 && code === '354') {
           const emailData = [
-            `From: "AnalizAsistanı" <${user}>`,
-            `To: <${to}>`,
+            `From: "AnalizAsistanı" <${cleanUser}>`,
+            `To: <${cleanTo}>`,
             `Subject: ${subject}`,
             'MIME-Version: 1.0',
             'Content-Type: text/html; charset=UTF-8',
