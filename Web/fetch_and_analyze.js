@@ -2,28 +2,26 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-// RSS Feeds list targeting the requested sources
+// RSS Feeds list targeting the requested sources with broader query terms
 const FEEDS = [
   {
     name: "Türkiye Cumhuriyeti Resmî Gazete",
-    url: "https://news.google.com/rss/search?q=\"resmi+gazete\"&hl=tr&gl=TR&ceid=TR:tr",
+    query: '"resmi gazete" OR "cumhurbaşkanlığı kararı" OR "yönetmelik" OR "tebliğ" OR "anayasa mahkemesi"',
     category: "Resmî Gazete"
   },
   {
     name: "TCMB",
-    url: "https://news.google.com/rss/search?q=site:tcmb.gov.tr&hl=tr&gl=TR&ceid=TR:tr",
+    query: 'site:tcmb.gov.tr OR "merkez bankası" OR "para politikası"',
     category: "Finans ve Ekonomi"
   },
   {
-    // Search query mapping Reuters World, AP News, NATO, AB, BM for Geopolitics
     name: "Reuters World & AP News (Jeopolitik)",
-    url: "https://news.google.com/rss/search?q=jeopolitik+diplomasi+NATO+BM+AB&hl=tr&gl=TR&ceid=TR:tr",
+    query: 'jeopolitik OR diplomasi OR "dış politika" OR "savunma sanayii" OR NATO OR "birleşmiş milletler" OR "doğu akdeniz"',
     category: "Uluslararası İlişkiler"
   },
   {
-    // Search query mapping Reuters Markets, FT, IMF, World Bank, Fed, ECB
     name: "Reuters Markets & Financial Times (Ekonomi)",
-    url: "https://news.google.com/rss/search?q=ekonomi+finans+Fed+ECB+hazine+borsa&hl=tr&gl=TR&ceid=TR:tr",
+    query: 'ekonomi OR finans OR enflasyon OR "para politikası" OR hazine OR borsa OR IMF OR "dünya bankası" OR Fed OR ECB',
     category: "Finans ve Ekonomi"
   }
 ];
@@ -139,6 +137,17 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
   return items;
 }
 
+// Helper to normalize news titles (lowercase, strips source names like "- Bloomberg" or "- Reuters", and removes special chars)
+function getNormalizedTitle(title) {
+  if (!title) return "";
+  let t = title.toLowerCase();
+  // Strip trailing source name patterns like "- bloomberg.com", "- reuters", etc.
+  t = t.replace(/\s*-\s*[^-\s]+(?:\.[a-z]{2,})?\s*$/i, '');
+  // Keep only alphanumeric characters and Turkish-specific letters
+  t = t.replace(/[^a-z0-9ıığüşöç]/gi, '');
+  return t.trim();
+}
+
 // Local pre-filtering logic to avoid sending obviously irrelevant items to AI
 function isItemPotentiallyRelevant(item) {
   if (item.category !== "Resmî Gazete") return true; // Always analyze geopolitics and finance news
@@ -146,7 +155,9 @@ function isItemPotentiallyRelevant(item) {
   const relevantKeywords = [
     "ithalat", "ihracat", "vergi", "faiz", "gümrük", "karar sayısı", "tarife", 
     "enerji", "yatırım", "finans", "banka", "tahvil", "kamu ihale", "anlaşma", "protokol",
-    "yönetmelik", "tebliğ", "hukuk", "karar", "mahkeme", "anayasa", "iptal", "disiplin", "okul"
+    "yönetmelik", "tebliğ", "hukuk", "karar", "mahkeme", "anayasa", "iptal", "disiplin", "okul",
+    "kamu", "ihale", "asgari", "maaş", "zam", "enflasyon", "parasal", "kredi", "mevduat",
+    "kararname", "yargı", "adliye", "ceza", "tazminat", "tüzük"
   ];
   
   const text = (item.title + " " + item.body).toLowerCase();
@@ -412,17 +423,37 @@ async function run() {
     process.exit(1);
   }
 
+  // Load previously processed event titles from existing data_parsed.json for historical deduplication
+  const historicalTitles = new Set();
+  try {
+    const targetPath = path.join(__dirname, 'data_parsed.json');
+    if (fs.existsSync(targetPath)) {
+      const existingData = JSON.parse(fs.readFileSync(targetPath, 'utf-8'));
+      if (existingData && Array.isArray(existingData.events)) {
+        existingData.events.forEach(event => {
+          if (event.title) {
+            historicalTitles.add(getNormalizedTitle(event.title));
+          }
+        });
+      }
+    }
+  } catch (err) {
+    console.warn("UYARI: Geçmiş veritabanı okunamadı, tarihsel tekillik kontrolü atlanıyor:", err.message);
+  }
+
   console.log("Haberler ve RSS kaynakları taranıyor...");
   let allEvents = [];
 
   for (const feed of FEEDS) {
     try {
       console.log(`Taranyor: ${feed.name}`);
-      const xml = await fetchUrl(feed.url);
+      // Build Google News query URL dynamically with URL encoding
+      const url = "https://news.google.com/rss/search?q=" + encodeURIComponent(feed.query) + "&hl=tr&gl=TR&ceid=TR:tr";
+      const xml = await fetchUrl(url);
       const items = parseRss(xml, feed.category, feed.name);
       console.log(`-> ${items.length} içerik bulundu.`);
-      // Limit to 10 newest items per feed to avoid overloading prompt context
-      allEvents = allEvents.concat(items.slice(0, 10));
+      // Limit to 20 newest items per feed to have a wider pool of news for deeper research
+      allEvents = allEvents.concat(items.slice(0, 20));
     } catch (err) {
       console.error(`HATA: ${feed.name} RSS'i alınamadı:`, err.message);
     }
@@ -433,15 +464,39 @@ async function run() {
     process.exit(1);
   }
 
-  // Split events into potentially relevant (for AI) and irrelevant (direct output)
-  const toAnalyze = allEvents.filter(isItemPotentiallyRelevant);
-  const skipped = allEvents.filter(item => !isItemPotentiallyRelevant(item));
+  // Deduplicate: Filter out duplicates of items fetched today, and items historically analyzed previously
+  const uniqueEvents = [];
+  const seenTitlesToday = new Set();
 
-  console.log(`Toplam ${allEvents.length} içerikten ${toAnalyze.length} adedi Gemini ile analiz edilmek üzere paketleniyor...`);
+  for (const event of allEvents) {
+    const normTitle = getNormalizedTitle(event.title);
+    if (!normTitle) continue;
+
+    // Skip if seen in today's scrape pool
+    if (seenTitlesToday.has(normTitle)) {
+      continue;
+    }
+    
+    // Skip if processed in previous days
+    if (historicalTitles.has(normTitle)) {
+      continue;
+    }
+
+    seenTitlesToday.add(normTitle);
+    uniqueEvents.push(event);
+  }
+
+  console.log(`Tekilleştirme sonrası kalan özgün içerik sayısı: ${uniqueEvents.length} (Toplam taranan: ${allEvents.length})`);
+
+  // Split events into potentially relevant (for AI) and irrelevant (direct output)
+  const toAnalyze = uniqueEvents.filter(isItemPotentiallyRelevant);
+  const skipped = uniqueEvents.filter(item => !isItemPotentiallyRelevant(item));
+
+  console.log(`Toplam ${uniqueEvents.length} özgün içerikten ${toAnalyze.length} adedi Gemini ile analiz edilmek üzere paketleniyor...`);
   
   let analyzedEvents = [];
   const dateToday = new Date().toISOString().substring(0, 10);
-  const BATCH_SIZE = 4; // Process in small batches of 4 to ensure high reliability and zero truncation
+  const BATCH_SIZE = 10; // Process in small batches of 10 to ensure high reliability and avoid rate limits
 
   if (toAnalyze.length > 0) {
     for (let i = 0; i < toAnalyze.length; i += BATCH_SIZE) {
