@@ -591,6 +591,21 @@ ${JSON.stringify(batch, null, 2)}
     }
   }
 
+  // Restore original link URLs from scraped uniqueEvents using normalized titles
+  const originalLinkMap = new Map();
+  uniqueEvents.forEach(evt => {
+    if (evt.title) {
+      originalLinkMap.set(getNormalizedTitle(evt.title), evt.link);
+    }
+  });
+
+  analyzedEvents.forEach(evt => {
+    const normTitle = getNormalizedTitle(evt.title);
+    if (originalLinkMap.has(normTitle)) {
+      evt.link = originalLinkMap.get(normTitle);
+    }
+  });
+
   // Only keep relevant analyzed events. Discard all skipped/irrelevant items to prevent generic placeholder leaks.
   const combinedEvents = analyzedEvents.filter(item => item.isRelevant === true);
 

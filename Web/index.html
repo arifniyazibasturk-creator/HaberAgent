@@ -165,6 +165,24 @@
           </div>
         </div>
 
+        <!-- Widget: E-mail Newsletter Subscription -->
+        <div class="widget card bg-red-opacity">
+          <div class="card-header border-red">
+            <h4 class="widget-title">📧 Bülten Aboneliği</h4>
+          </div>
+          <div class="card-body">
+            <p class="widget-desc" style="margin-bottom: 15px;">
+              Günlük yapay zeka analizlerini her sabah e-posta ile almak için listemize katılın.
+            </p>
+            <div class="sub-form">
+              <label for="sub-email" class="sub-label">E-Posta Adresi</label>
+              <input type="email" id="sub-email" placeholder="ornek@mail.com" class="sub-input" />
+              <button class="sub-btn" onclick="subscribeEmail()">Bültene Kaydol</button>
+            </div>
+            <div id="sub-msg" class="sub-msg"></div>
+          </div>
+        </div>
+
         <!-- Widget: Top 5 Critical Developments -->
         <div class="widget card">
           <div class="card-header border-red">
@@ -179,7 +197,7 @@
 
         <!-- Widget: Today's Follow-up Calendar -->
         <div class="widget card">
-          <div class="card-header border-gold">
+          <div class="card-header border-red">
             <h4 class="widget-title">📅 Bugün Takip Edilecek Gelişmeler</h4>
           </div>
           <div class="card-body">
@@ -189,27 +207,10 @@
           </div>
         </div>
 
-        <!-- Widget: E-mail Newsletter Subscription -->
-        <div class="widget card bg-red-opacity">
-          <div class="card-header border-red">
-            <h4 class="widget-title">📧 Bülten Aboneliği</h4>
-          </div>
-          <div class="card-body">
-            <p class="widget-desc" style="margin-bottom: 12px;">
-              Günlük yapay zeka analizlerini her sabah e-posta ile almak için listemize katılın.
-            </p>
-            <div class="sub-form">
-              <input type="email" id="sub-email" placeholder="E-posta adresiniz" class="sub-input" />
-              <button class="sub-btn" onclick="subscribeEmail()">Abone Ol</button>
-            </div>
-            <div id="sub-msg" class="sub-msg"></div>
-          </div>
-        </div>
-
         <!-- Widget: Tracking Sources -->
         <div class="widget card">
-          <div class="card-header border-dark">
-            <h4 class="widget-title">📡 Live Agent Connections</h4>
+          <div class="card-header border-red">
+            <h4 class="widget-title">📡 Canlı Veri Bağlantıları</h4>
           </div>
           <div class="card-body" style="padding: 12px;">
             <ul class="sources-list" id="sources-list">
