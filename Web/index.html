@@ -16,6 +16,9 @@
   <div class="top-bar">
     <div class="container top-bar-content">
       <div class="top-bar-left">
+        <button class="sidebar-toggle-btn" onclick="toggleSidebar()" aria-label="Kontrol Paneli">
+          ☰ KONTROL PANELİ
+        </button>
         <span class="status-indicator">
           <span class="pulsing-dot"></span>
           Asistan Durumu: Aktif
@@ -24,10 +27,7 @@
         <span class="top-bar-date" id="top-bar-date">Bugün: --.--.----</span>
       </div>
       <div class="top-bar-right">
-        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()" aria-label="Tema Değiştir">
-          <span class="icon-sun">☀️ Açık Tema</span>
-          <span class="icon-moon">🌙 Koyu Tema</span>
-        </button>
+        <!-- Theme switcher is now inside the drawer -->
       </div>
     </div>
   </div>
@@ -101,10 +101,37 @@
       <!-- Left Column (70%): Bulletins -->
       <main class="left-column">
         
-        <!-- 1. Resmi Gazete Section -->
-        <section id="section-rg" class="bulletin-section card">
-          <div class="card-header border-red">
+        <!-- 1. Bugünün En Kritik Gelişmeleri -->
+        <section id="section-critical" class="bulletin-section card border-red">
+          <div class="card-header border-red" onclick="toggleCategorySection('section-critical')">
+            <h3 class="card-title">🎯 Bugünün En Kritik Gelişmeleri</h3>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="card-body">
+            <div id="critical-bulletin-container" class="vertical-critical-list events-list-container">
+              <!-- Dynamic top 5 list -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Bugün Takip Edilecek Gelişmeler -->
+        <section id="section-tracking" class="bulletin-section card border-red">
+          <div class="card-header border-red" onclick="toggleCategorySection('section-tracking')">
+            <h3 class="card-title">📅 Bugün Takip Edilecek Gelişmeler</h3>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="card-body">
+            <ul class="tracking-list events-list-container" id="tracking-bulletin-container">
+              <!-- Dynamic items -->
+            </ul>
+          </div>
+        </section>
+        
+        <!-- 3. Resmi Gazete Section -->
+        <section id="section-rg" class="bulletin-section card border-red">
+          <div class="card-header border-red" onclick="toggleCategorySection('section-rg')">
             <h3 class="card-title">📜 Resmî Gazete Kararları</h3>
+            <span class="accordion-icon">▼</span>
           </div>
           <div class="card-body">
             <div id="rg-bulletin-container" class="events-list-container">
@@ -113,10 +140,11 @@
           </div>
         </section>
 
-        <!-- 2. Uluslararası İlişkiler Section -->
-        <section id="section-ui" class="bulletin-section card">
-          <div class="card-header border-gold">
+        <!-- 4. Uluslararası İlişkiler Section -->
+        <section id="section-ui" class="bulletin-section card border-gold">
+          <div class="card-header border-gold" onclick="toggleCategorySection('section-ui')">
             <h3 class="card-title">🌍 Uluslararası İlişkiler & Diplomasi</h3>
+            <span class="accordion-icon">▼</span>
           </div>
           <div class="card-body">
             <div id="ui-bulletin-container" class="events-list-container">
@@ -125,10 +153,11 @@
           </div>
         </section>
 
-        <!-- 3. Hukuk ve Mevzuat Section -->
-        <section id="section-law" class="bulletin-section card">
-          <div class="card-header border-purple">
+        <!-- 5. Hukuk ve Mevzuat Section -->
+        <section id="section-law" class="bulletin-section card border-purple">
+          <div class="card-header border-purple" onclick="toggleCategorySection('section-law')">
             <h3 class="card-title">⚖️ Hukuk ve Mevzuat</h3>
+            <span class="accordion-icon">▼</span>
           </div>
           <div class="card-body">
             <div id="law-bulletin-container" class="events-list-container">
@@ -137,10 +166,11 @@
           </div>
         </section>
 
-        <!-- 4. Finans ve Ekonomi Section -->
-        <section id="section-fe" class="bulletin-section card">
-          <div class="card-header border-cyan">
+        <!-- 6. Finans ve Ekonomi Section -->
+        <section id="section-fe" class="bulletin-section card border-cyan">
+          <div class="card-header border-cyan" onclick="toggleCategorySection('section-fe')">
             <h3 class="card-title">💹 Finans, Ekonomi ve Piyasalar</h3>
+            <span class="accordion-icon">▼</span>
           </div>
           <div class="card-body">
             <div id="fe-bulletin-container" class="events-list-container">
@@ -151,75 +181,72 @@
 
       </main>
 
-      <!-- Right Column (30%): Sidebar Widgets -->
-      <aside class="right-column">
+      <!-- Left Sidebar Drawer (collapsible control panel) -->
+      <aside id="sidebar-drawer" class="sidebar-drawer">
+        <div class="drawer-header">
+          <h4 class="drawer-title">⚙️ KONTROL PANELİ</h4>
+          <button class="close-drawer-btn" onclick="toggleSidebar()" aria-label="Kapat">&times;</button>
+        </div>
         
-        <!-- Widget: Countdown Timer -->
-        <div class="widget card">
-          <div class="card-header border-dark">
-            <h4 class="widget-title">🕒 Sonraki Sabah Bülteni</h4>
-          </div>
-          <div class="card-body text-center">
-            <div class="countdown-time" id="countdown-timer">00:00:00</div>
-            <p class="widget-desc">Günlük saat 09:00'da otomatik tetiklenir (Europe/Istanbul)</p>
-          </div>
-        </div>
-
-        <!-- Widget: E-mail Newsletter Subscription -->
-        <div class="widget card bg-red-opacity">
-          <div class="card-header border-red">
-            <h4 class="widget-title">📧 Bülten Aboneliği</h4>
-          </div>
-          <div class="card-body">
-            <p class="widget-desc" style="margin-bottom: 15px;">
-              Günlük yapay zeka analizlerini her sabah e-posta ile almak için listemize katılın.
-            </p>
-            <div class="sub-form">
-              <label for="sub-email" class="sub-label">E-Posta Adresi</label>
-              <input type="email" id="sub-email" placeholder="ornek@mail.com" class="sub-input" />
-              <button class="sub-btn" onclick="subscribeEmail()">Bültene Kaydol</button>
+        <div class="drawer-content">
+          <!-- Widget: Theme Toggle Switcher -->
+          <div class="widget card">
+            <div class="card-header border-red">
+              <h4 class="widget-title">🌗 Tema Seçimi</h4>
             </div>
-            <div id="sub-msg" class="sub-msg"></div>
-          </div>
-        </div>
-
-        <!-- Widget: Top 5 Critical Developments -->
-        <div class="widget card">
-          <div class="card-header border-red">
-            <h4 class="widget-title">🎯 Bugünün En Kritik Gelişmeleri</h4>
-          </div>
-          <div class="card-body">
-            <div id="critical-bulletin-container" class="vertical-critical-list">
-              <!-- Dynamic top 5 list -->
+            <div class="card-body text-center" style="padding: 15px;">
+              <button id="theme-toggle" class="drawer-theme-btn" onclick="toggleTheme()" aria-label="Tema Değiştir">
+                <span class="icon-sun">☀️ Açık Tema</span>
+                <span class="icon-moon">🌙 Koyu Tema</span>
+              </button>
             </div>
           </div>
-        </div>
 
-        <!-- Widget: Today's Follow-up Calendar -->
-        <div class="widget card">
-          <div class="card-header border-red">
-            <h4 class="widget-title">📅 Bugün Takip Edilecek Gelişmeler</h4>
+          <!-- Widget: Countdown Timer -->
+          <div class="widget card">
+            <div class="card-header border-red">
+              <h4 class="widget-title">🕒 Rapor Geri Sayımı</h4>
+            </div>
+            <div class="card-body text-center" style="padding: 15px;">
+              <div class="countdown-time" id="countdown-timer">00:00:00</div>
+              <p class="widget-desc" style="font-size: 0.7rem;">Günlük saat 09:00'da otomatik tetiklenir (Europe/Istanbul)</p>
+            </div>
           </div>
-          <div class="card-body">
-            <ul class="tracking-list" id="tracking-bulletin-container">
-              <!-- Dynamic items -->
-            </ul>
+
+          <!-- Widget: E-mail Newsletter Subscription -->
+          <div class="widget card bg-red-opacity">
+            <div class="card-header border-red">
+              <h4 class="widget-title">📧 Bülten Aboneliği</h4>
+            </div>
+            <div class="card-body" style="padding: 15px;">
+              <p class="widget-desc" style="margin-bottom: 12px; font-size: 0.75rem;">
+                Günlük analizleri her sabah e-posta ile almak için kaydolun.
+              </p>
+              <div class="sub-form">
+                <label for="sub-email" class="sub-label">E-Posta Adresi</label>
+                <input type="email" id="sub-email" placeholder="ornek@mail.com" class="sub-input" />
+                <button class="sub-btn" onclick="subscribeEmail()">Bültene Kaydol</button>
+              </div>
+              <div id="sub-msg" class="sub-msg"></div>
+            </div>
+          </div>
+
+          <!-- Widget: Tracking Sources -->
+          <div class="widget card">
+            <div class="card-header border-red">
+              <h4 class="widget-title">📡 Canlı Veri Bağlantıları</h4>
+            </div>
+            <div class="card-body" style="padding: 12px;">
+              <ul class="sources-list" id="sources-list">
+                <!-- Dynamic sources -->
+              </ul>
+            </div>
           </div>
         </div>
-
-        <!-- Widget: Tracking Sources -->
-        <div class="widget card">
-          <div class="card-header border-red">
-            <h4 class="widget-title">📡 Canlı Veri Bağlantıları</h4>
-          </div>
-          <div class="card-body" style="padding: 12px;">
-            <ul class="sources-list" id="sources-list">
-              <!-- Dynamic sources -->
-            </ul>
-          </div>
-        </div>
-
       </aside>
+
+      <!-- Sidebar Overlay backdrop -->
+      <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
     </div>
 
     <!-- Raw Markdown View Pane -->

@@ -1225,6 +1225,23 @@ window.toggleTheme = function() {
   }
 };
 
+window.toggleSidebar = function() {
+  document.body.classList.toggle("sidebar-open");
+};
+
+window.toggleCategorySection = function(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.classList.toggle("collapsed");
+    
+    // Toggle state icon indicator
+    const icon = section.querySelector(".accordion-icon");
+    if (icon) {
+      icon.textContent = section.classList.contains("collapsed") ? "▲" : "▼";
+    }
+  }
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Initialize Theme from localStorage
   const savedTheme = localStorage.getItem("theme") || "dark";
