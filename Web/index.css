@@ -1293,25 +1293,16 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 
-  /* Independent Horizontal Swipe for Mobile Categories */
+  /* Stack cards vertically on mobile inside accordions */
   .events-list-container {
-    display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 14px;
-    padding-bottom: 15px;
-    margin: 0 -24px;
-    padding-left: 24px;
-    padding-right: 24px;
+    display: block !important;
+    overflow-x: visible !important;
   }
 
-  /* Make cards snap and peek next item */
   .analysis-card {
-    flex: 0 0 85% !important;
-    scroll-snap-align: start;
-    margin-bottom: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
     box-shadow: 2px 2px 0 var(--border-color) !important;
   }
 
