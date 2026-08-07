@@ -232,7 +232,30 @@ function callGemini(apiKey, promptText) {
         try {
           const json = JSON.parse(data);
           if (json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts[0]) {
-            resolve(JSON.parse(json.candidates[0].content.parts[0].text));
+            const rawText = json.candidates[0].content.parts[0].text;
+            
+            try {
+              // Strip markdown wrapper ticks if Gemini accidentally outputs them
+              let cleanedText = rawText.trim();
+              if (cleanedText.startsWith("```json")) {
+                cleanedText = cleanedText.substring(7);
+              } else if (cleanedText.startsWith("```")) {
+                cleanedText = cleanedText.substring(3);
+              }
+              if (cleanedText.endsWith("```")) {
+                cleanedText = cleanedText.substring(0, cleanedText.length - 3);
+              }
+              cleanedText = cleanedText.trim();
+              
+              resolve(JSON.parse(cleanedText));
+            } catch (parseErr) {
+              console.error("HATA: Gemini yanıtı geçerli bir JSON formatında değil!");
+              console.error("Ham yanıt uzunluğu:", rawText.length);
+              console.error("Ham yanıt başı (ilk 300 karakter):", rawText.substring(0, 300));
+              console.error("Ham yanıt sonu (son 300 karakter):", rawText.substring(Math.max(0, rawText.length - 300)));
+              reject(new Error(`Gemini JSON Ayrıştırma Hatası: ${parseErr.message}`));
+            }
+            
           } else {
             reject(new Error("Gemini API call failed: " + JSON.stringify(json)));
           }
@@ -496,7 +519,7 @@ async function run() {
   
   let analyzedEvents = [];
   const dateToday = new Date().toISOString().substring(0, 10);
-  const BATCH_SIZE = 10; // Process in small batches of 10 to ensure high reliability and avoid rate limits
+  const BATCH_SIZE = 6; // Process in small batches of 6 to prevent output truncation and avoid rate limits
 
   if (toAnalyze.length > 0) {
     for (let i = 0; i < toAnalyze.length; i += BATCH_SIZE) {

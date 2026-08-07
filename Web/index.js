@@ -674,6 +674,30 @@ function renderEventsList() {
 function renderVisualBulletin() {
   const processed = getProcessedEvents();
   
+  // Render Hero Section (Top Critical Event or fallback to latest event)
+  const heroTitle = document.getElementById("hero-title");
+  const heroSummary = document.getElementById("hero-summary");
+  const heroCategory = document.getElementById("hero-category");
+  const heroDate = document.getElementById("hero-date");
+  
+  if (heroTitle && heroSummary) {
+    const criticalItems = processed.filter(item => item.isRelevant && item.analysis && item.analysis.isCritical);
+    const fallbackItems = processed.filter(item => item.isRelevant && item.analysis);
+    const topEvent = criticalItems.length > 0 ? criticalItems[0] : (fallbackItems.length > 0 ? fallbackItems[0] : null);
+    
+    if (topEvent) {
+      heroTitle.innerHTML = `<a href="${topEvent.link || '#'}" target="_blank" style="color: inherit; text-decoration: none;">${topEvent.title}</a>`;
+      heroSummary.textContent = topEvent.analysis.summary;
+      heroCategory.textContent = topEvent.category + (topEvent.subType ? ` / ${topEvent.subType}` : '');
+      heroDate.textContent = (topEvent.timestamp && topEvent.timestamp.length >= 10) ? topEvent.timestamp.substring(0, 10) : state.currentDate;
+    } else {
+      heroTitle.textContent = "Aktif Kritik Gelişme Bulunmamaktadır";
+      heroSummary.textContent = "Bugün için analiz süzgecine giren yüksek öncelikli bir kritik gelişme bulunmamaktadır. Tüm sistemler normal seyretmektedir.";
+      heroCategory.textContent = "Genel Durum";
+      heroDate.textContent = state.currentDate;
+    }
+  }
+  
   // Render Resmi Gazete Section
   const rgContainer = document.getElementById("rg-bulletin-container");
   if (rgContainer) {
@@ -1187,7 +1211,32 @@ window.subscribeEmail = function() {
   });
 };
 
+// Theme Toggle Logic
+window.toggleTheme = function() {
+  const body = document.body;
+  if (body.classList.contains("light-theme")) {
+    body.classList.remove("light-theme");
+    body.classList.add("dark-theme");
+    localStorage.setItem("theme", "dark");
+  } else {
+    body.classList.remove("dark-theme");
+    body.classList.add("light-theme");
+    localStorage.setItem("theme", "light");
+  }
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
+  // Initialize Theme from localStorage
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.body.className = `${savedTheme}-theme`;
+
+  // Set top-bar calendar date in Turkish locale
+  const topBarDate = document.getElementById("top-bar-date");
+  if (topBarDate) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    topBarDate.textContent = "Bugün: " + new Date().toLocaleDateString('tr-TR', options);
+  }
+
   // Load dynamic data from json if available
   await loadBulletinData();
 
