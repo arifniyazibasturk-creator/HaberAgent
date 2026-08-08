@@ -1256,20 +1256,59 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 15px !important;
+  }
+
   .header-content {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
   }
   
+  .logo {
+    font-size: 1.8rem !important;
+  }
+
+  .tagline {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
   .header-actions {
     width: 100%;
     justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .header-actions .btn {
+    flex: 1 1 calc(50% - 5px);
+    justify-content: center;
+    font-size: 0.7rem !important;
+    padding: 8px 10px !important;
   }
 
   .nav-links {
     gap: 12px;
     flex-wrap: wrap;
+  }
+
+  .form-row {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .col-50, .col-100 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
   }
 
   .simulator-grid {
@@ -1282,15 +1321,21 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-card {
-    padding: 40px 20px;
+    padding: 45px 15px !important;
+    box-shadow: 2px 2px 0 var(--border-color) !important;
   }
 
   #hero-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem !important;
   }
   
   .analysis-details-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Reduce nested card body paddings on mobile to give text more horizontal room */
+  .card-body {
+    padding: 12px !important;
   }
 
   /* Stack cards vertically on mobile inside accordions */
@@ -1302,23 +1347,34 @@ h1, h2, h3, h4, h5, h6 {
   .analysis-card {
     display: block !important;
     width: 100% !important;
-    margin-bottom: 16px !important;
+    padding: 14px 12px !important;
+    margin-bottom: 14px !important;
     box-shadow: 2px 2px 0 var(--border-color) !important;
   }
 
-  /* Responsive compact text sizing */
+  /* Comfortable print typography sizes for mobile screens */
   .analysis-card-title {
-    font-size: 0.95rem !important;
+    font-size: 1.05rem !important;
   }
 
   .analysis-summary-box {
-    padding: 8px 12px !important;
+    padding: 10px 12px !important;
     margin-bottom: 12px !important;
-    font-size: 0.8rem !important;
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .detail-text strong {
+    font-size: 0.7rem !important;
   }
 
   .detail-text p {
-    font-size: 0.75rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .left-column {
+    gap: 16px !important;
   }
 }
 

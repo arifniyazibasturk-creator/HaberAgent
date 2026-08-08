@@ -448,11 +448,13 @@ async function run() {
 
   // Load previously processed event titles from existing data_parsed.json for historical deduplication
   const historicalTitles = new Set();
+  let historicalEvents = [];
   try {
     const targetPath = path.join(__dirname, 'data_parsed.json');
     if (fs.existsSync(targetPath)) {
       const existingData = JSON.parse(fs.readFileSync(targetPath, 'utf-8'));
       if (existingData && Array.isArray(existingData.events)) {
+        historicalEvents = existingData.events;
         existingData.events.forEach(event => {
           if (event.title) {
             historicalTitles.add(getNormalizedTitle(event.title));
@@ -534,6 +536,9 @@ async function run() {
 Sen profesyonel bir jeopolitik, ekonomi, finans ve hukuk analiz asistanısın.
 
 Görevin: Sana sunulan son 24 saatlik haberleri ve resmi duyuruları incele ve kurallara göre analiz et.
+
+Semantik Tekilleştirme Kuralı:
+Aynı gelişmeyi veya olayı bildiren çok benzer haberler veya duyurular varsa (farklı ajansların veya kaynakların aynı olayı geçmesi), sadece en detaylı, net ve güncel olanını 'isRelevant': true yap. Diğer mükerrer veya kopya haberleri 'isRelevant': false yaparak kesinlikle ele. Bir haberin veya resmi kararın kopyaları bültende ve mailde kesinlikle yer almamalıdır.
 
 Filtreleme Kuralları:
 Aşağıdaki konular dışındaki haberleri 'isRelevant': false olarak işaretle.
@@ -644,10 +649,27 @@ ${JSON.stringify(batch, null, 2)}
     };
   });
 
+  // Combine today's newly analyzed events with historical database events
+  const combinedHistory = [...normalizedEvents, ...historicalEvents];
+
+  // Deduplicate combined database by normalized title to prevent identical duplicates across runs
+  const finalDeduplicatedEvents = [];
+  const seenDbTitles = new Set();
+  combinedHistory.forEach(item => {
+    const norm = getNormalizedTitle(item.title);
+    if (norm && !seenDbTitles.has(norm)) {
+      seenDbTitles.add(norm);
+      finalDeduplicatedEvents.push(item);
+    }
+  });
+
+  // Limit database size to last 150 events to keep the file lightweight for web fetches
+  const limitedEventsList = finalDeduplicatedEvents.slice(0, 150);
+
   // Structure final json
   const outputData = {
     date: dateToday,
-    events: normalizedEvents
+    events: limitedEventsList
   };
 
   try {
