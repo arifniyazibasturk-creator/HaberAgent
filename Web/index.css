@@ -1352,6 +1352,30 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 2px 2px 0 var(--border-color) !important;
   }
 
+  .analysis-card-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .analysis-card-source {
+    white-space: normal !important; /* Allow source string to wrap dynamically */
+    font-size: 0.65rem !important;
+  }
+
+  .filtered-rg-meta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+
+  .hero-content {
+    padding: 15px !important;
+    width: 100% !important;
+  }
+
   /* Comfortable print typography sizes for mobile screens */
   .analysis-card-title {
     font-size: 1.05rem !important;
