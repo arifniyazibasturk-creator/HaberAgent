@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css?v=3">
 </head>
 <body class="dark-theme">
 
@@ -28,7 +28,10 @@
         <span class="top-bar-date" id="top-bar-date">Bugün: --.--.----</span>
       </div>
       <div class="top-bar-right">
-        <!-- Theme switcher is now inside the drawer -->
+        <button id="theme-toggle-top" class="top-theme-toggle-btn" onclick="toggleTheme()" aria-label="Tema Değiştir">
+          <span class="icon-sun">☀️ Açık</span>
+          <span class="icon-moon">🌙 Koyu</span>
+        </button>
       </div>
     </div>
   </div>
@@ -99,7 +102,71 @@
     <!-- Layout Grid -->
     <div class="layout-grid" id="visual-bulletin-view">
       
-      <!-- Left Column (70%): Bulletins -->
+      <!-- Left Column Sidebar Widgets -->
+      <aside id="sidebar-drawer" class="sidebar-drawer">
+        <div class="drawer-header">
+          <h4 class="drawer-title">⚙️ KONTROL PANELİ</h4>
+          <button class="close-drawer-btn" onclick="toggleSidebar()" aria-label="Kapat">&times;</button>
+        </div>
+        
+        <div class="drawer-content">
+          <!-- Widget: Theme Toggle Switcher (Hidden on PC, visible on Mobile drawer) -->
+          <div class="widget card theme-widget">
+            <div class="card-header border-red">
+              <h4 class="widget-title">🌗 Tema Seçimi</h4>
+            </div>
+            <div class="card-body text-center" style="padding: 15px;">
+              <button id="theme-toggle" class="drawer-theme-btn" onclick="toggleTheme()" aria-label="Tema Değiştir">
+                <span class="icon-sun">☀️ Açık Tema</span>
+                <span class="icon-moon">🌙 Koyu Tema</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Widget: Countdown Timer -->
+          <div class="widget card">
+            <div class="card-header border-red">
+              <h4 class="widget-title">🕒 Rapor Geri Sayımı</h4>
+            </div>
+            <div class="card-body text-center" style="padding: 15px;">
+              <div class="countdown-time" id="countdown-timer">00:00:00</div>
+              <p class="widget-desc" style="font-size: 0.7rem;">Günlük saat 09:00'da otomatik tetiklenir (Europe/Istanbul)</p>
+            </div>
+          </div>
+
+          <!-- Widget: E-mail Newsletter Subscription -->
+          <div class="widget card bg-red-opacity">
+            <div class="card-header border-red">
+              <h4 class="widget-title">📧 Bülten Aboneliği</h4>
+            </div>
+            <div class="card-body" style="padding: 15px;">
+              <p class="widget-desc" style="margin-bottom: 12px; font-size: 0.75rem;">
+                Günlük analizleri her sabah e-posta ile almak için kaydolun.
+              </p>
+              <div class="sub-form">
+                <label for="sub-email" class="sub-label">E-Posta Adresi</label>
+                <input type="email" id="sub-email" placeholder="ornek@mail.com" class="sub-input" />
+                <button class="sub-btn" onclick="subscribeEmail()">Bültene Kaydol</button>
+              </div>
+              <div id="sub-msg" class="sub-msg"></div>
+            </div>
+          </div>
+
+          <!-- Widget: Tracking Sources -->
+          <div class="widget card">
+            <div class="card-header border-red">
+              <h4 class="widget-title">📡 Canlı Veri Bağlantıları</h4>
+            </div>
+            <div class="card-body" style="padding: 12px;">
+              <ul class="sources-list" id="sources-list">
+                <!-- Dynamic sources -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Column: Main News Feed -->
       <main class="left-column">
         
         <!-- 1. Bugünün En Kritik Gelişmeleri -->
@@ -182,72 +249,6 @@
 
       </main>
 
-      <!-- Left Sidebar Drawer (collapsible control panel) -->
-      <aside id="sidebar-drawer" class="sidebar-drawer">
-        <div class="drawer-header">
-          <h4 class="drawer-title">⚙️ KONTROL PANELİ</h4>
-          <button class="close-drawer-btn" onclick="toggleSidebar()" aria-label="Kapat">&times;</button>
-        </div>
-        
-        <div class="drawer-content">
-          <!-- Widget: Theme Toggle Switcher -->
-          <div class="widget card">
-            <div class="card-header border-red">
-              <h4 class="widget-title">🌗 Tema Seçimi</h4>
-            </div>
-            <div class="card-body text-center" style="padding: 15px;">
-              <button id="theme-toggle" class="drawer-theme-btn" onclick="toggleTheme()" aria-label="Tema Değiştir">
-                <span class="icon-sun">☀️ Açık Tema</span>
-                <span class="icon-moon">🌙 Koyu Tema</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Widget: Countdown Timer -->
-          <div class="widget card">
-            <div class="card-header border-red">
-              <h4 class="widget-title">🕒 Rapor Geri Sayımı</h4>
-            </div>
-            <div class="card-body text-center" style="padding: 15px;">
-              <div class="countdown-time" id="countdown-timer">00:00:00</div>
-              <p class="widget-desc" style="font-size: 0.7rem;">Günlük saat 09:00'da otomatik tetiklenir (Europe/Istanbul)</p>
-            </div>
-          </div>
-
-          <!-- Widget: E-mail Newsletter Subscription -->
-          <div class="widget card bg-red-opacity">
-            <div class="card-header border-red">
-              <h4 class="widget-title">📧 Bülten Aboneliği</h4>
-            </div>
-            <div class="card-body" style="padding: 15px;">
-              <p class="widget-desc" style="margin-bottom: 12px; font-size: 0.75rem;">
-                Günlük analizleri her sabah e-posta ile almak için kaydolun.
-              </p>
-              <div class="sub-form">
-                <label for="sub-email" class="sub-label">E-Posta Adresi</label>
-                <input type="email" id="sub-email" placeholder="ornek@mail.com" class="sub-input" />
-                <button class="sub-btn" onclick="subscribeEmail()">Bültene Kaydol</button>
-              </div>
-              <div id="sub-msg" class="sub-msg"></div>
-            </div>
-          </div>
-
-          <!-- Widget: Tracking Sources -->
-          <div class="widget card">
-            <div class="card-header border-red">
-              <h4 class="widget-title">📡 Canlı Veri Bağlantıları</h4>
-            </div>
-            <div class="card-body" style="padding: 12px;">
-              <ul class="sources-list" id="sources-list">
-                <!-- Dynamic sources -->
-              </ul>
-            </div>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Sidebar Overlay backdrop -->
-      <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
     </div>
 
     <!-- Raw Markdown View Pane -->
@@ -369,6 +370,10 @@
       <p>&copy; 2026 Haber Agent. Tüm Hakları Saklıdır.</p>
     </div>
   </footer>
+
+
+  <!-- Sidebar Overlay backdrop for mobile -->
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
   <!-- Scripts -->
   <script src="index.js"></script>

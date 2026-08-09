@@ -1075,6 +1075,7 @@ window.handleInjectorCategoryChange = function() {
 window.toggleSourceDropdown = function(headerElement) {
   const container = headerElement.parentElement;
   const isActive = container.classList.contains("active");
+  console.log("KAYNAK SEKMESİ: toggleSourceDropdown tetiklendi! Seçilen kaynak:", container.querySelector(".source-name")?.textContent, "Aktiflik durumu:", !isActive);
   
   // Close all other dropdowns
   document.querySelectorAll(".source-item-container").forEach(el => {
@@ -1137,32 +1138,6 @@ async function loadBulletinData() {
   }
 }
 
-// Toggle left sidebar drawer on mobile
-window.toggleSidebar = function(forceState) {
-  const sidebar = document.querySelector(".sidebar");
-  const overlay = document.getElementById("sidebar-overlay");
-  if (!sidebar) return;
-  
-  let isOpen = sidebar.classList.contains("open");
-  
-  if (forceState !== undefined) {
-    if (forceState) {
-      sidebar.classList.add("open");
-      if (overlay) overlay.classList.add("active");
-    } else {
-      sidebar.classList.remove("open");
-      if (overlay) overlay.classList.remove("active");
-    }
-  } else {
-    if (isOpen) {
-      sidebar.classList.remove("open");
-      if (overlay) overlay.classList.remove("active");
-    } else {
-      sidebar.classList.add("open");
-      if (overlay) overlay.classList.add("active");
-    }
-  }
-};
 
 // Newsletter email subscription helper
 window.subscribeEmail = function() {
@@ -1226,6 +1201,7 @@ window.toggleTheme = function() {
 };
 
 window.toggleSidebar = function() {
+  console.log("KONTROL PANELİ: toggleSidebar tetiklendi! sidebar-open sınıfı eklendi/çıkarıldı.");
   document.body.classList.toggle("sidebar-open");
 };
 
@@ -1243,9 +1219,15 @@ window.toggleCategorySection = function(sectionId) {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
+  // On mobile viewports, automatically open the control panel drawer on load
+  if (window.innerWidth <= 768) {
+    document.body.classList.add("sidebar-open");
+  }
+
   // Initialize Theme from localStorage
   const savedTheme = localStorage.getItem("theme") || "dark";
-  document.body.className = `${savedTheme}-theme`;
+  document.body.classList.remove("light-theme", "dark-theme");
+  document.body.classList.add(`${savedTheme}-theme`);
 
   // Set top-bar calendar date in Turkish locale
   const topBarDate = document.getElementById("top-bar-date");

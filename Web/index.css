@@ -503,7 +503,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .layout-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 30px;
   align-items: start;
 }
@@ -514,36 +514,59 @@ h1, h2, h3, h4, h5, h6 {
   gap: 30px;
 }
 
+/* Top Bar Theme Toggle Button */
+.top-theme-toggle-btn {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  padding: 4px 10px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--text-primary);
+  transition: var(--transition-smooth);
+}
+
+.top-theme-toggle-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--text-primary);
+}
+
 /* ==========================================================================
    LEFT SIDEBAR DRAWER (COLLAPSIBLE PANEL)
    ========================================================================== */
 .sidebar-drawer {
   position: fixed;
-  left: -340px;
+  left: 0;
   top: 0;
-  width: 320px;
-  height: 100vh;
+  width: 300px;
+  max-width: 85vw;
+  height: 100%;
   background-color: var(--bg-card);
   border-right: 2px solid var(--text-primary);
-  z-index: 1100;
+  z-index: 2000;
   display: flex;
   flex-direction: column;
   box-shadow: 5px 0 0px var(--border-color);
+  transform: translateX(-105%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
 }
 
 .sidebar-open .sidebar-drawer {
-  transform: translateX(340px);
+  transform: translateX(0);
 }
 
 .drawer-header {
-  padding: 20px;
+  padding: 16px 20px;
   background-color: var(--bg-card-header);
   border-bottom: 3px double var(--border-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .drawer-title {
@@ -563,9 +586,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .drawer-content {
-  padding: 20px;
+  padding: 20px 15px;
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -585,6 +609,57 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   box-shadow: 3px 3px 0 var(--text-primary);
   transition: var(--transition-smooth);
+}
+
+.sidebar-drawer .widget {
+  flex-shrink: 0 !important;
+}
+
+/* PC/Desktop Layout Overrides for Left Sidebar (min-width: 769px) */
+@media (min-width: 769px) {
+  .sidebar-drawer {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    z-index: auto !important;
+  }
+
+  .sidebar-drawer .drawer-header {
+    display: none !important; /* Hide "⚙️ KONTROL PANELİ" header on PC */
+  }
+
+  .sidebar-drawer .drawer-content {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    overflow-y: visible !important; /* No independent scrollbar, flows naturally with page */
+  }
+
+  /* Hide the theme switcher card inside the sidebar drawer on PC */
+  .sidebar-drawer .widget.theme-widget {
+    display: none !important;
+  }
+
+  .sidebar-toggle-btn {
+    display: none !important; /* Hide "☰ KONTROL PANELİ" button on PC */
+  }
+
+  .sidebar-overlay {
+    display: none !important;
+  }
+
+  .layout-grid {
+    grid-template-columns: 300px 1fr !important; /* 300px static left sidebar, remaining space for main feed */
+  }
 }
 
 .drawer-theme-btn:hover {
@@ -919,6 +994,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .sources-list li.active {
   grid-column: span 2; /* Stretch card full-width when expanded */
+}
+
+.sources-list li.active .source-item-header {
+  height: auto !important;
 }
 
 .sources-list li.active .source-dropdown-content {
