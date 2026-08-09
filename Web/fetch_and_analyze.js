@@ -579,19 +579,32 @@ Analiz Edilecek İçerikler:
 ${JSON.stringify(batch, null, 2)}
 `;
 
-      try {
-        const analysisResult = await callGemini(apiKey, systemPrompt);
-        if (analysisResult.events) {
-          analyzedEvents = analyzedEvents.concat(analysisResult.events);
+      let analysisResult = null;
+      let retries = 3;
+      
+      while (retries > 0) {
+        try {
+          analysisResult = await callGemini(apiKey, systemPrompt);
+          break; // Success!
+        } catch (err) {
+          retries--;
+          console.warn(`UYARI: Paket ${batchNum} analiz edilirken hata oluştu (Kalan Deneme: ${retries}):`, err.message || err);
+          if (retries > 0) {
+            console.log("5 saniye bekleniyor ve tekrar deneniyor...");
+            await new Promise(resolve => setTimeout(resolve, 5000));
+          } else {
+            console.error(`HATA: Paket ${batchNum} 3 deneme sonrasında da başarısız oldu. Bu paket atlanıyor!`);
+          }
         }
-        
-        // Wait 2 seconds between batch calls to prevent rate limits on Gemini API
-        if (i + BATCH_SIZE < toAnalyze.length) {
-          await new Promise(resolve => setTimeout(resolve, 2000));
-        }
-      } catch (err) {
-        console.error(`HATA: Paket ${batchNum} analiz edilirken hata oluştu:`, err);
-        process.exit(1);
+      }
+
+      if (analysisResult && analysisResult.events) {
+        analyzedEvents = analyzedEvents.concat(analysisResult.events);
+      }
+      
+      // Wait 2 seconds between batch calls to prevent rate limits on Gemini API
+      if (i + BATCH_SIZE < toAnalyze.length) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
       }
     }
   }
