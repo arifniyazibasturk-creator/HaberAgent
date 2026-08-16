@@ -1,6 +1,303 @@
 {
-  "date": "2026-08-15",
+  "date": "2026-08-16",
   "events": [
+    {
+      "source": "TCMB",
+      "title": "Faiz Oranlarına İlişkin Basın Duyurusu (2026-12) - TCMB",
+      "body": "Faiz Oranlarına İlişkin Basın Duyurusu (2026-12)",
+      "category": "Finans ve Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-03-12T07:00:00.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Türkiye Cumhuriyet Merkez Bankası, 2026 yılı 12 numaralı Para Politikası Kurulu toplantısı sonucunda politika faiz oranlarına ilişkin kararını ve enflasyon görünümüne dair güncel değerlendirmelerini kamuoyu ile paylaştı.",
+        "geopoliticalImpact": "Küresel finans piyasalarında Türkiye'nin para politikası duruşunun ve makroekonomik istikrarının algılanmasını doğrudan etkiler.",
+        "turkeyImpact": "Türkiye ekonomisinde kredi faizlerini, enflasyon beklentilerini ve piyasa likiditesini doğrudan şekillendiren en temel parasal karardır.",
+        "financialImpact": "Borsa İstanbul, döviz kurları, tahvil faizleri ve bankacılık sektörünün fonlama maliyetleri üzerinde anlık ve yüksek çaplı dalgalanmalara yol açar.",
+        "longTerm": "Uzun vadede fiyat istikrarının sağlanması, kalıcı düşüş eğilimine giren enflasyon ve sürdürülebilir büyüme patikasının oluşturulmasında belirleyici rol oynar.",
+        "isCritical": true,
+        "whyImportant": "Merkez Bankası'nın faiz kararları, ülkenin para politikasının yönünü belirleyen en kritik ekonomik göstergedir. Piyasaların orta ve uzun vadeli beklentilerini doğrudan formatlar.",
+        "whoAffected": "Tüm Türk bankacılık sektörü, reel sektör şirketleri, yatırımcılar ve borçlanma maliyetleri nedeniyle tüm hanehalkı doğrudan etkilenmektedir.",
+        "followUp": "TCMB'nin bir sonraki Para Politikası Kurulu toplantı tarihi, yayımlayacağı enflasyon raporları ve piyasa tepkileri yakından takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQUTRNRkp3aWFOUVRDY3FhWk5VYVZMbEMxbHBDeU9BWnp5VFZHTzF3Tmx1TTd1QXNfelY4UUdBZS1hdkpDSzRSMnNGT1pUcG5sbjFmWU9WTUlYVjdjeDBKd0JqRlhsWlh1QndGOXJwVURTRUlMQXJXZnJSTU1yREN3V2QtR25ka1pzd09wQTJ3MGNfQQ?oc=5"
+    },
+    {
+      "source": "TCMB",
+      "title": "Merkez Bankası Rezervleri (milyon ABD doları) - EVDS",
+      "body": "Merkez Bankası Rezervleri (milyon ABD doları)",
+      "category": "Finans ve Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-04-23T02:29:19.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Türkiye Cumhuriyet Merkez Bankası, Elektronik Veri Dağıtım Sistemi (EVDS) üzerinden brüt ve net uluslararası döviz ve altın rezervlerine ilişkin güncel haftalık verileri yayımladı.",
+        "geopoliticalImpact": "Türkiye'nin dış ekonomik şoklara karşı dayanıklılığını ve uluslararası finansal kredibilitesini doğrudan gösteren kritik bir veridir.",
+        "turkeyImpact": "Ülkenin dış borç ödeme kapasitesi, döviz likiditesi ve kur istikrarını koruma gücü açısından piyasalarda güven unsuru oluşturur.",
+        "financialImpact": "Döviz piyasalarındaki beklentileri ve ülke risk primini (CDS) doğrudan etkileyerek finansal piyasalardaki risk algısını biçimlendirir.",
+        "longTerm": "Uzun vadede dış ticaret dengesinin korunması ve olası sermaye hareketlerine karşı tampon mekanizmalarının güçlendirilmesi açısından hayati önem taşır.",
+        "isCritical": false,
+        "whyImportant": "Merkez Bankası rezerv verileri, ülkenin finansal sağlığının ve dış finansman imkanlarının en net göstergesidir. Yatırımcıların Türkiye ekonomisine duyduğu güvenin test edildiği temel mettriktir.",
+        "whoAffected": "Yabancı yatırımcılar, uluslararası kredi derecelendirme kuruluşları, bankacılık sektörü ve reel sektör doğrudan etkilenmektedir.",
+        "followUp": "Haftalık bazda rezerv değişim trendleri, swap anlaşmaları ve net rezervlerdeki seyir sürekli olarak izlenmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1KUE1GY0FyWmRZU3JJYXQ2ZTNUR2Z4OUs3QkVCZmJPYmE2Wk93SDRDNjh3ZF9fXy1VZHBxSHZGeTJvRUVQMERrak15YUJqZENfZXczaEtseW5aRlpIOEhVT29IcXZJa18zUFFBTlJkTmN0aFdpdXZWRkppcw?oc=5"
+    },
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "Türk Hava Kuvvetleri NATO görevi kapsamında Estonya'da \"hava polisliği\" yapıyor - Anadolu Ajansı",
+      "body": "Türk Hava Kuvvetleri NATO görevi kapsamında Estonya'da hava polisliği görevini sürdürmektedir.",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-15T15:27:54.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Türk Hava Kuvvetleri, NATO müttefiklik görevleri çerçevesinde Estonya hava sahasının korunması amacıyla hava polisliği misyonunu icra etmektedir. Bu görev, İttifak'ın Doğu Avrupa'daki caydırıcılık ve savunma tedbirlerine doğrudan katkı sağlamaktadır.",
+        "geopoliticalImpact": "Türkiye'nin NATO içindeki müttefiklik yükümlülüklerini eksiksiz yerine getirdiğini gösterir ve Baltık bölgesindeki güvenliğe stratejik katkı sağlar.",
+        "turkeyImpact": "Türkiye'nin uluslararası askeri alandaki güvenilirliğini ve caydırıcılığını artırırken, NATO müttefikleriyle olan operasyonel uyumunu pekiştirir.",
+        "financialImpact": "Operasyonun maliyeti ilgili askeri bütçeler ve NATO ortak fonları kapsamında yönetilmektedir, piyasalara doğrudan bir finansal etkisi bulunmamaktadır.",
+        "longTerm": "Türkiye'nin Kuzey ve Doğu Avrupa güvenlik mimarisindeki etkinliğinin artmasına ve NATO içi müzakerelerde stratejik ağırlık kazanmasına zemin hazırlar.",
+        "isCritical": false,
+        "whyImportant": "Türkiye'nin NATO'nun toplu savunma mekanizmalarına ve bölgesel hava güvenliğine sağladığı katkıyı somut olarak göstermesi açısından önem arz etmektedir. Ayrıca müttefik ülkelerle askeri iş birliğinin sahadaki pratik yansımasını oluşturur.",
+        "whoAffected": "NATO üyesi ülkeler, Türk Silahlı Kuvvetleri ve Baltık bölgesi ülkeleri bu misyondan doğrudan etkilenmektedir.",
+        "followUp": "Mevcut hava polisliği görevinin süresi, NATO'nun rotasyon takvimi ve bölgedeki olası ek güvenlik tedbirleri yakından takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOSkxrOFF6Z1JuVjcwbWd6bU5lZ2tSMVdaNzhGUHlvS2FVNktMbE51SUpQTXJ5QlhhU0pVU1lodGw0T25nTDNveGlfck5MdW1GbHhFLU90a3BLZ1BJejJGSlJFeGo3YTN3TGc2QXhRUGs4UlRQT3JEeDJJa0g1RXVGcldyX1JlRXp0bHpvUmd5VFIySHk5b1A0VjhPY3RZN3VpMnhFb3Nxc0F4NnJoX21LdTI1OVJUYTQ?oc=5"
+    },
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "İsrail gazetesinde Türkiye ile savaş senaryosu! 'NATO üyeliği Ankara'yı korumaz' - milliyet.com.tr",
+      "body": "İsrail basını Türkiye ile olası bir çatışma senaryolarını manşetlerine taşıdı.",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-15T10:39:00.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "İsrail basınında yer alan analiz ve haberlerde, Türkiye ile olası bir askeri gerilim senaryoları tartışmaya açılmış ve NATO'nun 5. maddesinin bu tür bir senaryoda Türkiye'yi korumayacağına dair iddialar dile getirilmiştir. Bu tür yayınlar iki ülke arasındaki diplomatik ve jeopolitik gerilimin basın boyutuyla tırmandığını göstermektedir.",
+        "geopoliticalImpact": "Orta Doğu ve Doğu Akdeniz'deki bölgesel rekabetin ve gerilimlerin uluslararası medya ve düşünce kuruluşları üzerindeki yansımalarını artırmaktadır.",
+        "turkeyImpact": "Türkiye'nin ulusal güvenliğine ve dış politika hamlelerine yönelik dış basındaki tehdit algısı tartışmalarını alevlendirmektedir.",
+        "financialImpact": "Jeopolitik risk algısının geçici olarak piyasalarda yaratabileceği spekülatif baskılar dışında doğrudan ekonomik bir etkisi bulunmamaktadır.",
+        "longTerm": "Bölgesel aktörler arasındaki psikolojik harp unsurlarının ve güvenlik odaklı stratejik rekabetin kalıcıleşmesine zemin hazırlayabilir.",
+        "isCritical": false,
+        "whyImportant": "Medyada yer alan bu tür kışkırtıcı senaryolar, iki ülke arasındaki hassas diplomatik dengelerin ve bölgesel risk unsurlarının analiz edilmesi açısından veri sağlamaktadır. Devletler arası ilişkilerdeki gerilimin bilgi ve algı operasyonları boyutunu gözler önüne sermektedir.",
+        "whoAffected": "Türkiye, İsrail, NATO üyesi ülkeler ve Orta Doğu'daki bölgesel aktörler bu durumdan etkilenmektedir.",
+        "followUp": "İki ülke arasındaki diplomatik açıklamalar, resmi makamların tepkileri ve bölgesel askeri hareketlilikler izlenmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQVmlhaERwOGI3QVJYaFg4bWNkZHU1ZUkzNVRyMnBrajBJQzRnM1hRZVlqaGpHMUR0NVNZcS1jMnB4Q3ZySThueVFHMWFIRHNVSEQxOFBmNFhxWTRiV3F0U2J2T1NKVGxVLUY5d1dUWUJOTnVTTklnZ0tIaDZnTndDVUl2ZXF5Q0JQY2ZHTV9zSzlMVUJDVl9uOHgtVldqT3hDTW4tVmtUNHE4RWJoR3drRzc3cDNTRHNueGJRSjR3bWZJSDNZOUNTYw?oc=5"
+    },
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "Türk savunma sanayii 25 yılda stratejik dönüşüme imza attı - TRT Haber",
+      "body": "Türk savunma sanayii son 25 yılda yerlilik oranını artırarak büyük bir stratejik dönüşüm gerçekleştirmiştir.",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-14T09:19:00.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Türk savunma sanayii, son çeyrek asırda tasarımdan üretime kadar geçen süreçte dışa bağımlılığı büyük ölçüde azaltarak yerlilik oranını artırmış ve küresel çapta rekabet edebilir stratejik bir sektöre dönüşmüştür.",
+        "geopoliticalImpact": "Türkiye'nin bölgesel askeri güç projeksiyonunu güçlendirmekte ve dış politikada elini rahatlatarak stratejik özerklik kazandırmaktadır.",
+        "turkeyImpact": "Yüksek teknoloji ihracatının artmasına, savunma harcamalarının yerli ekonomide kalmasına ve teknolojik yetkinliğin tabana yayılmasına olanak tanımaktadır.",
+        "financialImpact": "Savunma sanayii şirketlerinin toplam bütçelerini, hisse performanslarını ve teknoloji yatırımlarına ayrılan finansal kaynakları olumlu yönde beslemektedir.",
+        "longTerm": "Türkiye'nin küresel silah pazarında kalıcı ve güçlü bir tedarikçi konuma gelmesini sağlayarak ekonomik ve teknolojik bağımsızlığını kalıcılaştıracaktır.",
+        "isCritical": true,
+        "whyImportant": "Türkiye'nin ekonomik ve jeopolitik bağımsızlığının en kritik sütunlarından biri olan savunma sanayiindeki dönüşümün kilometre taşlarını özetlemektedir. Ülkenin teknolojik kapasitesinin ekonomik büyüme ve ihracata olan katkısını gözler önüne sermektedir.",
+        "whoAffected": "Türk savunma sanayii firmaları, Türk Silahlı Kuvvetleri, teknoloji yatırımcıları ve ilgili ihracat sektörleri doğrudan etki altındadır.",
+        "followUp": "Yeni ihracat anlaşmaları, ortak üretim projeleri ve Ar-Ge yatırımlarının finansal sonuçları yakından takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQNTB4cUFUQy04OVlmOEI4cUJvQWdoNEoyX005UEJ4b25xZENBVnEydGVPMHA1aUFyUGtWcHRuTno2Y2NQSEVNN2ZtVlZxWjhqRlJiUVRqMk5jZEpQdEJxUWZ0WWVOY29aSzkwWllGZnpoSFdzdjdqc01qV29zWjEycEgzMl9TOWI4YlR0RDZOVlIwUy0tU1JNNkRtMV94SkUzN1RPa0txVUgycS1keEE?oc=5"
+    },
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "CTech’e NATO tedariki için ödül - Defence Turk",
+      "body": "Türk teknoloji şirketi CTech, NATO'ya sağladığı tedarik ve sistem çözümleri nedeniyle ödüle layık görülmüştür.",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-14T15:48:52.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Türk teknoloji ve savunma şirketi CTech, NATO altyapılarına yönelik geliştirdiği yüksek teknoloji iletişim ve siber güvenlik çözümleri sebebiyle NATO tedarik ödülü almıştır. Bu başarı, Türk firmalarının uluslararası standartlarda iş yapabilme kabiliyetini tescillemiştir.",
+        "geopoliticalImpact": "Türkiye'nin NATO bünyesindeki teknolojik ve stratejik güvenilirliğini artırmakta, müttefik ülkeler nezdinde teknoloji ihracatının önünü açmaktadır.",
+        "turkeyImpact": "Türk savunma ve teknoloji sektörünün uluslararası alandaki prestijini yükseltmekte ve benzer KOBİ'ler için küresel pazarlara açılma fırsatı sunmaktadır.",
+        "financialImpact": "İlgili şirketin marka değerini artırarak gelecekteki uluslararası ihale ve tedarik sözleşmelerinden elde edeceği gelirleri olumlu yönde destekleyecektir.",
+        "longTerm": "Türkiye'nin yüksek teknoloji ürünleri ihracatında savunma ve haberleşme alanındaki payının büyümesini hızlandıracaktır.",
+        "isCritical": false,
+        "whyImportant": "Türk özel sektör firmalarının küresel askeri ve teknoloji standartlarında NATO ile uyumlu işler yapabildiğini kanıtlaması açısından değerlidir. Ülke ekonomisine katma değerli ihracat girdisi sağlanması bakımından önem taşır.",
+        "whoAffected": "CTech şirketi, Türk savunma ve bilişim sektörü, NATO tedarik mekanizmaları ve ilgili teknoloji yatırımcıları etkilenmektedir.",
+        "followUp": "Şirketin alacağı yeni NATO ihaleleri ve küresel ortaklık anlaşmaları takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE15REUxWUROX0FRVlNad1lOVFlSRzNFb29CMW9UYkRDNzBCRS1ZSDBJOUZSV1FEQ1Q2dGc0Rm1UVmxJSzhJclRzQ05JYXlpa3J2OWJzZDU4SEtyeEZaQzJJYkJZeU5hQkxWVmc?oc=5"
+    },
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "Rusya ve NATO “gri bölge” savaşında - Şarkul Avsat Türkçe",
+      "body": "Rusya ve NATO arasında devam eden gerilimler ve hibrit savaş taktikleri 'gri bölge' kavramı üzerinden ele alınmaktadır.",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-15T15:51:49.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Rusya ile NATO arasında doğrudan bir askeri çatışma olmaksızın yürütülen siber saldırılar, sabotajlar, dezenformasyon kampanyaları ve vekil savaşları gibi hibrit taktikler 'gri bölge' savaşı olarak tanımlanmaktadır. Bu durum, geleneksel caydırıcılık stratejilerinin sınırlarını zorlamakta ve ittifakın güvenlik konseptini güncellemesini zorunlu kılmaktadır.",
+        "geopoliticalImpact": "Küresel güvenlik mimarisini zayıflatan ve büyük güçler arasındaki hesaplaşmaları alt düzey çatışmalarla sınırlı tutarak istikrarsızlığı yayan bir jeopolitik risk ortamı yaratmaktadır.",
+        "turkeyImpact": "Türkiye, Karadeniz ve Doğu Avrupa'daki bu jeopolitik rekabetin merkezine yakın bir konumda yer aldığından, deniz güvenliği ve hava sahası ihlalleri gibi risklere karşı stratejik tedbirler almasını gerektirmektedir.",
+        "financialImpact": "Küresel piyasalarda artan jeopolitik risk algısı, enerji fiyatlarında oynaklığa ve yatırımcıların güvenli liman varlıklara yönelmesine neden olmaktadır.",
+        "longTerm": "Uzun vadede geleneksel savaş türlerinin yerini tamamen siber ve hibrit çatışma biçimlerinin almasına ve uluslararası örgütlerin normatif gücünün azalmasına yol açacaktır.",
+        "isCritical": true,
+        "whyImportant": "Bu gelişme, büyük güçler arasındaki rekabetin artık topyekün savaşlar yerine düşük yoğunluklu ama sürekli bir tehdit sarmalına dönüştüğünü göstermesi açısından kritik önem taşımaktadır. İttifakların karar alma mekanizmalarını ve kriz yönetim becerilerini doğrudan test etmektedir.",
+        "whoAffected": "NATO üyesi ülkeler, Rusya, Doğu Avrupa devletleri ve küresel tedarik zinciri ile enerji piyasaları bu durumdan doğrudan etkilenmektedir.",
+        "followUp": "Önümüzdeki günlerde NATO'nun bu hibrit tehditlere karşı açıklayacağı yeni savunma konseptleri ve üye ülkelerin sınır güvenliklerini artırmaya yönelik alacağı somut kararlar yakından takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOM0QxUGtkbWdKUTJiQUlOSWY3R1ZJVXoyUEdkZzVLOUFDYzV1cU16dWlSWERfaHJ4aUhkSmYyRjVSQmhscng4bTdJQmg1UlZPZVZTVTN0TFJKWS0wZWx4S1VQWGYyRlNSaXRrVUN1WUptLVcxbHNRd3hGSEU0ekNmb2FNWDNkRFFmTHRLZXlZLUstRmg0X0tXbGxNcmx0aWx4S3RQYWJoUjRJUzA0ZEI0Q1Rn?oc=5"
+    },
+    {
+      "source": "Euronews",
+      "title": "NATO savaş uçakları Letonya hava sahasında İHA düşürdü",
+      "body": "NATO savaş uçakları Letonya hava sahasını ihlal eden bir İHA'yı düşürdü.",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-14T08:26:56.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "NATO'ya bağlı savaş uçakları, Letonya'nın hava sahasını ihlal eden tanımlanamayan bir insansız hava aracını (İHA) operasyonel olarak düşürdü. Bu olay, Baltık bölgesinde artan hava sahası ihlalleri ve güvenlik endişeleri bağlamında NATO'nun caydırıcılığını bir kez daha gözler önüne serdi.",
+        "geopoliticalImpact": "Doğu Avrupa ve Baltık bölgesinde NATO ile Rusya arasındaki gerilimi ve güvenlik alarm seviyesini artıran kritik bir askeri gelişmedir.",
+        "turkeyImpact": "NATO üyesi olan Türkiye açısından, ittifakın sınır güvenliği ve angajman kurallarının uygulanması bağlamında yakından izlenen bir gelişmedir.",
+        "financialImpact": "Küresel piyasalarda bölgesel çatışma risk algısını hafifçe artırarak savunma sanayii hisselerinde dönemsel hareketliliğe yol açabilir.",
+        "longTerm": "Baltık hava sahasının korunmasına yönelik NATO'nun devriye faaliyetlerinin ve hava savunma tedbirlerinin daha da artırılmasına neden olacaktır.",
+        "isCritical": true,
+        "whyImportant": "Bir NATO üyesi ülkenin egemen hava sahasının doğrudan bir İHA tarafından ihlal edilmesi ve bunun askeri müdahaleyle sonuçlanması ittifakın güvenliği açısından kritik önem taşır. Olay, olası bir tırmanma senaryosunun önlenmesi adına müttefiklerin hazırlık seviyesini test etmektedir.",
+        "whoAffected": "Baltık ülkeleri, NATO üyesi devletler, Rusya ve küresel savunma sanayii aktörleri doğrudan bu durumdan etkilenmektedir.",
+        "followUp": "Düşürülen İHA'nın menşei, aidiyeti ve teknik özellikleri ile ilgili resmi soruşturma raporlarının açıklanması takip edilmelidir. Ayrıca NATO'nun bölgedeki ek savunma tedbirleri izlenmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPdXVOS2F3bVM2QXF5cjFxSUtJQTI5d2xVWjRvWHhQWDAySWpxVXdaU2VYUERvRERQNC1zM2NsS21vcnFFVWZGY0E4WmlqcG9RWUduUlpZWmk5VTN4Wk1tcEVpdFJWXzVsSzUyeXJLVklsX0NlMWdjbkE0TF95dXdYeGpkMXEwN0JvTnYwNlQ1SmRwQzVFSXNvRUV3YlR0TGl4?oc=5"
+    },
+    {
+      "source": "Anadolu Ajansı",
+      "title": "Küresel piyasalarda gözler Fed tutanaklarında",
+      "body": "Küresel piyasalar ABD Merkez Bankası (Fed) toplantı tutanaklarından çıkacak sinyallere odaklandı.",
+      "category": "Finans ve Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-08-15T08:23:10.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Küresel finans piyasaları, ABD Merkez Bankası'nın (Fed) açıklayacağı para politikası toplantı tutanaklarına kilitlendi. Tutanaklarda faiz oranlarının gelecekteki seyri, enflasyonla mücadele adımları ve ekonomik aktiviteye dair ipuçları aranıyor.",
+        "geopoliticalImpact": "ABD'nin para politikasındaki kararlar, küresel ekonomik istikrar ve uluslararası sermaye akışları üzerinde doğrudan belirleyici etkiye sahiptir.",
+        "turkeyImpact": "Fed'in faiz kararları ve yönlendirmeleri, Türkiye gibi gelişmekte olan piyasaların döviz kurları, TCMB politikaları ve dış borçlanma maliyetleri üzerinde yüksek etki yaratmaktadır.",
+        "financialImpact": "Dolar endeksi, altın fiyatları, tahvil faizleri ve gelişmekte olan ülke para birimleri tutanaklardaki şahin veya güvercin tona göre dalgalanma potansiyeli taşımaktadır.",
+        "longTerm": "Küresel likidite koşullarının sıkılaşma veya gevşeme döngüsünün yönünü tayin ederek gelişen piyasaların orta vadeli finansal risk profilini belirleyecektir.",
+        "isCritical": true,
+        "whyImportant": "Fed tutanakları, küresel yatırımcıların risk iştahını doğrudan yönlendiren en kritik makroekonomik verilerden biridir. Piyasaların yönü bu metinden çıkacak sinyallere göre şekillenecektir.",
+        "whoAffected": "Tüm küresel merkez bankaları, uluslararası yatırım fonları, döviz ve tahvil piyasaları ile gelişmekte olan ekonomiler etkilenmektedir.",
+        "followUp": "Fed tutanaklarının yayımlanmasının ardından döviz kurlarındaki değişimler ve tahvil piyasalarındaki verim eğrisi yakından takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQSkRObkVkRXpyaUlFRXd0aDBhLXJWN0hyT3V0ZXB1eF9PdFlzQ0paWk4tRkRuUXJITXRxYTR3SXlhVi1QWmpoLS1Tak12SDl1SlpDUFRkSVIyMF83QUZ5SXVER0JCTGQ4VHctWXBpbHViSmpMY0tGaDZjVXVlUndoSERveEg0d1EybUhobi12cw?oc=5"
+    },
+    {
+      "source": "Reuters Markets & Financial Times (Ekonomi)",
+      "title": "Morgan Stanley’den Fed’e uyarı: Enflasyon için iki risk öne çıkıyor - dunya.com",
+      "body": "Morgan Stanley, ABD Merkez Bankası'nı (Fed) enflasyon konusunda uyararak iki temel riskin öne çıktığını belirtti.",
+      "category": "Finans ve Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-08-15T20:18:00.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Morgan Stanley, Fed'e yönelik yaptığı uyarıda ABD'de enflasyonla mücadelede iki ana risk faktörünün yakından izlenmesi gerektiğini vurguladı. Banka, bu risklerin para politikasının gelecekteki seyrini doğrudan etkileyebileceğine dikkat çekti.",
+        "geopoliticalImpact": "Küresel likiditeyi ve ABD dolarının küresel değerini etkileyebilecek para politikası kararları üzerinde baskı oluşturmaktadır.",
+        "turkeyImpact": "Fed'in olası faiz ve para politikası hamleleri, Türkiye gibi gelişmekte olan ülkelere yönelik sermaye akımlarını ve döviz kurlarını doğrudan etkilemektedir.",
+        "financialImpact": "Küresel tahvil piyasalarında dalgalanmalara yol açabilecek bu uyarı, risk iştahını da sınırlandırmaktadır.",
+        "longTerm": "Küresel enflasyon patikasının kalıcılığı ve merkez bankalarının uzun vadeli faiz oranları üzerinde belirleyici olacaktır.",
+        "isCritical": true,
+        "whyImportant": "Küresel finans piyasalarının yönünü belirleyen en büyük aktör olan Fed'in politikalarına dair önemli bir kurumdan gelen uyarı niteliğindedir. Bu tür uyarılar küresel yatırımcıların stratejilerini yeniden şekillendirmesine neden olmaktadır.",
+        "whoAffected": "Başta ABD olmak üzere tüm gelişmiş ve gelişmekte olan ülke ekonomileri, küresel fon yöneticileri ve döviz piyasaları etkilenmektedir.",
+        "followUp": "Fed yetkililerinin bu uyarılara vereceği yanıtlar ve ABD'den gelecek öncü enflasyon verileri yakından takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbTBHWE1wWEJlc3pVb1ZmVm95TnRZWlI2VkdqNTItdHl5VlN1WExvNk5laC1sVnVhRmpFY2U5dEhDaTgta2Y4ei13eUdoTFdNYmt2VXVwT2xYa0FvVThJQTExeUFrY2FVVXlldHUySVhULUQ0WWF3TzlSMzJKRXRFRkpNdlZfSHFHUjZmcDhHb3RXZHRsSF9hOXhtdGc0OURlcml5T1VoSld2VG5f?oc=5"
+    },
+    {
+      "source": "Reuters Markets & Financial Times (Ekonomi)",
+      "title": "TCMB yıl sonu enflasyon tahmini yükseltti - Bloomberght",
+      "body": "Türkiye Cumhuriyet Merkez Bankası, yıl sonu enflasyon tahminini yukarı yönlü revize etti.",
+      "category": "Finans ve Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-08-13T07:33:03.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Türkiye Cumhuriyet Merkez Bankası, güncellenen raporunda yıl sonu enflasyon tahminini yukarı çektiğini duyurdu. Yapılan bu revizyon, para politikasındaki sıkı duruşun ve enflasyonla mücadelenin kararlılıkla sürdürüleceği mesajını pekiştirdi.",
+        "geopoliticalImpact": "Yabancı yatırımcıların Türkiye ekonomisine yönelik risk algısını ve makroekonomik istikrar değerlendirmelerini doğrudan etkilemektedir.",
+        "turkeyImpact": "İç piyasada fiyat istikrarı beklentilerini, borçlanma maliyetlerini ve vatandaşların alım gücünü yakından ilgilendiren kritik bir göstergedir.",
+        "financialImpact": "Borsa İstanbul, tahvil faizleri ve döviz kurları üzerinde doğrudan fiyatlama etkisi yaratmaktadır.",
+        "longTerm": "Türkiye'nin orta vadeli ekonomik programının hedeflerine ulaşması ve dezenflasyon sürecinin başarısı açısından kritik bir eşiktir.",
+        "isCritical": true,
+        "whyImportant": "Merkez Bankası'nın enflasyon beklentilerini güncellemesi, piyasa katılımcılarının geleceğe yönelik fiyatlama davranışlarını ve maliyet hesaplarını doğrudan değiştirmektedir. Bu durum para politikasının kredibilitesi açısından da büyük önem taşımaktadır.",
+        "whoAffected": "Türkiye'deki tüm tüzel ve gerçek kişiler, reel sektör şirketleri, bankalar ve uluslararası yatırımcılar bu karardan etkilenmektedir.",
+        "followUp": "TCMB'nin gelecek dönemdeki faiz kararları ve atacağı sıkılaştırıcı ek adımlar izlenmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPdzZqT2VLRDhDXzhRbEdORmlLM2ZMTGQ1ZEY3UzhvTDU0ZndqSmNZQ01MSWk2VjZfbWJGUGtvZEVtc1h6TVdTVV9tdW5nQTJXNkNrVDZ2WWFxU0dPbUZHUUk5OTN2ZUV4RXRlaEo0c3doM25lYXd5T1BzVGZXSW9RdDIzeWtuR0xrcTBZ?oc=5"
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Resmi Gazete: İki alan deniz parkı ilan edildi - Diken",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMie0FVX3lxTFB6UU83b2paNHdQeWdmcFNZME9ETXZvRnNMM05jV01Vd2ZnODdNeXpjbnVVY21zZkNkZlF4dElDdGhIbXlnUFo0bEJVZkhvRlBCVXE0R2VqOWI3SFRaamk4bEQ0c1BtSkVpakFndThoUy1ndVhITmdTVHBIUQ?oc=5\" target=\"_blank\">Resmi Gazete: İki alan deniz parkı ilan edildi</a>  <font color=\"#6f6f6f\">Diken</font>",
+      "category": "Resmî Gazete",
+      "subType": "Akademik İlan",
+      "timestamp": "2026-08-15T21:49:35.000Z",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB6UU83b2paNHdQeWdmcFNZME9ETXZvRnNMM05jV01Vd2ZnODdNeXpjbnVVY21zZkNkZlF4dElDdGhIbXlnUFo0bEJVZkhvRlBCVXE0R2VqOWI3SFRaamk4bEQ0c1BtSkVpakFndThoUy1ndVhITmdTVHBIUQ?oc=5",
+      "isRelevant": false,
+      "analysis": null
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Resmi Gazete’de yayımlandı: Bakanlıklarda yeni görevlendirmeler - dunya.com",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQbWVJMU1JZDRGVUkxQVpkRTdqRUJUN3NlVWk4eU4tTTlzTG1fekw2aE9lOVBReVN6LWh4Y2JMOVE0N0lONDhHMFJIeFg3ZDhfYnc3eTgzeWRlUTZTZElhYm14bFhPWVZQOExsX2d4WkxIN19iTUhkWGVLc0t4NzJQeUJTLTFuRGdlU0V0V1AwNUFZdEpfTlItSUMxUmZ3SFJOMGlESFNYSQ?oc=5\" target=\"_blank\">Resmi Gazete’de yayımlandı: Bakanlıklarda yeni görevlendirmeler</a>  <font color=\"#6f6f6f\">dunya.com</font>",
+      "category": "Resmî Gazete",
+      "subType": "Genel",
+      "timestamp": "2026-08-15T21:32:00.000Z",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQbWVJMU1JZDRGVUkxQVpkRTdqRUJUN3NlVWk4eU4tTTlzTG1fekw2aE9lOVBReVN6LWh4Y2JMOVE0N0lONDhHMFJIeFg3ZDhfYnc3eTgzeWRlUTZTZElhYm14bFhPWVZQOExsX2d4WkxIN19iTUhkWGVLc0t4NzJQeUJTLTFuRGdlU0V0V1AwNUFZdEpfTlItSUMxUmZ3SFJOMGlESFNYSQ?oc=5",
+      "isRelevant": false,
+      "analysis": null
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Resmi Gazete'de bugün (15.08.2026) - Bloomberght",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTE9CT2dSWUczb2tFQlpLYkVPNmpobEl3c0otWWZXc0xDRE1CeXdUVXJBOXRpek9xWFdaQXNVb1F4cDF6b3k0R0sxUnpzMHdJdkhXWFlXVlVoWHY0QUtDSmdVdlVRdEZCZnlyckpFVUZ1dEFwZkYt?oc=5\" target=\"_blank\">Resmi Gazete'de bugün (15.08.2026)</a>  <font color=\"#6f6f6f\">Bloomberght</font>",
+      "category": "Resmî Gazete",
+      "subType": "Genel",
+      "timestamp": "2026-08-15T07:00:56.000Z",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9CT2dSWUczb2tFQlpLYkVPNmpobEl3c0otWWZXc0xDRE1CeXdUVXJBOXRpek9xWFdaQXNVb1F4cDF6b3k0R0sxUnpzMHdJdkhXWFlXVlVoWHY0QUtDSmdVdlVRdEZCZnlyckpFVUZ1dEFwZkYt?oc=5",
+      "isRelevant": false,
+      "analysis": null
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Jandarmada kritik atamalar Resmi Gazete'de - Sabah",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMijAFBVV95cUxQXy1WNmxfYk00TmNnQWJKV2FzWG50bXM3WVplTnJhYXFQRDdYYWJvbVV2NExUM2pTbzZWRXItZy1lWVFicFZ0VDdPT3owSlo0M3NyTURydUZQTzJBbEdiMjhFS0lMVEhrRmg5YWlIXzdMSk8xeHllVUJnTHk4N0pDbjFpZF8tSlJwcUNCVA?oc=5\" target=\"_blank\">Jandarmada kritik atamalar Resmi Gazete'de</a>  <font color=\"#6f6f6f\">Sabah</font>",
+      "category": "Resmî Gazete",
+      "subType": "Personel Ataması",
+      "timestamp": "2026-08-16T04:01:10.000Z",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQXy1WNmxfYk00TmNnQWJKV2FzWG50bXM3WVplTnJhYXFQRDdYYWJvbVV2NExUM2pTbzZWRXItZy1lWVFicFZ0VDdPT3owSlo0M3NyTURydUZQTzJBbEdiMjhFS0lMVEhrRmg5YWlIXzdMSk8xeHllVUJnTHk4N0pDbjFpZF8tSlJwcUNCVA?oc=5",
+      "isRelevant": false,
+      "analysis": null
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Resmi Gazete’de gece yarısı atamaları: 5 kurumda değişiklik yapıldı - İz Gazete",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMibkFVX3lxTE84UWFqbDJuMkZhcWZDcmtTRTFYZ0VqUi14MXhVWGR1bTl1b05RMHBYWFZQWmsxSHNyNG1TenpGMlpVMTVtTURpYnBaNDlnSUtWU213dXNGNk8tenc4WXliblVhM2NHUmJkYUxwLUlB?oc=5\" target=\"_blank\">Resmi Gazete’de gece yarısı atamaları: 5 kurumda değişiklik yapıldı</a>  <font color=\"#6f6f6f\">İz Gazete</font>",
+      "category": "Resmî Gazete",
+      "subType": "Personel Ataması",
+      "timestamp": "2026-08-15T21:10:00.000Z",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE84UWFqbDJuMkZhcWZDcmtTRTFYZ0VqUi14MXhVWGR1bTl1b05RMHBYWFZQWmsxSHNyNG1TenpGMlpVMTVtTURpYnBaNDlnSUtWU213dXNGNk8tenc4WXliblVhM2NHUmJkYUxwLUlB?oc=5",
+      "isRelevant": false,
+      "analysis": null
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Erdoğan'ın imzası ile görevden alma ve atamalar Resmi Gazete'de - Ekonomim",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUXJwcG1DWDBpWjFkalJHVDJLSDEyQXZ5dkhzX2V3LURsNXA5ZDVRNDJydi1FNHVfRkQwdkFDTDYyWUJHXzNseERBWlowSUljM21WbExpUllrQnpISGZ3TW1fbWg4WjhBOWFuMHF3U2ZRU1ZoaXcxTjJ6RjFjeVVBSkh2LVNadTFEc2tFbElGVFJObTZOYVNjVVprZjdKejJCNnFGNmd4V0VYLUHSAbABQVVfeXFMTkdQZ21WRmpjMHBCNjIzOVZlQ25jVzVzRFN2RlRiNlVBQVdFWHdWZ25ZOU1qMlBpOEpDenVSOTJYa192RXBGWlJCTFlmcXdGY3NFbkpnUE9UTndySEhya3c3YWNIeXRrSHFxVHZpRHJnT3AxeTlYamFSNXlNeC1WQ1o4RkpQWXpqVnFNMjlwYkM4d2pkZVFtRUNmZmo2SnctS1YxaE13My14S1hqUnZxeG4?oc=5\" target=\"_blank\">Erdoğan'ın imzası ile görevden alma ve atamalar Resmi Gazete'de</a>  <font color=\"#6f6f6f\">Ekonomim</font>",
+      "category": "Resmî Gazete",
+      "subType": "Personel Ataması",
+      "timestamp": "2026-08-15T21:21:00.000Z",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUXJwcG1DWDBpWjFkalJHVDJLSDEyQXZ5dkhzX2V3LURsNXA5ZDVRNDJydi1FNHVfRkQwdkFDTDYyWUJHXzNseERBWlowSUljM21WbExpUllrQnpISGZ3TW1fbWg4WjhBOWFuMHF3U2ZRU1ZoaXcxTjJ6RjFjeVVBSkh2LVNadTFEc2tFbElGVFJObTZOYVNjVVprZjdKejJCNnFGNmd4V0VYLUHSAbABQVVfeXFMTkdQZ21WRmpjMHBCNjIzOVZlQ25jVzVzRFN2RlRiNlVBQVdFWHdWZ25ZOU1qMlBpOEpDenVSOTJYa192RXBGWlJCTFlmcXdGY3NFbkpnUE9UTndySEhya3c3YWNIeXRrSHFxVHZpRHJnT3AxeTlYamFSNXlNeC1WQ1o4RkpQWXpqVnFNMjlwYkM4d2pkZVFtRUNmZmo2SnctS1YxaE13My14S1hqUnZxeG4?oc=5",
+      "isRelevant": false,
+      "analysis": null
+    },
     {
       "source": "Türkiye Cumhuriyeti Resmî Gazete",
       "title": "Süresi bitecek antidamping uygulamaları için tebliğ - Ekonomi Gazetesi",
@@ -2503,283 +2800,6 @@
         "followUp": "Paktın somut askeri taahhütleri, üye ülkelerin yükümlülükleri ve bölgesel diğer aktörlerin bu duruma vereceği diplomatik tepkiler izlenmelidir."
       },
       "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNk5rX19DV3VGM0dNcDhqNUdWdE4zSzF0c1FUSEJxN1lLRU04NVgxaWxCeGhQTVZnMTZSVHJyNC04b0c1ay0wcW54OHYyREJzMjlGdF9WLTg0RUw0cVdBY3l3TVpSN3FvMXVYOE9kZUkyc084a2YybnlJQXdoZ09lOUpvR3NrRzZZTDBfbU1HNEJrZEk3VTYwT2d3?oc=5"
-    },
-    {
-      "source": "ahaber.com.tr",
-      "title": "Moskova NATO’yu mu hedef alacak? Avrupa’da Rusya korkusu büyüyor! Polonya ve Baltıklar alarmda",
-      "body": "Moskova NATO’yu mu hedef alacak? Avrupa’da Rusya korkusu büyüyor! Polonya ve Baltıklar alarmda - ahaber.com.tr",
-      "category": "Uluslararası İlişkiler",
-      "subType": "Genel",
-      "timestamp": "2026-08-08T23:55:02.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Rusya'nın hamleleri nedeniyle Avrupa'da, özellikle Polonya ve Baltık ülkelerinde güvenlik endişeleri artarken, Moskova'nın NATO'yu hedef alıp almayacağı tartışmaları yoğunlaştı.",
-        "geopoliticalImpact": "Doğu Avrupa'daki askeri gerilimi ve NATO'nun bu bölgedeki caydırıcılık tedbirlerini en üst seviyeye çıkaran bir jeopolitik atmosfer yaratmaktadır.",
-        "turkeyImpact": "Türkiye, bir NATO üyesi olarak Doğu kanadındaki bu artan gerilimden ve olası ittifak içi senaryolardan doğrudan etkilenmektedir.",
-        "financialImpact": "Avrupa genelindeki artan güvenlik harcamaları savunma sanayii hisselerini yukarı çekerken, kıtadaki ekonomik istikrar risk altında kalmaktadır.",
-        "longTerm": "NATO ile Rusya arasındaki konvansiyonel çatışma riskinin kalıcı olarak yüksek kalmasına ve askeri bütçelerin artmasına neden olacaktır.",
-        "isCritical": true,
-        "whyImportant": "Küresel barışı ve nükleer/konvansiyonel savaş ihtimallerini doğrudan ilgilendiren Doğu Avrupa hattındaki krizler küresel piyasaları ve güvenliği sarsmaktadır. NATO'nun kolektif savunma maddelerinin işlerliği bu süreçte hayati önem taşımaktadır.",
-        "whoAffected": "NATO üyesi ülkeler, Rusya, Doğu Avrupa ülkeleri ve küresel finans piyasaları bu durumdan etki görmektedir.",
-        "followUp": "Polonya ve Baltık sınırındaki askeri hareketlilik, NATO'nun alacağı yeni savunma kararları ve Moskova'nın diplomatik söylemleri takip edilmelidir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNT1hISnZfejJaRTdodlBSZnpDOWFvdV85V1Z3cy16YnNfYWdnOUhwMHVERlBmMEdiSFhDN0J0eDFTeVZHUXVRM2NrLTlsV3h6NGNqZTQ0eUozeVpwRG93VUd3dmo1RkVYd21ZTkZwdzZvTXVobnA5Q1NpTmkwX3Jkdm1nc3ZjcVdSYS1nRTdEcjZBRnRlMEpRSkRZQklxT3NGRUJUOEh1MnNTTXAwYUZCOUlSMlk4VXNMdzZwSk1BU1J5aUFKc19SdTdWc29LRzR6NnJKWWF4T0M?oc=5"
-    },
-    {
-      "source": "Sabah",
-      "title": "Enflasyon iki aydır beklentilerin altında",
-      "body": "Enflasyon iki aydır beklentilerin altında",
-      "category": "Finans ve Ekonomi",
-      "subType": "Genel",
-      "timestamp": "2026-08-09T04:02:06.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Türkiye'de aylık enflasyon verilerinin son iki aydır piyasa beklentilerinin altında gerçekleştiği açıklandı.",
-        "geopoliticalImpact": "Türkiye ekonomisinin makroekonomik istikrarı açısından uluslararası yatırımcıların algısını olumlu yönde etkilemektedir.",
-        "turkeyImpact": "Enflasyonla mücadele programının öngörülen hedefler doğrultusunda ilerlediğine dair iç piyasada güveni tazelemektedir.",
-        "financialImpact": "Tahvil faizlerinde ve borsa üzerinde olumlu bir hareketlilik yaratırken, TCMB'nin para politikası adımlarına zemin hazırlamaktadır.",
-        "longTerm": "Fiyat istikrarının kalıcı olarak sağlanması ve dezenflasyon sürecinin hızlanması açısından kritik bir eşik oluşturabilir.",
-        "isCritical": true,
-        "whyImportant": "Enflasyondaki düşüş eğiliminin sürdürülebilirliği, ekonominin genel sağlığı ve TCMB'nin faiz politikaları açısından büyük önem taşımaktadır. Piyasaların beklentilerini şekillendiren kilit bir göstergedir.",
-        "whoAffected": "Tüm tüketiciler, reel sektör şirketleri, bankacılık sektörü ve yabancı portföy yatırımcıları bu durumdan doğrudan etkilenmektedir.",
-        "followUp": "Önümüzdeki aylarda açıklanacak TÜFE ve ÜFE verileri ile Merkez Bankası'nın enflasyon raporları takip edilmelidir. Fiyat artışlarının kalıcılığı izlenmelidir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQTUpKWHR3MjlpdkltSWlnMzZ4ZTY0ajRWYUJwNDNpNGh0ai1TWEdNd2FSVVRwS1ZMaDlyckF6eDVKX1A4b1B3R2o2Z1FvRXpkNmg5d09NY1U4OU9NMl9JR01FSVZhRDZPQURjbmdMT0dkUkw0ZWlWNXlFMlRfVE5ZYjM1UjFRcnFVWW1TWHVUT0hXVzh1a1JBdThGMEJTMTJY?oc=5"
-    },
-    {
-      "source": "Anadolu Ajansı",
-      "title": "Küresel piyasalarda gözler ABD'nin enflasyon verisinde",
-      "body": "Küresel piyasalarda gözler ABD'nin enflasyon verisinde",
-      "category": "Finans ve Ekonomi",
-      "subType": "Genel",
-      "timestamp": "2026-08-08T08:25:45.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Küresel finans piyasalarının yönü açısından kritik önem taşıyan ABD enflasyon verisinin açıklanması bekleniyor.",
-        "geopoliticalImpact": "Küresel ekonomik istikrar ve büyük ekonomilerin merkez bankalarının atacağı adımlar üzerinde belirleyicidir.",
-        "turkeyImpact": "ABD enflasyon verisi sonrasında döviz kurlarında ve küresel emtia fiyatlarında yaşanan değişimler Türkiye iç piyasasına doğrudan yansımaktadır.",
-        "financialImpact": "Dolar endeksi, altın fiyatları ve küresel tahvil faizlerinde ani hareketliliklere neden olmaktadır.",
-        "longTerm": "Küresel faiz indirim veya artırım döngülerinin zamanlamasını etkileyerek uzun vadeli sermaye akımlarını yönlendirir.",
-        "isCritical": true,
-        "whyImportant": "Dünya genelindeki tüm finansal varlıkların fiyatlanmasında en önemli makroekonomik göstergelerden biridir. Piyasaların risk iştahını doğrudan belirlemektedir.",
-        "whoAffected": "Tüm küresel piyasa aktörleri, döviz yatırımcıları, merkez bankaları ve uluslararası şirketler etkilenmektedir.",
-        "followUp": "Açıklanacak ABD TÜFE verisi ve bunun Fed'in faiz karar fiyatlamalarına olan etkisi yakından izlenmelidir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNUtkR01ydkVVaFBPdlNod0h5T2Y5WWJHa1dYNDhWT2xlb2NKUHF2dlcxQmJhMWxnM1AzaS1INmFmWnV0NWg1RXMzT3R3Z055eEFwcGVyNnBZSFJxNFJ4eXJoSFNfbUZrSmxKZHpNOV9IN3dvS1cwU2hsdWJ0NE5nblZfQnlMR1U1WjQzOXhYcFh6WjVzYzhjS1pB?oc=5"
-    },
-    {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Hazine Taşınmazlarının İdaresi Hakkında Yönetmelikte Değişiklik",
-      "body": "Hazine Taşınmazlarının İdaresi Hakkında Yönetmelik Resmi Gazete'de yayımlanarak yürürlüğe girdi ve taşınmazların kiralanması, satışı ve tahsis süreçlerine dair yeni usuller getirildi.",
-      "category": "Finans ve Ekonomi",
-      "subType": "Genel",
-      "timestamp": "2026-08-08T21:12:34.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Hazine Taşınmazlarının İdaresi Hakkında Yönetmelikte yapılan bu değişiklik ile kamu taşınmazlarının kiralanması, satışı ve devir süreçlerindeki ihale usulleri ile süre sınırları yeniden belirlenmiş, idari işlemler somut kriterlere bağlanmıştır.",
-        "geopoliticalImpact": "Doğrudan uluslararası bir boyutu olmamakla birlikte, yabancı yatırımcıların kamu arazileri ve gayrimenkul edinimi/kiralama süreçlerindeki yasal çerçeveyi netleştirmektedir.",
-        "turkeyImpact": "Türkiye genelinde kamu mülklerinin etkin yönetimi, yerli ve yabancı yatırımcılara tahsis süreçlerinin hızlandırılması ve hazine varlıklarının gelir getirici kapasitesinin artırılması beklenmektedir.",
-        "financialImpact": "Kamu gelirlerinin artırılması, hazine taşınmazlarının değerlendirilmesiyle elde edilen kira ve satış gelirlerinin bütçeye katkı sağlaması öngörülmektedir.",
-        "longTerm": "Uzun vadede kamu varlıklarının şeffaf ve rasyonel yönetimi sayesinde gayrimenkul piyasasında istikrarın sağlanmasına ve kamu maliyesinin güçlenmesine katkı sunacaktır.",
-        "isCritical": false,
-        "whyImportant": "Bu düzenleme, kamu mülkiyetindeki gayrimenkullerin ekonomiye kazandırılması ve yatırım ortamının iyileştirilmesi açısından kritik usuli esaslar içermektedir. Mevzuattaki bu yenilikler tüm kamu kurumları ve ilgili sektörel yatırımcılar için bağlayıcıdır.",
-        "whoAffected": "Gayrimenkul sektörü, turizm yatırımcıları, kamu taşınmazlarını kiralayan veya satın alan tüzel ve gerçek kişiler ile Çevre, Şehircilik ve İklim Değişikliği Bakanlığı etkilenecektir.",
-        "followUp": "Önümüzdeki günlerde ilgili bakanlığın bu yeni yönetmelik çerçevesinde açacağı yeni taşınmaz ihaleleri ve uygulama tebliğleri takip edilmelidir. Ayrıca sektör temsilcilerinin yeni kurallara uyum süreçleri izlenecektir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPYlJBUHRkcUpXSF9iMmxXZHNZeHhWWWJteDBNRG1jNDU2XzVleFJXWmhxal9mb2hlZ3VMZnN5cGFkOUtOaW11aUhXbmxIQ3p0YjN5dkV2VjJFQUlHNFlrSm9KV3FIMnd1SjlUMm95dG1QOVMyUTh5a3AtWjV2a3h4eTFPSVNla2ozSlQzMGZ1Q1NndldMRXdNb2dHQXhrYzM0Q2pBMlZvRWphWXlCZzVOSjFB0gG3AUFVX3lxTE9sYXJDOXZEQUV3YkpDcFVWX2hCUjNYSnZaZ3RPd3pzdW5XVnNEMFdIVjhlRzdscWt0YVExU3Y2LTMzYU9aM3NBdnNCQnRDY1lqT3pKQ0cwYUlPZmN6SkI5dm8yaG1YbU5veTdNOWsya2ZkZktKXzFDTHBxeWlzNUxfQ1lvRmUybmV4VWpnSzVpNGFWWHdWMUVfUU04a2hlOUFhVEVfeXljNXBiTTJjT3ZmREQ0RWhrQQ?oc=5"
-    },
-    {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Temmuz enflasyonu: TÜİK'e göre yüzde 31,75; ENAG'a göre yüzde 50,49 - Euronews.com",
-      "body": "Temmuz enflasyonu: TÜİK'e göre yüzde 31,75; ENAG'a göre yüzde 50,49",
-      "category": "Finans ve Ekonomi",
-      "subType": "Enflasyon",
-      "timestamp": "2026-08-03T07:34:49.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "TÜİK verilerine göre Temmuz ayında yıllık enflasyon yüzde 31,75 olarak gerçekleşirken, bağımsız araştırma grubu ENAG bu oranı yüzde 50,49 olarak açıkladı. Açıklanan bu veriler, resmi enflasyon ile hissedilen hayat pahalılığı arasındaki makasın korunduğunu gösterdi.",
-        "geopoliticalImpact": "Türkiye'nin ekonomik istikrarı ve makroekonomik verilerinin güvenilirliği uluslararası yatırımcılar tarafından yakından takip edilmektedir.",
-        "turkeyImpact": "Yüksek enflasyon oranları vatandaşların alım gücünü doğrudan düşürürken, asgari ücret ve emekli maaşları üzerindeki baskıyı artırmaktadır.",
-        "financialImpact": "Merkez Bankası'nın fair politikaları ve piyasa beklentileri üzerinde enflasyon rakamları belirleyici bir rol oynamaktadır.",
-        "longTerm": "Enflasyonun hedeflenen seviyelere düşürülememesi durumunda, makroekonomik dengelenme süreci uzayacak ve dış finansman maliyetleri yükselecektir.",
-        "isCritical": true,
-        "whyImportant": "Enflasyon verileri, Türkiye ekonomisinin genel sağlığı, para politikası kararları ve halkın refah seviyesi açısından en temel ekonomik göstergedir.",
-        "whoAffected": "Tüm Türkiye vatandaşları, sabit gelirli çalışanlar, emekliler, şirketler ve yabancı yatırımcılar bu durumdan doğrudan etkilenmektedir.",
-        "followUp": "Önümüzdeki aylarda TCMB'nin alacağı faiz kararları ve Orta Vadeli Program (OVP) hedeflerinin revize edilip edilmeyeceği takip edilmelidir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcU50OVRCZzA5a0Y3aVV4NVdqWGhwS21PYmZsajFxWEw4anFFYWZqQlNTMXlBSjBTZmJPNkZmMURTTmlJRnZRQmxxaXBIeGlCdnJKNXkwc2NtRDk5dTFvRGkwVGY2dDBxV0xvdUxQRFhUQ1dqQV9DNnJIckE3MWJlQ1JCR1Y3bU04elU4Q0pndW5pX0FiYU9RcHJEU0VlcEh1SDk5dU9JOVk2SVZ4bzRlWTI5WUdRclph?oc=5"
-    },
-    {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Trump'tan Fed Başkanı Warsh'a: Faiz kararı tamamen ona bağlı değil - bloomberght.com",
-      "body": "Trump'tan Fed Başkanı Warsh'a: Faiz kararı tamamen ona bağlı değil",
-      "category": "Finans ve Ekonomi",
-      "subType": "Merkez Bankaları",
-      "timestamp": "2026-08-07T09:49:29.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "ABD Başkanı Trump, Federal Reserve (Fed) Başkanı Warsh'ın faiz kararlarında tamamen bağımsız olmadığını belirterek para politikası üzerinde siyasi baskı sinyali verdi. Yapılan bu açıklama, merkez bankalarının bağımsızlığına ilişkin küresel piyasalardaki endişeleri yeniden alevlendirdi.",
-        "geopoliticalImpact": "ABD'de yürütme erkinin merkez bankası kararlarına müdahale etme çabası, küresel finansal sistemin kurumsal güvenilirliğini zedeleyebilir.",
-        "turkeyImpact": "Küresel piyasalarda doların değerini ve uluslararası fon akışlarını etkileyeceği için Türkiye gibi gelişmekte olan ülke ekonomilerini dolaylı yoldan sarsabilir.",
-        "financialImpact": "Fed'in bağımsızlığına dair kuşkular altın, petrol ve döviz piyasalarında sert dalgalanmalara yol açabilir.",
-        "longTerm": "Merkez bankalarının siyasi kontrol altına girmesi, uzun vadede küresel çapta enflasyonun kalıcılaşmasına ve finansal krizlerin artmasına neden olabilir.",
-        "isCritical": false,
-        "whyImportant": "Dünyanın en büyük ekonomisinin merkez bankasına yönelik siyasi baskılar, küresel finans piyasalarının yönünü belirleyen kritik bir unsurdur.",
-        "whoAffected": "Küresel yatırımcılar, Amerikan halkı, döviz piyasaları ve gelişmekte olan ülkelerin merkez bankaları bu durumdan etkilenecektir.",
-        "followUp": "Fed'in önümüzdeki toplantılarda alacağı faiz kararları ve Başkan Warsh'ın bu açıklamalara vereceği kurumsal yanıtlar izlenmelidir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdnBibHhQQnp2U2FyZUtoWFpJTVc4OVpVRXBGMmhUVGJrZmZWWHpSQ09iaHRkWWRGd1JtR0ZsYjFoeVFLaUZvanlpYjU0OWRQWE92WkhTTDFWMURfZm8yZllVVTJLZld4aHlqZWEwODltTWRaSTlBX0VJWXkybDktTFJlLTl0d2tXdEg5aU5tOXhwUzg?oc=5"
-    },
-    {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Yapay zekayla kamuda 2 milyar liralık riskli harcama saptandı - bloomberght.com",
-      "body": "Yapay zekayla kamuda 2 milyar liralık riskli harcama saptandı",
-      "category": "Finans ve Ekonomi",
-      "subType": "Genel",
-      "timestamp": "2026-08-09T09:19:50.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Kamuda gerçekleştirilen harcamaların yapay zeka destekli denetim mekanizmalarıyla incelenmesi sonucunda 2 milyar liralık riskli ve usulsüzlük şüphesi taşıyan harcama kalemi tespit edildi.",
-        "geopoliticalImpact": "Doğrudan bir jeopolitik etkisi bulunmamakla birlikte, kamu maliyesi yönetimindeki dijitalleşme ve şeffaflık uluslararası kuruluşlarca olumlu karşılanmaktadır.",
-        "turkeyImpact": "Kamu kaynaklarının etkin kullanımı, bütçe disiplininin sağlanması ve kamu harcamalarındaki kaçağın önlenmesi açısından iç piyasada mali şeffaflığı artırıcı bir etki yaratmaktadır.",
-        "financialImpact": "2 milyar liralık riskli harcamanın tespiti, bütçe açığının kontrol altında tutulması ve kamu harcamalarında tasarruf sağlanması adına finansal açıdan olumlu bir gelişmedir.",
-        "longTerm": "Uzun vadede yapay zekanın kamusal denetim mekanizmalarına tam entegrasyonu, kamu maliyesinde yolsuzluk ve israf risklerini minimum seviyeye indirecektir.",
-        "isCritical": true,
-        "whyImportant": "Bu gelişme, Türkiye'de kamu harcamalarının denetlenmesinde yapay zeka teknolojilerinin etkin bir şekilde kullanılmaya başlandığını ve bütçe disiplininin sıkılaştırıldığını gösterdiği için son derece önemlidir. Ayrıca tespit edilen yüksek meblağlı riskli harcama, kamu kaynaklarının korunması adına atılan somut adımların büyüklüğünü ortaya koymaktadır.",
-        "whoAffected": "Bu gelişme başta merkezi yönetim bütçesini kullanan kamu kurum ve kuruluşlarını, kamu ile iş yapan tedarikçi firmaları ve genel olarak tüm Türk vergi mükelleflerini etkilemektedir.",
-        "followUp": "Önümüzdeki günlerde tespit edilen 2 milyar liralık riskli harcamaya ilişkin hangi yasal veya idari işlemlerin yapılacağı, hangi kurumların soruşturma geçireceği ve yapay zeka denetim sisteminin kapsamının diğer bakanlıklara nasıl yaygınlaştırılacağı takip edilmelidir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQYnBaRDlaRmp1Y3JmRG96ZzY1OFc4aXllb1JvQlFncXJMUG9vS0lPLVdnd3pxZW16Ykx1RktxYlJHVm02SUZTTW9pUW9paG40M0dveTRuWGZsb0N6aG1HSGtCbFlBd0NWbE0weGtvOW40b1pNSWdEYTZkVTZ4aVh0RjhLWHRBbFUxcll4djBFd0JVTEhaWTI0UEtxNHdGZw?oc=5"
-    },
-    {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Ticaret Bakanlığı'ndan Endonezya e-ticaret rehberi - bloomberght.com",
-      "body": "Ticaret Bakanlığı'ndan Endonezya e-ticaret rehberi",
-      "category": "Finans ve Ekonomi",
-      "subType": "Genel",
-      "timestamp": "2026-08-09T07:54:45.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Ticaret Bakanlığı, Türk ihracatçılarının ve e-ticaret firmalarının Güneydoğu Asya pazarında yer alabilmesi amacıyla Endonezya'nın e-ticaret pazarı dinamiklerini, yasal düzenlemelerini ve pazar giriş stratejilerini içeren kapsamlı bir rehber yayımladı.",
-        "geopoliticalImpact": "Türkiye'nin Asya Anavatan stratejisi ve Uzak Doğu ülkeleriyle ticaret diplomasisini çeşitlendirme çabaları çerçevesinde bölgesel ekonomik ilişkileri desteklemektedir.",
-        "turkeyImpact": "Türk e-ticaret ve KOBİ'lerinin Endonezya gibi büyük bir pazara ihracat yapmasını kolaylaştırarak dış ticaret hacminin coğrafi olarak çeşitlenmesine katkı sağlamaktadır.",
-        "financialImpact": "İhracatçı şirketlerin yeni dış pazarlara açılmasıyla birlikte döviz girdisi potansiyelini artırırken, firmaların pazar araştırma maliyetlerini düşürmektedir.",
-        "longTerm": "Uzun vadede Türk markalarının ve dijital ticaret girişimlerinin Güneydoğu Asya pazarında kalıcı varlık göstermesine ve pazar payı kazanmasına olanak tanıyacaktır.",
-        "isCritical": false,
-        "whyImportant": "Bu rehber, Türkiye'nin ihracatta geleneksel pazarların ötesine geçerek Endonezya gibi yüksek nüfuslu ve dijital ticareti hızla büyüyen pazarlara odaklanması açısından stratejik bir kılavuz niteliği taşımaktadır. Firmaların dış pazarlardaki regülasyon uyum süreçlerini hızlandırarak ihracat engellerini azaltmaktadır.",
-        "whoAffected": "Gelişme özellikle e-ticaret yapan Türk girişimlerini, KOBİ'leri, lojistik şirketlerini ve dış ticaret ile uğraşan ihracatçı birliklerini etkilemektedir.",
-        "followUp": "Önümüzdeki dönemde Endonezya pazarına yönelik benzer ticaret rehberlerinin diğer Asya-Pasifik ülkeleri için hazırlanıp hazırlanmayacağı ve bu rehberler neticesinde Türk firmalarının Endonezya'daki pazar payı değişimleri takip edilmelidir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPS3BWZllIUDZ3ZTFoZU93UWNQNlVWTDJ1UWZUVXVGSzdSenh0dFN2M1RRb0NCbHFHN2JJY2wzZzdJVUQ3eFFRNnA3RHR2MTktSWlVbU1aUThiYnJJMjY0SmY2X2lkRFpUOEpSLUg5TGszZnUzSTcyOElFb1lFRWhzY0FhdzQ4YjRMYUd0eA?oc=5"
-    },
-    {
-      "source": "Reuters Markets & Financial Times (Ekonomi)",
-      "title": "Kredi çekenin sırtındaki vergi artışı yüzde 628’i buldu: Borçlanan Hazine’nin gelirini büyütdu - İlke TV",
-      "body": "Kredi çekenin sırtındaki vergi artışı yüzde 628’i buldu: Borçlanan Hazine’nin gelirini büyüttü",
-      "category": "Finans ve Ekonomi",
-      "subType": "Genel",
-      "timestamp": "2026-08-09T09:11:03.000Z",
-      "isRelevant": true,
-      "analysis": {
-        "summary": "Bankalardan kredi kullanan vatandaş ve şirketlerin sırtındaki vergi ve harç yükünün yüzde 628 oranında arttığı, bu durumun artan dolaylı vergiler yoluyla Hazine gelirlerinin büyümesine önemli bir katkı sağladığı açıklandı.",
-        "geopoliticalImpact": "Doğrudan uluslararası bir jeopolitik etkisi bulunmamaktadır, ancak ülkenin iç maliye politikaları uluslararası kredi derecelendirme kuruluşlarının bütçe disiplini değerlendirmelerinde dikkate alınmaktadır.",
-        "turkeyImpact": "İç talepteki daralma eğilimleri ve borçlanma maliyetlerinin artmasıyla birlikte, vatandaşların ve reel sektörün finansmana erişim maliyetleri katlanarak yükselmektedir.",
-        "financialImpact": "Kredi maliyetlerindeki vergisel artışlar bankacılık sektörünün kredi hacmini ve tahsilat oranlarını etkilerken, Hazine'ye sağlanan vergi gelirlerini kısa vadede güçlendirmektedir.",
-        "longTerm": "Uzun vadede yüksek kredi vergileri borçlanma maliyetlerini kalıcı olarak artırarak yatırım ve tüketim iştahını baskılayabilir, ayrıca borç ödeme güçlüklerini tetikleyebilir.",
-        "isCritical": true,
-        "whyImportant": "Bu gelişme, Türkiye'de bütçe gelirlerinin artırılmasında dolaylı vergilerin ve finansal işlemler üzerinden alınan harçların ne denli baskın bir rol oynadığını net bir şekilde gözler önüne sermektedir. Kredi maliyetlerindeki devasa artış, ekonomik büyüme dinamikleri ve hanehalkı borçluluğu açısından kritik bir göstergedir.",
-        "whoAffected": "Gelişme tüketici kredisi ve ticari kredi kullanan tüm vatandaşları, KOBİ'leri, büyük ölçekli şirketleri ve bankacılık sektörünü doğrudan etkilemektedir.",
-        "followUp": "Önümüzdeki günlerde kredi faizleri ve harç oranlarında yeni bir düzenleme yapılıp yapılmayacağı, ayrıca bu vergi artışlarının kredi hacmi büyümesi üzerindeki yansımaları izlenmelidir."
-      },
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbnZQLTd1WWF4bkFQRXlsbW01Q1h1QjhsRVVmcWh1VlFDZHVXRXhCX2p1VUh5NWVrbVdrWG9Wemx1ekpNVVh1emdneTNvV3JRSG9icXFGWXFqaml3WFh0ejZGaTZfTE4tNFZLbTBSUG9WMExyZlpSaktjd0dQUVZDV2ZKRHVZaEkya2xQakR0UXR2cUhZZ05uZ2g4QWVZazVlSGVwUDZiNXBneEdCaDJ2OU84WXo?oc=5"
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "\"Yükseköğretim Kanunu ve Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun\" Resmi Gazete'de - Anadolu Ajansı",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUHdtLWtxMjlCM2h5VXFJR1RNLUpPeDRvUjk2UVpyX1phTTE1MjFySnNQcWdKOUR1UGEyT2I0ZDVJQlVaODNpdWhRYmN1TkQxaTdtNlp5LWgzeTdoTWdrLW03eTV4YzhrRzBHTjRqTm1IX2o5d0M2NHlDbVJucEVBV0FGd0lxT1l0dzRvSUdTbGhzRHVIeUpBQVlvemFxcG52ZGk0UXJ0UzEyTWVxOEZlaVhURjFKLTNxOWYzSDV3OHRlQQ?oc=5\" target=\"_blank\">\"Yükseköğretim Kanunu ve Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun\" Resmi Gazete'de</a>  <font color=\"#6f6f6f\">Anadolu Ajansı</font>",
-      "category": "Resmî Gazete",
-      "subType": "Genel",
-      "timestamp": "2026-08-09T01:33:15.000Z",
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUHdtLWtxMjlCM2h5VXFJR1RNLUpPeDRvUjk2UVpyX1phTTE1MjFySnNQcWdKOUR1UGEyT2I0ZDVJQlVaODNpdWhRYmN1TkQxaTdtNlp5LWgzeTdoTWdrLW03eTV4YzhrRzBHTjRqTm1IX2o5d0M2NHlDbVJucEVBV0FGd0lxT1l0dzRvSUdTbGhzRHVIeUpBQVlvemFxcG52ZGk0UXJ0UzEyTWVxOEZlaVhURjFKLTNxOWYzSDV3OHRlQQ?oc=5",
-      "isRelevant": false,
-      "analysis": null
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Resmi Gazete’de yayımlandı: Kıyı ve sahillerde işgale karşı yeni adım - Uzmanpara",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMiuwFBVV95cUxNYlhNZVZJNGJWMjB5WEtnSnA3YU1rS05mNUQ2Zkc4VmVScXFvVzRydkp6SHJPUmdhV0xFWGFYRWNHMzlkX0RMUXNhVlh2ZncybFdmN2lkSC1fQVBZQ1RHSUJRYnBCT0dCQzV6cmkxRzF6aWNGdnMxMDZ6VlVRelBBQVV3ZXFGdlg4U1RVNEJaQWc4Y2QzckY1cmoyWGVfbUNpTnVWMWkzV0x1a00zQnpfdEpURGRuTUpMcTRR?oc=5\" target=\"_blank\">Resmi Gazete’de yayımlandı: Kıyı ve sahillerde işgale karşı yeni adım</a>  <font color=\"#6f6f6f\">Uzmanpara</font>",
-      "category": "Resmî Gazete",
-      "subType": "Genel",
-      "timestamp": "2026-08-09T07:59:13.000Z",
-      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNYlhNZVZJNGJWMjB5WEtnSnA3YU1rS05mNUQ2Zkc4VmVScXFvVzRydkp6SHJPUmdhV0xFWGFYRWNHMzlkX0RMUXNhVlh2ZncybFdmN2lkSC1fQVBZQ1RHSUJRYnBCT0dCQzV6cmkxRzF6aWNGdnMxMDZ6VlVRelBBQVV3ZXFGdlg4U1RVNEJaQWc4Y2QzckY1cmoyWGVfbUNpTnVWMWkzV0x1a00zQnpfdEpURGRuTUpMcTRR?oc=5",
-      "isRelevant": false,
-      "analysis": null
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Büyükelçi atamaları Resmi Gazete'de - TRT Haber",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMijAFBVV95cUxNdGVFaHZXdS1tRDBUcWdtckhyU1JZLTUtbDFib21tUm1mVWluY1RBUEdLcUl6NW1XNGRPWDF1a1BmOGE1TXVCR2xHb2xUSVl2dDZ2aFpISENySUVRamhkQ2xGdEVLS0x3Z3NsVmI2cnNiRWtLZU1JMnplV2hUNlMtWUprMXZBRWg1TlFxZQ?oc=5\" target=\"_blank\">Büyükelçi atamaları Resmi Gazete'de</a>  <font color=\"#6f6f6f\">TRT Haber</font>",
-      "category": "Resmî Gazete",
-      "subType": "Personel Ataması",
-      "timestamp": "2026-08-08T21:23:00.000Z",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNdGVFaHZXdS1tRDBUcWdtckhyU1JZLTUtbDFib21tUm1mVWluY1RBUEdLcUl6NW1XNGRPWDF1a1BmOGE1TXVCR2xHb2xUSVl2dDZ2aFpISENySUVRamhkQ2xGdEVLS0x3Z3NsVmI2cnNiRWtLZU1JMnplV2hUNlMtWUprMXZBRWg1TlFxZQ?oc=5",
-      "isRelevant": false,
-      "analysis": null
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Büyükelçi atamaları Resmi Gazete'de - cumhuriyet.com.tr",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxNaGpLTk1QWkFEdS10OUxqN28xb3dLcDYtaC1YVGVOSnRhN3NvekE2eUQ4UjVubzNuOG1SbVJEYm9JNW1DWUJPVDJLYjVyOV9WZWRLTnZPanRLZmI0cnkwQlJyZE5MeGZIbzlIUWlha211YnhyVkxwZVdMbTBiRktVamU4dUVJbmxU?oc=5\" target=\"_blank\">Büyükelçi atamaları Resmi Gazete'de</a>  <font color=\"#6f6f6f\">cumhuriyet.com.tr</font>",
-      "category": "Resmî Gazete",
-      "subType": "Personel Ataması",
-      "timestamp": "2026-08-08T22:01:00.000Z",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNaGpLTk1QWkFEdS10OUxqN28xb3dLcDYtaC1YVGVOSnRhN3NvekE2eUQ4UjVubzNuOG1SbVJEYm9JNW1DWUJPVDJLYjVyOV9WZWRLTnZPanRLZmI0cnkwQlJyZE5MeGZIbzlIUWlha211YnhyVkxwZVdMbTBiRktVamU4dUVJbmxU?oc=5",
-      "isRelevant": false,
-      "analysis": null
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Dışişleri Bakanlığının bünyesindeki atamalar Resmi Gazete’de - İlke Haber Ajansı",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxQeGFpRjlvNll5ZkJJckpCQUl5dVRzUS1iLUZTbjQ0Smx4M19wbHZpX3NnQzR0Sm9CVno0Q2l1Sl9TQkRKcTZnZFJzb3NObndVYkIzcXpTRVZZUmlKR0Ywbkp1SklRNWRjbWZMUG5MQjNESTQzQzhDb1cxMGtTMTgyRzhGZFRydWFxZ2RLQml3NTh6OEppY1Rz?oc=5\" target=\"_blank\">Dışişleri Bakanlığının bünyesindeki atamalar Resmi Gazete’de</a>  <font color=\"#6f6f6f\">İlke Haber Ajansı</font>",
-      "category": "Resmî Gazete",
-      "subType": "Personel Ataması",
-      "timestamp": "2026-08-09T08:08:58.000Z",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQeGFpRjlvNll5ZkJJckpCQUl5dVRzUS1iLUZTbjQ0Smx4M19wbHZpX3NnQzR0Sm9CVno0Q2l1Sl9TQkRKcTZnZFJzb3NObndVYkIzcXpTRVZZUmlKR0Ywbkp1SklRNWRjbWZMUG5MQjNESTQzQzhDb1cxMGtTMTgyRzhGZFRydWFxZ2RLQml3NTh6OEppY1Rz?oc=5",
-      "isRelevant": false,
-      "analysis": null
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Büyükelçi atamaları Resmi Gazete'de yayımlandı - Dünya Gazetesi",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxPZFBkRGV1QkFvUmpDRGNvb2tOQmNxcmdrMEdFNnQ4RGFLczhkM3ZvZkw5bllXNjdTMlNKTVRhcU1BRnlnRThNSkpDWWpBcmUxZGZFQ3pSZDE4enZYZzlqTGFOdHR4ZGREMnlnVUpnU0dvSTlUdXlUY2w0Sl93NGZXX1Q5eWhPMVNjUmNOM21RNExlQQ?oc=5\" target=\"_blank\">Büyükelçi atamaları Resmi Gazete'de yayımlandı</a>  <font color=\"#6f6f6f\">Dünya Gazetesi</font>",
-      "category": "Resmî Gazete",
-      "subType": "Personel Ataması",
-      "timestamp": "2026-08-09T06:10:00.000Z",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZFBkRGV1QkFvUmpDRGNvb2tOQmNxcmdrMEdFNnQ4RGFLczhkM3ZvZkw5bllXNjdTMlNKTVRhcU1BRnlnRThNSkpDWWpBcmUxZGZFQ3pSZDE4enZYZzlqTGFOdHR4ZGREMnlnVUpnU0dvSTlUdXlUY2w0Sl93NGZXX1Q5eWhPMVNjUmNOM21RNExlQQ?oc=5",
-      "isRelevant": false,
-      "analysis": null
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Dışişleri Bakanlığı'na yeni atamalar Resmi Gazete'de yayımlandı - CNBC-e",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxNS3pBVGxBMjJrQng0VkR0OFJVVERoMVlWSWpLMlI2TWU5Y2wzY2hUNEVDelFmSXByeDZkT3lsTTJHMU9tMklLYWE1bG9EaUFOd3M5Sy10Qm5LRW8tQUNKOU5UYjhGb3FHWWRaMUg0djVsLVJfamFTOXNubW9rREN2Nk5yQTFfNHhOVGV5MjFRVEpOSWtiY1hmYTZvSmhEZV9B?oc=5\" target=\"_blank\">Dışişleri Bakanlığı'na yeni atamalar Resmi Gazete'de yayımlandı</a>  <font color=\"#6f6f6f\">CNBC-e</font>",
-      "category": "Resmî Gazete",
-      "subType": "Personel Ataması",
-      "timestamp": "2026-08-09T06:33:56.000Z",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNS3pBVGxBMjJrQng0VkR0OFJVVERoMVlWSWpLMlI2TWU5Y2wzY2hUNEVDelFmSXByeDZkT3lsTTJHMU9tMklLYWE1bG9EaUFOd3M5Sy10Qm5LRW8tQUNKOU5UYjhGb3FHWWRaMUg0djVsLVJfamFTOXNubW9rREN2Nk5yQTFfNHhOVGV5MjFRVEpOSWtiY1hmYTZvSmhEZV9B?oc=5",
-      "isRelevant": false,
-      "analysis": null
-    },
-    {
-      "source": "Türkiye Cumhuriyeti Resmî Gazete",
-      "title": "Resmi Gazete'de yayımlandı! Emniyet Genel Müdürlüğüne 6 bin 250 kadro - Halk 54",
-      "body": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxOX1kzRUlVUjhnd0Z0TWhlUGVuakFsYlhCNDJUWHgzTnNORVRidEZhbTJWTE5tWG9BcEZTUkRGNTJGVldoRUZsT2pBckRqTUk4VWx0SVpKdnRpbHhMc3laYkVMNjFiUms5Rk03UkZoRkItOWp5d0t1TllIakE4MHY5VUpVd090RnFuTlZieEh5OEVNV1JB0gGaAUFVX3lxTE1NY0JPRFhxZFFzTjNER0lXYUxsNjJHWk9RZXZGd0lwWC1uZGNKNUdhcjFCVFBBWUdSci13MDlqNXExTllJZFB1TGVGeWtnWmtpUmNnZ2pSV2xCcm43Vm51RmtHY1NBWGFUVFl4TkZfbFNtMzdNTlBLQ3BwTEp5OVQwZEZjel9idkpXQkJxNkttYnV6RHNRbmJuaUE?oc=5\" target=\"_blank\">Resmi Gazete'de yayımlandı! Emniyet Genel Müdürlüğüne 6 bin 250 kadro</a>  <font color=\"#6f6f6f\">Halk 54</font>",
-      "category": "Resmî Gazete",
-      "subType": "Genel",
-      "timestamp": "2026-08-09T07:30:00.000Z",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOX1kzRUlVUjhnd0Z0TWhlUGVuakFsYlhCNDJUWHgzTnNORVRidEZhbTJWTE5tWG9BcEZTUkRGNTJGVldoRUZsT2pBckRqTUk4VWx0SVpKdnRpbHhMc3laYkVMNjFiUms5Rk03UkZoRkItOWp5d0t1TllIakE4MHY5VUpVd090RnFuTlZieEh5OEVNV1JB0gGaAUFVX3lxTE1NY0JPRFhxZFFzTjNER0lXYUxsNjJHWk9RZXZGd0lwWC1uZGNKNUdhcjFCVFBBWUdSci13MDlqNXExTllJZFB1TGVGeWtnWmtpUmNnZ2pSV2xCcm43Vm51RmtHY1NBWGFUVFl4TkZfbFNtMzdNTlBLQ3BwTEp5OVQwZEZjel9idkpXQkJxNkttYnV6RHNRbmJuaUE?oc=5",
-      "isRelevant": false,
-      "analysis": null
     }
   ]
 }
