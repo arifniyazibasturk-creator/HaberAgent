@@ -2,26 +2,26 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-// RSS Feeds list targeting the requested sources with broader query terms
+// RSS Feeds list targeting the requested sources with strictly 24-hour time-bound queries
 const FEEDS = [
   {
     name: "Türkiye Cumhuriyeti Resmî Gazete",
-    query: '"resmi gazete" OR "cumhurbaşkanlığı kararı" OR "yönetmelik" OR "tebliğ" OR "anayasa mahkemesi"',
+    query: '("resmi gazete" OR "cumhurbaşkanlığı kararı" OR "yönetmelik" OR "tebliğ" OR "anayasa mahkemesi") when:1d',
     category: "Resmî Gazete"
   },
   {
     name: "TCMB",
-    query: 'site:tcmb.gov.tr OR "merkez bankası" OR "para politikası"',
+    query: '(site:tcmb.gov.tr OR "merkez bankası" OR "para politikası") when:1d',
     category: "Finans ve Ekonomi"
   },
   {
     name: "Reuters World & AP News (Jeopolitik)",
-    query: 'jeopolitik OR diplomasi OR "dış politika" OR "savunma sanayii" OR NATO OR "birleşmiş milletler" OR "doğu akdeniz"',
+    query: '(jeopolitik OR diplomasi OR "dış politika" OR "savunma sanayii" OR NATO OR "birleşmiş milletler" OR "doğu akdeniz") when:1d',
     category: "Uluslararası İlişkiler"
   },
   {
     name: "Reuters Markets & Financial Times (Ekonomi)",
-    query: 'ekonomi OR finans OR enflasyon OR "para politikası" OR hazine OR borsa OR IMF OR "dünya bankası" OR Fed OR ECB',
+    query: '(ekonomi OR finans OR enflasyon OR "para politikası" OR hazine OR borsa OR IMF OR "dünya bankası" OR Fed OR ECB) when:1d',
     category: "Finans ve Ekonomi"
   }
 ];
@@ -46,8 +46,8 @@ function decodeHtmlEntities(str) {
     .replace(/&Gbreve;/g, 'Ğ')
     .replace(/&scedil;/g, 'ş')
     .replace(/&Scedil;/g, 'Ş')
-    .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec)) // Decimal entities like &#305; (ı), &#287; (ğ)
-    .replace(/&#x([0-9a-f]+);/gi, (match, hex) => String.fromCharCode(parseInt(hex, 16))); // Hexadecimal entities
+    .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec))
+    .replace(/&#x([0-9a-f]+);/gi, (match, hex) => String.fromCharCode(parseInt(hex, 16)));
 }
 
 // Helper to fetch URL content natively in CommonJS Node, supporting HTTP redirects
@@ -63,7 +63,6 @@ function fetchUrl(url, maxRedirects = 5) {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         }
       }, (res) => {
-        // Handle HTTP redirects (status code 3xx)
         if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
           let nextUrl = res.headers.location;
           if (nextUrl.startsWith('/')) {
@@ -74,13 +73,12 @@ function fetchUrl(url, maxRedirects = 5) {
           return;
         }
         
-        // Reject on HTTP error status codes (e.g. 403, 429, 503)
         if (res.statusCode !== 200) {
           reject(new Error(`HTTP status code ${res.statusCode}`));
           return;
         }
         
-        res.setEncoding('utf8'); // Ensure multi-byte UTF-8 streams are decoded correctly
+        res.setEncoding('utf8');
         let data = '';
         res.on('data', (chunk) => { data += chunk; });
         res.on('end', () => { resolve(data); });
@@ -90,27 +88,31 @@ function fetchUrl(url, maxRedirects = 5) {
   });
 }
 
-// Custom lightweight XML/RSS parser to avoid external npm dependencies
+// Custom lightweight XML/RSS parser with strict 28-hour publication age cutoff
 function parseRss(xmlText, defaultCategory, defaultSource) {
   const items = [];
   const matches = xmlText.matchAll(/<item>([\s\S]*?)<\/item>/g);
+  const now = Date.now();
+  const MAX_AGE_MS = 28 * 60 * 60 * 1000; // 28 hours max to strictly eliminate stale news from previous days
   
   for (const match of matches) {
     const content = match[1];
     
-    // Extract title, description/body, pubDate, and link
     const titleMatch = content.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/) || content.match(/<title>([\s\S]*?)<\/title>/);
     const descMatch = content.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/) || content.match(/<description>([\s\S]*?)<\/description>/);
     const pubDateMatch = content.match(/<pubDate>([\s\S]*?)<\/pubDate>/);
     const linkMatch = content.match(/<link><!\[CDATA\[([\s\S]*?)\]\]><\/link>/) || content.match(/<link>([\s\S]*?)<\/link>/);
     
     if (titleMatch) {
-      // Decode HTML entities and strip XML/HTML tags
       let title = decodeHtmlEntities(titleMatch[1].replace(/<[^>]*>/g, '').trim());
       let body = descMatch ? decodeHtmlEntities(descMatch[1].replace(/<[^>]*>/g, '').trim()) : "";
-      let pubDate = pubDateMatch ? pubDateMatch[1].trim() : new Date().toISOString();
+      let pubDate = pubDateMatch ? new Date(pubDateMatch[1].trim()) : new Date();
       
-      // Determine specific subType for Resmi Gazete
+      // Strict date check: drop anything older than 28 hours
+      if (!isNaN(pubDate.getTime()) && (now - pubDate.getTime()) > MAX_AGE_MS) {
+        continue;
+      }
+      
       let subType = "Genel";
       if (defaultCategory === "Resmî Gazete") {
         const lowerTitle = title.toLowerCase();
@@ -128,7 +130,7 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
         body: body || title,
         category: defaultCategory,
         subType,
-        timestamp: new Date(pubDate).toISOString(),
+        timestamp: !isNaN(pubDate.getTime()) ? pubDate.toISOString() : new Date().toISOString(),
         link: linkMatch ? linkMatch[1].trim() : ""
       });
     }
@@ -137,13 +139,127 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
   return items;
 }
 
-// Helper to normalize news titles (lowercase, strips source names like "- Bloomberg" or "- Reuters", and removes special chars)
+// Turkish NLP Stop words for semantic keyword extraction
+const STOP_WORDS = new Set([
+  "ve", "ile", "bir", "bu", "da", "de", "için", "olan", "olarak", "sonra", "kadar", "göre", 
+  "daha", "çok", "en", "ne", "var", "yok", "ama", "fakat", "lakin", "ancak", "veya", "ya", 
+  "resmi", "gazete", "gazetede", "gazetesinde", "yayımlandı", "yayınlandı", "açıkladı", "etti",
+  "dair", "ilişkin", "hakkında", "kararı", "sayılı", "maddesi", "tarafından", "haber", "son",
+  "dakika", "yeni", "belli", "oldu", "duyuruldu", "geldi", "açıklama", "karar", "tarihinde",
+  "güncel", "bülten", "rapor", "sayısı", "başkanı", "bakanlığı", "bakanı", "kararları", "günü",
+  "temmuz", "ağustos", "eylül", "ekim", "kasım", "aralık", "ocak", "şubat", "mart", "nisan", "mayıs", "haziran"
+]);
+
+// Turkish verbal/nominal suffix stripper (stemmer)
+function stemTurkish(word) {
+  if (word.length <= 4) return word;
+  const suffixes = [
+    /^(.*?)(?:lar|ler|da|de|ta|te|dan|den|tan|ten|ın|in|un|ün|nın|nin|nun|nün|a|e|ya|ye|ı|i|u|ü|yı|yi|yu|yü)$/,
+    /^(.*?)(?:acak|ecek|ıyor|iyor|uyor|üyor|dı|di|du|dü|tı|ti|tu|tü|mış|miş|muş|müş|ır|ir|ur|ür|ar|er)$/,
+    /^(.*?)(?:mak|mek|ma|me|ış|iş|uş|üş|ken|alı|eli|arak|erek|ınca|ince)$/,
+    /^(.*?)(?:lık|lik|luk|lük|cı|ci|cu|cü|çı|çi|çu|çü|sız|siz|suz|süz)$/
+  ];
+
+  let stemmed = word;
+  for (const regex of suffixes) {
+    const match = stemmed.match(regex);
+    if (match && match[1] && match[1].length >= 3) {
+      stemmed = match[1];
+    }
+  }
+  return stemmed;
+}
+
+// Clean and normalize text
+function cleanText(str) {
+  if (!str) return "";
+  return str
+    .toLowerCase()
+    .replace(/\s*-\s*[^-\s]+(?:\.[a-z]{2,})?\s*$/i, '')
+    .replace(/[^a-z0-9ıığüşöç\s]/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Extract Turkish NLP keyword stems
+function getKeywords(text) {
+  const words = cleanText(text).split(' ');
+  const stems = new Set();
+  for (const w of words) {
+    if (w.length > 2 && !STOP_WORDS.has(w)) {
+      stems.add(stemTurkish(w));
+    }
+  }
+  return stems;
+}
+
+// Jaccard similarity between two keyword sets
+function getSimilarity(setA, setB) {
+  if (setA.size === 0 || setB.size === 0) return 0;
+  let intersection = 0;
+  for (const item of setA) {
+    if (setB.has(item)) intersection++;
+  }
+  const union = setA.size + setB.size - intersection;
+  return intersection / union;
+}
+
+// Containment ratio of smaller keyword set inside larger set
+function getContainment(setA, setB) {
+  if (setA.size === 0 || setB.size === 0) return 0;
+  let intersection = 0;
+  for (const item of setA) {
+    if (setB.has(item)) intersection++;
+  }
+  return intersection / Math.min(setA.size, setB.size);
+}
+
+// Semantic clustering and deduplication for news items
+function clusterAndDeduplicate(newsList) {
+  const clusters = [];
+
+  for (const news of newsList) {
+    const text = (news.title || "") + " " + (news.body || "") + " " + ((news.analysis && news.analysis.summary) || "");
+    const keywords = getKeywords(text);
+    let addedToCluster = false;
+
+    for (const cluster of clusters) {
+      const sim = getSimilarity(keywords, cluster.keywords);
+      const containment = getContainment(keywords, cluster.keywords);
+
+      // If keywords share >= 30% similarity or >= 45% containment, treat as duplicate coverage of the same event
+      if (sim >= 0.30 || containment >= 0.45) {
+        cluster.items.push(news);
+        for (const kw of keywords) cluster.keywords.add(kw);
+        
+        // Pick the representative with the richest, most detailed title and body
+        const curScore = (news.title || "").length + (news.body || "").length + ((news.analysis && news.analysis.summary) || "").length;
+        const bestScore = (cluster.representative.title || "").length + (cluster.representative.body || "").length + ((cluster.representative.analysis && cluster.representative.analysis.summary) || "").length;
+        if (curScore > bestScore) {
+          cluster.representative = news;
+        }
+        addedToCluster = true;
+        break;
+      }
+    }
+
+    if (!addedToCluster) {
+      clusters.push({
+        representative: news,
+        keywords: new Set(keywords),
+        items: [news]
+      });
+    }
+  }
+
+  return clusters.map(c => c.representative);
+}
+
+// Helper to normalize news titles for exact string matching
 function getNormalizedTitle(title) {
   if (!title) return "";
   let t = title.toLowerCase();
-  // Strip trailing source name patterns like "- bloomberg.com", "- reuters", etc.
   t = t.replace(/\s*-\s*[^-\s]+(?:\.[a-z]{2,})?\s*$/i, '');
-  // Keep only alphanumeric characters and Turkish-specific letters
   t = t.replace(/[^a-z0-9ıığüşöç]/gi, '');
   return t.trim();
 }
@@ -446,9 +562,9 @@ async function run() {
     process.exit(1);
   }
 
-  // Load previously processed event titles from existing data_parsed.json for historical deduplication
-  const historicalTitles = new Set();
+  // Load previously processed events from existing data_parsed.json for historical cross-day deduplication
   let historicalEvents = [];
+  const historicalKeywordSets = [];
   try {
     const targetPath = path.join(__dirname, 'data_parsed.json');
     if (fs.existsSync(targetPath)) {
@@ -456,8 +572,10 @@ async function run() {
       if (existingData && Array.isArray(existingData.events)) {
         historicalEvents = existingData.events;
         existingData.events.forEach(event => {
-          if (event.title) {
-            historicalTitles.add(getNormalizedTitle(event.title));
+          const text = (event.title || "") + " " + (event.body || "") + " " + ((event.analysis && event.analysis.summary) || "");
+          const kw = getKeywords(text);
+          if (kw.size > 0) {
+            historicalKeywordSets.push(kw);
           }
         });
       }
@@ -466,62 +584,64 @@ async function run() {
     console.warn("UYARI: Geçmiş veritabanı okunamadı, tarihsel tekillik kontrolü atlanıyor:", err.message);
   }
 
-  console.log("Haberler ve RSS kaynakları taranıyor...");
+  console.log("Haberler ve RSS kaynakları taranıyor (son 24 saat)...");
   let allEvents = [];
 
   for (const feed of FEEDS) {
     try {
       console.log(`Taranyor: ${feed.name}`);
-      // Build Google News query URL dynamically with URL encoding
       const url = "https://news.google.com/rss/search?q=" + encodeURIComponent(feed.query) + "&hl=tr&gl=TR&ceid=TR:tr";
       const xml = await fetchUrl(url);
       const items = parseRss(xml, feed.category, feed.name);
-      console.log(`-> ${items.length} içerik bulundu.`);
-      // Limit to 20 newest items per feed to have a wider pool of news for deeper research
-      allEvents = allEvents.concat(items.slice(0, 20));
+      console.log(`-> ${items.length} taze içerik bulundu.`);
+      allEvents = allEvents.concat(items);
     } catch (err) {
       console.error(`HATA: ${feed.name} RSS'i alınamadı:`, err.message);
     }
   }
 
   if (allEvents.length === 0) {
-    console.error("HATA: Hiçbir kaynaktan veri alınamadı!");
+    console.error("HATA: Hiçbir kaynaktan taze veri alınamadı!");
     process.exit(1);
   }
 
-  // Deduplicate: Filter out duplicates of items fetched today, and items historically analyzed previously
-  const uniqueEvents = [];
-  const seenTitlesToday = new Set();
+  // Step 1: Pre-Gemini Semantic Clustering (merges same story from multiple newspapers)
+  const preClusteredEvents = clusterAndDeduplicate(allEvents);
+  console.log(`İlk tarama: ${allEvents.length} haber -> Farklı ajans/başlık kümeleme sonrası: ${preClusteredEvents.length} özgün haber.`);
 
-  for (const event of allEvents) {
-    const normTitle = getNormalizedTitle(event.title);
-    if (!normTitle) continue;
+  // Step 2: Cross-day Historical Deduplication (drops stories already reported in previous days)
+  const freshEvents = [];
+  for (const event of preClusteredEvents) {
+    const text = (event.title || "") + " " + (event.body || "");
+    const eventKeywords = getKeywords(text);
+    let isHistoricalDuplicate = false;
 
-    // Skip if seen in today's scrape pool
-    if (seenTitlesToday.has(normTitle)) {
-      continue;
+    for (const histKw of historicalKeywordSets) {
+      const sim = getSimilarity(eventKeywords, histKw);
+      const cont = getContainment(eventKeywords, histKw);
+      // If 40%+ similar to an event from previous days, treat as already reported
+      if (sim >= 0.40 || cont >= 0.60) {
+        isHistoricalDuplicate = true;
+        break;
+      }
     }
-    
-    // Skip if processed in previous days
-    if (historicalTitles.has(normTitle)) {
-      continue;
-    }
 
-    seenTitlesToday.add(normTitle);
-    uniqueEvents.push(event);
+    if (!isHistoricalDuplicate) {
+      freshEvents.push(event);
+    }
   }
 
-  console.log(`Tekilleştirme sonrası kalan özgün içerik sayısı: ${uniqueEvents.length} (Toplam taranan: ${allEvents.length})`);
+  console.log(`Geçmiş günlerle karşılaştırma sonrası kalan taze ve yeni haber sayısı: ${freshEvents.length}`);
 
   // Split events into potentially relevant (for AI) and irrelevant (direct output)
-  const toAnalyze = uniqueEvents.filter(isItemPotentiallyRelevant);
-  const skipped = uniqueEvents.filter(item => !isItemPotentiallyRelevant(item));
+  const toAnalyze = freshEvents.filter(isItemPotentiallyRelevant);
+  const skipped = freshEvents.filter(item => !isItemPotentiallyRelevant(item));
 
-  console.log(`Toplam ${uniqueEvents.length} özgün içerikten ${toAnalyze.length} adedi Gemini ile analiz edilmek üzere paketleniyor...`);
+  console.log(`Toplam ${freshEvents.length} özgün içerikten ${toAnalyze.length} adedi Gemini ile analiz edilmek üzere paketleniyor...`);
   
   let analyzedEvents = [];
   const dateToday = new Date().toISOString().substring(0, 10);
-  const BATCH_SIZE = 6; // Process in small batches of 6 to prevent output truncation and avoid rate limits
+  const BATCH_SIZE = 6;
 
   if (toAnalyze.length > 0) {
     for (let i = 0; i < toAnalyze.length; i += BATCH_SIZE) {
@@ -531,7 +651,6 @@ async function run() {
       
       console.log(`Gemini analizi yapılıyor: Paket ${batchNum} / ${totalBatches} (${batch.length} haber)...`);
 
-      // Build the prompt containing prompt guidelines for this specific batch
       const systemPrompt = `
 Sen profesyonel bir jeopolitik, ekonomi, finans ve hukuk analiz asistanısın.
 
@@ -552,23 +671,20 @@ Resmî Gazete'deki kararlardan YALNIZCA ekonomi, finans, vergi, bankacılık, ti
 Önemsiz bireysel personel atamaları, üniversite kadro ilanları ve küçük bireysel mahkeme ilanlarını 'isRelevant': false yap.
 
 Analiz Formatı:
-Kabul edilen her haber için 'analysis' objesi içinde şu bilgileri doldur (Kategori 'Hukuk ve Mevzuat' ise de bu alanları doldur):
+Kabul edilen her haber için 'analysis' objesi içinde şu bilgileri doldur:
 - summary: Haber özetini yazın. Özet çok uzun olmamalı (en fazla 3-4 cümle) ancak son derece somut, bilgilendirici ve açıklayıcı olmalıdır.
   * ÖZET YAZIMINDA ALTIN KURALLAR:
     1. Haber özetlerinin ucunu kesinlikle açık veya belirsiz bırakmayın. "Değişiklik yapıldı", "kurallar değişti", "kararlar ve duyurular yayımlandı" gibi genel, içi boş ve hiçbir bilgi içermeyen ifadeler KESİNLİKLE YASAKTIR.
     2. Kararın ne olduğunu, ne ile ilgili alındığını, hangi somut kuralların/maddelerin değiştiğini ve doğrudan sonucunun ne olacağını ilk okuyuşta tam olarak anlaşılacak şekilde somut detaylarıyla yazın.
-    3. ÖRNEK KÖTÜ ÖZET (YASAK): "Milli Eğitim Bakanlığı okul yönetmeliğinde bazı önemli değişiklikler yaptı."
-    4. ÖRNEK KÖTÜ ÖZET (YASAK): "Resmi Gazete'nin güncel sayısında kararlar ve duyurular kamuoyunun bilgisine sunulmuştur."
-    5. ÖRNEK İYİ ÖZET (İSTENEN): "Milli Eğitim Bakanlığı okul öncesi yönetmeliğini değiştirerek; okula kayıt yaşını 36-68 ay aralığına çekti, velilerden alınan aylık aidat sistemini kaldırdı ve ders sürelerini 50 dakikadan 40 dakikaya indirdi."
-    6. EĞER elinizdeki haber veya Resmi Gazete içeriği somut detaylar (maddeler, oranlar, isimler vb.) İÇERMİYORSA ve sadece "Resmi Gazete yayımlandı" gibi boş bir başlıktan ibaretse, bu haberi kesinlikle 'isRelevant': false yapıp eleyin! Yalnızca içeriğinde somut bilgi olan haberleri kabul edin.
-- geopoliticalImpact: Jeopolitik etkisi (Eğer hukuk haberiyse uluslararası etkilerini veya AB/AİHM uyumunu değerlendir)
+    3. EĞER elinizdeki haber veya Resmi Gazete içeriği somut detaylar içermiyorsa, bu haberi kesinlikle 'isRelevant': false yapıp eleyin!
+- geopoliticalImpact: Jeopolitik etkisi
 - turkeyImpact: Türkiye açısından etkisi
 - financialImpact: Finansal etkisi
 - longTerm: Uzun vadeli olası sonuçları
 - isCritical: Eğer en kritik 5 gelişmeden biriyse true, değilse false yap.
-- whyImportant: Bu gelişmenin neden önemli olduğu (en az 2 cümle, her haber için kesinlikle detaylıca doldurulmalı, asla boş bırakılmamalı).
-- whoAffected: Bu gelişmenin kimleri veya hangi sektörleri/ülkeleri etkilediği (en az 2 cümle, her haber için kesinlikle detaylıca doldurulmalı, asla boş bırakılmamalı).
-- followUp: Önümüzdeki günlerde bu gelişmeye dair nelerin takip edilmesi gerektiği (en az 2 cümle, her haber için kesinlikle detaylıca doldurulmalı, asla boş bırakılmamalı).
+- whyImportant: Bu gelişmenin neden önemli olduğu (en az 2 cümle).
+- whoAffected: Bu gelişmenin kimleri veya hangi sektörleri/ülkeleri etkilediği (en az 2 cümle).
+- followUp: Önümüzdeki günlerde bu gelişmeye dair nelerin takip edilmesi gerektiği (en az 2 cümle).
 
 Yazım Kuralları:
 - Tarafsız ol.
@@ -585,7 +701,7 @@ ${JSON.stringify(batch, null, 2)}
       while (retries > 0) {
         try {
           analysisResult = await callGemini(apiKey, systemPrompt);
-          break; // Success!
+          break;
         } catch (err) {
           retries--;
           console.warn(`UYARI: Paket ${batchNum} analiz edilirken hata oluştu (Kalan Deneme: ${retries}):`, err.message || err);
@@ -602,16 +718,15 @@ ${JSON.stringify(batch, null, 2)}
         analyzedEvents = analyzedEvents.concat(analysisResult.events);
       }
       
-      // Wait 2 seconds between batch calls to prevent rate limits on Gemini API
       if (i + BATCH_SIZE < toAnalyze.length) {
         await new Promise(resolve => setTimeout(resolve, 2000));
       }
     }
   }
 
-  // Restore original link URLs from scraped uniqueEvents using normalized titles
+  // Restore original link URLs
   const originalLinkMap = new Map();
-  uniqueEvents.forEach(evt => {
+  freshEvents.forEach(evt => {
     if (evt.title) {
       originalLinkMap.set(getNormalizedTitle(evt.title), evt.link);
     }
@@ -624,60 +739,47 @@ ${JSON.stringify(batch, null, 2)}
     }
   });
 
-  // Only keep relevant analyzed events. Discard all skipped/irrelevant items to prevent generic placeholder leaks.
-  const combinedEvents = analyzedEvents.filter(item => item.isRelevant === true);
+  // Filter relevant events and normalize keys
+  const defaultTimestamp = new Date().toISOString();
+  const relevantAnalyzed = analyzedEvents
+    .filter(item => item.isRelevant === true && item.analysis)
+    .map(item => ({
+      ...item,
+      timestamp: item.timestamp || defaultTimestamp,
+      analysis: {
+        summary: item.analysis.summary || "",
+        geopoliticalImpact: item.analysis.geopoliticalImpact || item.analysis.geopolitical_impact || item.analysis.geopolitical || "",
+        turkeyImpact: item.analysis.turkeyImpact || item.analysis.turkey_impact || item.analysis.turkey || "",
+        financialImpact: item.analysis.financialImpact || item.analysis.financial_impact || item.analysis.financial || "",
+        longTerm: item.analysis.longTerm || item.analysis.long_term || item.analysis.longterm || "",
+        isCritical: !!(item.analysis.isCritical || item.analysis.is_critical),
+        whyImportant: item.analysis.whyImportant || item.analysis.why_important || "",
+        whoAffected: item.analysis.whoAffected || item.analysis.who_affected || "",
+        followUp: item.analysis.followUp || item.analysis.follow_up || ""
+      }
+    }));
+
+  // Step 3: Post-Gemini Semantic Deduplication (collapses multiple batches covering the same story)
+  const finalRelevantEvents = clusterAndDeduplicate(relevantAnalyzed);
+  console.log(`Gemini analizi sonrası kabul edilen: ${relevantAnalyzed.length} haber -> Son semantik tekilleştirme sonrası: ${finalRelevantEvents.length} haber.`);
 
   // Format skipped events to output schema
   const formattedSkipped = skipped.map(item => ({
     ...item,
     isRelevant: false,
-    analysis: null
+    analysis: null,
+    timestamp: item.timestamp || defaultTimestamp
   }));
 
-  const finalEventsList = [...combinedEvents, ...formattedSkipped];
+  // Today's complete events list
+  const todaysFullEvents = [...finalRelevantEvents, ...formattedSkipped];
 
-  // Normalize analysis keys to camelCase in case Gemini uses snake_case or different casings
-  const normalizedEvents = finalEventsList.map(item => {
-    const defaultTimestamp = new Date().toISOString();
-    if (item.analysis) {
-      return {
-        ...item,
-        timestamp: item.timestamp || defaultTimestamp,
-        analysis: {
-          summary: item.analysis.summary || "",
-          geopoliticalImpact: item.analysis.geopoliticalImpact || item.analysis.geopolitical_impact || item.analysis.geopolitical || "",
-          turkeyImpact: item.analysis.turkeyImpact || item.analysis.turkey_impact || item.analysis.turkey || "",
-          financialImpact: item.analysis.financialImpact || item.analysis.financial_impact || item.analysis.financial || "",
-          longTerm: item.analysis.longTerm || item.analysis.long_term || item.analysis.longterm || "",
-          isCritical: !!(item.analysis.isCritical || item.analysis.is_critical),
-          whyImportant: item.analysis.whyImportant || item.analysis.why_important || "",
-          whoAffected: item.analysis.whoAffected || item.analysis.who_affected || "",
-          followUp: item.analysis.followUp || item.analysis.follow_up || ""
-        }
-      };
-    }
-    return {
-      ...item,
-      timestamp: item.timestamp || defaultTimestamp
-    };
-  });
+  // Combine today's events with unique historical events (semantic clustering)
+  const allHistoricalCombined = [...todaysFullEvents, ...historicalEvents];
+  const finalDeduplicatedEvents = clusterAndDeduplicate(allHistoricalCombined);
 
-  // Combine today's newly analyzed events with historical database events
-  const combinedHistory = [...normalizedEvents, ...historicalEvents];
-
-  // Deduplicate combined database by normalized title to prevent identical duplicates across runs
-  const finalDeduplicatedEvents = [];
-  const seenDbTitles = new Set();
-  combinedHistory.forEach(item => {
-    const norm = getNormalizedTitle(item.title);
-    if (norm && !seenDbTitles.has(norm)) {
-      seenDbTitles.add(norm);
-      finalDeduplicatedEvents.push(item);
-    }
-  });
-
-  // Limit database size to last 150 events to keep the file lightweight for web fetches
-  const limitedEventsList = finalDeduplicatedEvents.slice(0, 150);
+  // Limit database size to last 80 unique events to keep the file lightweight and fresh
+  const limitedEventsList = finalDeduplicatedEvents.slice(0, 80);
 
   // Structure final json
   const outputData = {
@@ -703,13 +805,11 @@ ${JSON.stringify(batch, null, 2)}
     console.log("E-posta alıcıları Google E-Tablo'dan çekiliyor...");
     let recipientEmails = [];
     
-    // Add default email from Secrets if configured
     if (toEmail) {
       toEmail.split(',').forEach(e => recipientEmails.push(e.trim().toLowerCase()));
     }
     
     try {
-      // Fetch subscribers from the Google Sheets Web App URL
       const webAppUrl = "https://script.google.com/macros/s/AKfycbzZR2jLwFmUBE8xtHaKmcFHK6vUV5KOCb7Wr2cMIw4R9Xdr2Mxq4_6hNb39zFGo75Kf/exec";
       const jsonText = await fetchUrl(webAppUrl);
       const sheetEmails = JSON.parse(jsonText);
@@ -725,13 +825,12 @@ ${JSON.stringify(batch, null, 2)}
       console.warn("UYARI: E-Tablo abone listesi alınamadı (doGet tanımlanmamış veya yayında değil):", sheetErr.message);
     }
     
-    // Deduplicate and filter emails
     const uniqueRecipients = [...new Set(recipientEmails)];
     
     if (uniqueRecipients.length > 0) {
       console.log(`E-posta bülteni ${uniqueRecipients.length} aboneye gönderiliyor... Liste:`, uniqueRecipients);
       const emailSubject = `AnalizAsistanı: Günlük Sabah Raporu (${dateToday})`;
-      const emailHtml = generateHtmlEmail(dateToday, normalizedEvents);
+      const emailHtml = generateHtmlEmail(dateToday, finalRelevantEvents);
       
       for (const email of uniqueRecipients) {
         try {

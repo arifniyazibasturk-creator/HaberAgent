@@ -411,7 +411,18 @@ function getProcessedEvents() {
     items = items.filter(item => item.source === state.filters.selectedSource);
   }
 
-  return items;
+  // Deduplicate on UI level by normalized title key
+  const uniqueList = [];
+  const seenKeys = new Set();
+  for (const it of items) {
+    const key = (it.title || "").toLowerCase().replace(/[^a-z0-9ıığüşöç]/gi, '');
+    if (key && !seenKeys.has(key)) {
+      seenKeys.add(key);
+      uniqueList.push(it);
+    }
+  }
+
+  return uniqueList;
 }
 
 // Countdown to 09:00 next day
