@@ -1,6 +1,59 @@
 {
-  "date": "2026-07-28",
+  "date": "2026-08-19",
   "events": [
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "ABD merkezli danışmanlık kuruluşu McKinsey, jeopolitik risklerin arttığı Çin pazarında küçülme adımları atıyor. Şirket, Büyük Çin bölgesindeki iş gücünün yaklaşık üçte birine denk gelen 500 kişiyi işten çıkarıyor.",
+      "body": "ABD merkezli danışmanlık kuruluşu McKinsey, jeopolitik risklerin arttığı Çin pazarında küçülme adımları atıyor. Şirket, Büyük Çin bölgesindeki iş gücünün yaklaşık üçte birine denk gelen 500 kişiyi işten çıkarıyor.",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-18T13:00:05.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "McKinsey, jeopolitik risklerin tırmandığı Çin pazarındaki operasyonlarını küçültme kararı alarak Büyük Çin bölgesindeki iş gücünün yaklaşık üçte birine tekabül eden 500 çalışanını işten çıkarmaktadır. Bu hamle, küresel danışmanlık firmalarının Çin'deki artan siyasi ve ekonomik baskılar ile uyum zorlukları nedeniyle strateji değiştirdiğini göstermektedir.",
+        "geopoliticalImpact": "ABD ve Çin arasındaki artan jeopolitik gerilimlerin ve ticari kısıtlamaların, Batılı kurumsal şirketlerin Çin'deki operasyonlarını doğrudan daralttığını gözler önüne sermektedir.",
+        "turkeyImpact": "Türkiye'deki yabancı yatırımlar ve uluslararası danışmanlık firmalarının bölgesel stratejileri açısından doğrudan büyük bir etkisi bulunmamakla birlikte, küresel risk iştahını dolaylı olarak etkileyebilir.",
+        "financialImpact": "Küresel danışmanlık sektöründe maliyet baskılarını ve Çin pazarına yönelik sermaye ile istihdam kayıplarını tetikleyen finansal bir daralma sinyalidir.",
+        "longTerm": "Uzun vadede Batılı çok uluslu şirketlerin Çin pazarından çekilme veya operasyonlarını ayrıştırma (decoupling) trendini hızlandırabilir.",
+        "isCritical": false,
+        "whyImportant": "Küresel ölçekte faaliyet gösteren dev bir danışmanlık şirketinin Çin'deki varlığını ciddi oranda azaltması, iki süper güç arasındaki ekonomik ayrışmanın kurumsal yansımalarını net bir şekilde ortaya koymaktadır.",
+        "whoAffected": "Başta uluslararası danışmanlık sektörü olmak üzere, Çin'de faaliyet gösteren yabancı şirketler ve bu bölgelerdeki çalışanlar doğrudan etkilenmektedir.",
+        "followUp": "Benzer Batılı şirketlerin Çin pazarındaki benzer küçülme veya çekilme kararları ile iki ülke arasındaki ticari kısıtlamaların seyri takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1KdkRXb0JwMUY1ZTlXcUN5a0VoVWxnS1dMRDNHVFM0a25ZdmNwc2VzUlNGOGFJTDQ2WDY3eTNQTUotNDNCMHlkSGwxMEpGV3ROWkE?oc=5"
+    },
+    {
+      "source": "Reuters Markets & Financial Times (Ekonomi)",
+      "title": "ABD’nin 30 yıllık tahvillerinin faiz oranları 2007 yılından beri en yüksek seviyesine ulaştı; ABD-İran savaşını sonlandırma görüşmelerinin belirsizliği ve savaşın yeniden başlama olasılığından kaynaklanan endişeler petrol varil fiyatını 90 doların üzerine taşıdı.",
+      "body": "ABD’nin 30 yıllık tahvillerinin faiz oranları 2007 yılından beri en yüksek seviyesine ulaştı; ABD-İran savaşını sonlandırma görüşmelerinin belirsizliği ve savaşın yeniden başlama olasılığından kaynaklanan endişeler petrol varil fiyatını 90 doların üzerine taşıdı.",
+      "category": "Finans and Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-08-19T05:56:18.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "ABD'nin 30 yıllık tahvil faizleri 2007'den bu yana en yüksek seviyesini görürken, ABD ile İran arasındaki müzakerelerdeki belirsizlikler ve olası bir çatışma senaryosu Brent petrolün varil fiyatını 90 doların üzerine çıkarmıştır. Bu gelişmeler küresel finans piyasalarında borçlanma maliyetlerini artırırken enerji piyasalarında enflasyonist baskıları tetiklemektedir.",
+        "geopoliticalImpact": "Orta Doğu'daki savaş riskinin yeniden tırmanması, küresel güvenlik dengelerini ve enerji arz güvenliğini doğrudan tehdit etmektedir.",
+        "turkeyImpact": "Enerji ithalatçısı konumunda olan Türkiye için petrol fiyatlarının 90 doların üzerine çıkması cari açık ve enflasyon üzerinde ek baskı yaratacaktır; ayrıca küresel tahvil faizlerindeki yükseliş borçlanma maliyetlerini artırabilir.",
+        "financialImpact": "ABD tahvil faizlerinin artması küresel likiditenin ABD'ye yönelmesine yol açarken, yüksek petrol fiyatları enerji maliyetlerini ve küresel enflasyon beklentilerini yukarı çekmektedir.",
+        "longTerm": "Küresel faiz oranlarının uzun süre yüksek kalmasına ve enerji piyasalarında kalıcı fiyat şoklarına neden olarak ekonomik büyüme üzerinde baskı oluşturabilir.",
+        "isCritical": true,
+        "whyImportant": "Hem tahvil piyasalarındaki rekor faiz artışları hem de petrol fiyatlarının kritik 90 dolar eşiğini aşması, küresel finans ve emtia piyasalarında systemic riskleri doruğa çıkarmaktadır.",
+        "whoAffected": "Gelişmekte olan ülke ekonomileri, enerji ithalatçısı devletler, küresel fon yöneticileri ve havacılık ile nakliye gibi enerji yoğun sektörler doğrudan etkilenmektedir.",
+        "followUp": "ABD tahvil faizlerinin seyri, Orta Doğu'daki diplomatik görüşmelerin ve olası askeri hareketliliklerin gelişimi ile OPEC+ ülkelerinin üretim kararları yakından izlenmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE92aXNvN2xneW10SVZaQzVmNE9fNVFpb0kyZUVMb05VMjBrbkU3ME9YTmxYZW1nTkJyTDRlY19tSjRtRmtuckIwU1VSNEQ3QVNLMXc?oc=5"
+    },
+    {
+      "source": "Türkiye Cumhuriyeti Resmî Gazete",
+      "title": "Erdoğan'ın eski danışmanı İzzet Özgenç’ten AYM’nin oluşumuna ilişkin iddia: “Elini kaldır dendiğinde kaldıracak isim var mı?\" - Kısa Dalga",
+      "body": "<a href=\"https://news.google.com/rss/articles/CBMi8gFBVV95cUxNVDRWYlhSS21FUm1BcU0yUlpYZEd0d0toUzJoX2oyY1p0SWM5VkdMNFEwZWZnQzZWMWIyaUhOdWlvZ1VXbW1rOE1yM2hnaUk2RnNhQnUyR25PNDZGVHl5T3k0NkFVcDUwMDlwYUdLNExLbzEtMXJlRUlhS3FseU5odTJNVDM5ajNsd05vRWZlajlGNG1QaHRvaDE0VGpJeUtHOFltUWM5WVBlLWcySThoRkFlejhpVmlHVmVGRU9tcGswN1I0LTNuZDR4djZDU3hqWU5vQ1RJWE1TUV9IdFlRU3BEQVFjc3habW5IVGVxYTBwd9IB9wFBVV95cUxPOEhHOU5XNkVaUEFCTUdnVXlQQlVsSmczSnAzeUdsT0RLZkt6RnhvbEZyUzVvZXlkdGJfMHpfaVlEWjkxb1lIbHJZX1VRaE5UMnJodGdEOUFRZGJYZG1hdDlQWFI1R1h6bDZJeGpOcFBtZGc4Q2o5WnZzN3BtTWFVaGREMUdEck4wdzNPMzJrRjBtZzFzbVN0VHk4NnJzSXItV3RKMDhMUVdqWFhkRTRaM25TT0JnWVN5U2E1bjJoUThob1kyQi1zallhSnpvekZhbXA4TkdUUlVYMXUxUmw1d0ZBNE9RZExKMWN1aDJvVHdQWkxmSmFV?oc=5\" target=\"_blank\">Erdoğan'ın eski danışmanı İzzet Özgenç’ten AYM’nin oluşumuna ilişkin iddia: “Elini kaldır dendiğinde kaldıracak isim var mı?\"</a>  <font color=\"#6f6f6f\">Kısa Dalga</font>",
+      "category": "Resmî Gazete",
+      "subType": "Genel",
+      "timestamp": "2026-08-18T11:46:17.000Z",
+      "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNVDRWYlhSS21FUm1BcU0yUlpYZEd0d0toUzJoX2oyY1p0SWM5VkdMNFEwZWZnQzZWMWIyaUhOdWlvZ1VXbW1rOE1yM2hnaUk2RnNhQnUyR25PNDZGVHl5T3k0NkFVcDUwMDlwYUdLNExLbzEtMXJlRUlhS3FseU5odTJNVDM5ajNsd05vRWZlajlGNG1QaHRvaDE0VGpJeUtHOFltUWM5WVBlLWcySThoRkFlejhpVmlHVmVGRU9tcGswN1I0LTNuZDR4djZDU3hqWU5vQ1RJWE1TUV9IdFlRU3BEQVFjc3habW5IVGVxYTBwd9IB9wFBVV95cUxPOEhHOU5XNkVaUEFCTUdnVXlQQlVsSmczSnAzeUdsT0RLZkt6RnhvbEZyUzVvZXlkdGJfMHpfaVlEWjkxb1lIbHJZX1VRaE5UMnJodGdEOUFRZGJYZG1hdDlQWFI1R1h6bDZJeGpOcFBtZGc4Q2o5WnZzN3BtTWFVaGREMUdEck4wdzNPMzJrRjBtZzFzbVN0VHk4NnJzSXItV3RKMDhMUVdqWFhkRTRaM25TT0JnWVN5U2E1bjJoUThob1kyQi1zallhSnpvekZhbXA4TkdUUlVYMXUxUmw1d0ZBNE9RZExKMWN1aDJvVHdQWkxmSmFV?oc=5",
+      "isRelevant": false,
+      "analysis": null
+    },
     {
       "id": "real-law-1",
       "source": "Türkiye Cumhuriyeti Resmî Gazete",
