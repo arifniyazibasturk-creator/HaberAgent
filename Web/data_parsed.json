@@ -1,6 +1,48 @@
 {
-  "date": "2026-08-19",
+  "date": "2026-08-20",
   "events": [
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "Almanya’nın borçlanma maliyetlerinde 15 yıllık rekor! Jeopolitik riskler finansal dengeleri zorluyor - Ekonomim",
+      "body": "Almanya’nın borçlanma maliyetlerinde son 15 yılın rekor seviyesi görüldü; artan jeopolitik riskler ve küresel belirsizlikler ülkenin finansal dengelerini zorlamaya devam ediyor.",
+      "category": "Finans ve Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-08-19T11:53:00.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Artan jeopolitik riskler ve küresel belirsizlikler sebebiyle Almanya'nın borçlanma maliyetleri son 15 yılın en yüksek seviyesine ulaştı. Bu durum, Avrupa'nın en büyük ekonomisinde mali disiplin ve borç sürdürülebilirliği konusundaki endişeleri artırdı.",
+        "geopoliticalImpact": "Avrupa'nın ekonomik motoru konumundaki Almanya'nın borçlanma maliyetlerinin artması, kıtadaki ekonomik istikrarın zayıfladığını ve jeopolitik gerilimlerin mali piyasalara doğrudan yansıdığını göstermektedir.",
+        "turkeyImpact": "Avrupa ekonomisindeki daralma sinyalleri ve artan maliyetler, Türkiye'nin en büyük ihracat pazarı olan Almanya ile olan dış ticaret hacmini ve Avrupa'ya yapılacak sermaye akışlarını olumsuz etkileyebilir.",
+        "financialImpact": "Almanya tahvil faizlerinin yükselmesi, küresel tahvil piyasalarında dalgalanmalara yol açarak Avrupa genelinde borçlanma maliyetlerini yukarı çekmekte ve yatırımcıların güvenli liman arayışını değiştirmektedir.",
+        "longTerm": "Uzun vadede yüksek borçlanma maliyetleri Almanya'nın kamu yatırımlarını kısıtlamasına, ekonomik büyüme hızının yavaşlamasına ve Euro Bölgesi'nin genel borç krizlerine karşı direncini azaltmasına neden olabilir.",
+        "isCritical": true,
+        "whyImportant": "Küresel ekonominin yön belirleyicilerinden biri olan Almanya'da borçlanma maliyetlerinin 15 yıllık rekor kırması, küresel finans sistemindeki risk iştahını doğrudan baskılamaktadır. Ayrıca jeopolitik krizlerin ekonomik maliyetlerinin somut bir göstergesidir.",
+        "whoAffected": "Alman hükümeti, Euro Bölgesi'ndeki tahvil yatırımcıları, Avrupa merkez bankaları ve Almanya ile ticaret yapan Türk ihracatçıları doğrudan etkilemektedir.",
+        "followUp": "Almanya'nın tahvil ihraç sonuçları, Avrupa Merkez Bankası'nın (ECB) faiz ve likidite politikaları ile jeopolitik gerilimlerin seyrinin yakından takip edilmesi gerekmektedir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQQXRVekZmcG1COFc3UHFhUmNqZEp5X3FBQkxRVEsySnQ4N21FYlRTTldMcW9WMXNnX3lqV3RMTlFXQXUtS0d6azlDX3V3Q3dmUjVGTmFmQjBqUU1ySEJRRmNDNVJrWXkxVmVsdFR3Rm0xVnNKakhiX095YnlBdl9IUFZmejNJV1REWW1oR25pM3BlbGQ1Z1RZSFZfYTdmSk5tR1NNeTV0V1RCSVNpZXk4RVd1V2dFdzdnMUFjTjM1R0dBcUZKX3VmRWEwSVFQRDZUR0pFeUVqaHdCZkZoendhY2tEbmN3TXh20gHuAUFVX3lxTE53WUdsR0ZSMlNoWklaS2Z1NUVDb3hqOG5KWjdNVV9IR2J5d1Fic3ZjMTl4d0piZThMSWpFZ1BIX2hnUkZxdHdOeXJ2Q1JTeVRaemJsaDhOYnBUd0N0SWdnZFVTeE13SUJNcEpGRmZOZDBnRmxiS2tVZkZGUjNGcDVidFFEQl9ZV2Vta2hncGFPZFNaOElOdjItc1VTUDJGazRGUGRCbjNrUm1JLWFHc0l6LVNFY2QxcFNLblZsR3RaNUNFb2x4cGFyMUdUWUZEMjdNbFpEdnJra2xfR1VPTWhST0dySHlOLVRCb3RaR1E?oc=5"
+    },
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "ABD merkezli büyük işletmelerin CFO’ları, jeopolitik gerilimleri ve savaşları en büyük ticari risk olarak ilk sırada görüyor. Üst düzey finans yöneticileri, yüzde 34’lük bir oranla yüksek enflasyonu ikincil risk faktörü olarak takip ediyor. Şirket liderlerinin sadece yüz - instagram.com",
+      "body": "ABD'li büyük şirketlerin CFO'ları yapılan bir ankette jeopolitik gerilimleri ve savaşları en büyük ticari risk olarak ilk sıraya koyarken, yüksek enflasyon yüzde 34'lük oranla ikincil risk faktörü olarak takip etti.",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-19T08:41:39.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "ABD'li büyük işletmelerin finans yöneticileri (CFO), yürüttükleri operasyonlar önündeki en büyük engelin savaşlar ve jeopolitik gerilimler olduğunu belirtmiştir. Yüksek enflasyon ise yüzde 34'lük oranla bu risklerin hemen ardından ikinci sırada yer almıştır.",
+        "geopoliticalImpact": "Küresel ticaretin merkezindeki ABD şirketlerinin yöneticilerinin jeopolitik riskleri birinci sıraya koyması, çok uluslu şirketlerin tedarik zinciri stratejilerini ve yatırımlarını yeniden şekillendireceğini göstermektedir.",
+        "turkeyImpact": "Küresel sermayenin risk algısının artması, Türkiye gibi gelişmekte olan piyasalara yönelik doğrudan yabancı yatırımların miktarını ve maliyetini dolaylı yoldan baskılayabilir.",
+        "financialImpact": "Şirketlerin risk iştahının azalması hisse senedi piyasalarında ihtiyatlı bir döneme yol açarken, döviz kurlarını ve emtia fiyatlarını jeopolitik gelişmelere karşı daha hassas hale getirmektedir.",
+        "longTerm": "Şirketler uzun vadede operasyonlarını daha güvenli ülkelere kaydırma (friendshoring) eğilimine girecek ve küresel tedarik zincirlerinde maliyet artışları kalıcı hale gelecektir.",
+        "isCritical": false,
+        "whyImportant": "Dünya ekonomisine yön veren ABD'li şirket yöneticilerinin nabzını tutması bakımından, küresel ekonomik beklentilerin ve ticari kararların hangi endişeler etrafında şekillendiğini net bir şekilde ortaya koymaktadır.",
+        "whoAffected": "Küresel operasyon yürüten ABD merkezli çok uluslu şirketler, uluslararası yatırım fonları ve küresel tedarik zincirinde yer alan tüm tedarikçi ülkeler bu durumdan etkilenmektedir.",
+        "followUp": "ABD şirketlerinin çeyreklik yatırım planlarının, tedarik zinciri çeşitlendirme hamlelerinin ve küresel jeopolitik gerilimlerin seyrinin izlenmesi gerekmektedir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5nUWlCdkU2ZjVnczRzTEdUQzY5a3EzRHVvQ1JpUV9pX3NRZ1dtQ3NYai1pcjZCOWRCOGltTTQwdkk3VXBHa2k2dll6T0s5c3ZPMmc?oc=5"
+    },
     {
       "source": "Reuters World & AP News (Jeopolitik)",
       "title": "ABD merkezli danışmanlık kuruluşu McKinsey, jeopolitik risklerin arttığı Çin pazarında küçülme adımları atıyor. Şirket, Büyük Çin bölgesindeki iş gücünün yaklaşık üçte birine denk gelen 500 kişiyi işten çıkarıyor.",
