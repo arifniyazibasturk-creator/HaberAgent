@@ -1,6 +1,27 @@
 {
-  "date": "2026-08-20",
+  "date": "2026-08-21",
   "events": [
+    {
+      "source": "Reuters Markets & Financial Times (Ekonomi)",
+      "title": "Altın, USD'nin zayıf kalması ve Fed faiz artırımı beklentilerinin soğumasıyla haziran ayı zirvesine yükseldi - FXStreet",
+      "body": "Altın, ABD dolarının zayıf seyrini koruması ve Federal Reserve'ün (Fed) faiz artırımlarına devam edeceği yönündeki beklentilerin zayıflamasıyla birlikte haziran ayı seviyelerindeki zirvesine ulaştı. Küresel piyasalarda bu gelişme kıymetli madenlere olan talebi artırdı.",
+      "category": "Finans ve Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-08-21T04:08:23.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "ABD dolarının küresel piyasalarda zayıf seyretmesi ve Fed'in yeni faiz artırımlarına gideceğine yönelik beklentilerin azalması, ons altının haziran ayı zirvesine yükselmesine neden oldu. Bu durum yatırımcıların güvenli liman varlıklarına yönelimini hızlandırdı.",
+        "geopoliticalImpact": "Küresel ekonomik belirsizliklerin ve merkez bankalarının para politikalarına dair beklentilerin döviz ve emtia piyasalarındaki dengeyi doğrudan etkilediğini göstermektedir.",
+        "turkeyImpact": "Küresel altın fiyatlarındaki bu artış, iç piyasada gram altın fiyatlarını yukarı yönlü baskılayarak enflasyon ve altın ithalatı maliyetlerini etkilemektedir.",
+        "financialImpact": "Altın fiyatlarının zirveye çıkması, yatırımcıların portföy dağılımlarında kıymetli madenlerin ağırlığını artırırken dolar endeksindeki zayıflamayı tetiklemiştir.",
+        "longTerm": "Fed'in parasal sıkılaştırma döngüsünün sonuna yaklaşılması durumunda altın gibi kıymetli metallerin orta ve uzun vadeli yükseliş trendini destekleyebilir.",
+        "isCritical": true,
+        "whyImportant": "Küresel enflasyon ve faiz politikalarının yönü açısından piyasa göstergesi olan altın fiyatlarındaki bu hareket, tüm finansal piyasaları yakından ilgilendirmektedir. Yatırımcıların risk iştahını ve merkez bankalarının rezerv politikalarını doğrudan şekillendirmektedir.",
+        "whoAffected": "Başta küresel yatırımcılar, merkez bankaları, kuyumculuk sektörü ve altın borcu olanlar olmak üzere tüm finans piyasası aktörlerini etkilemektedir.",
+        "followUp": "Önümüzdeki günlerde ABD'den gelecek makroekonomik veriler, enflasyon rakamları ve Fed yetkililerinin yapacağı açıklamalar yakından takip edilmelidir. Altın fiyatlarındaki bu direnç seviyesinin kalıcı olup olmayacağı izlenmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNd3RJXzdaYmpKeTFhNGFfZHBtZ1c2b0pQQWN1MURZVHNGZ0hqai1NZDFDbS1iSTJHdTFTUFRFcU9jTWtNU0JHZGxKREhRTXRzdUFfYUxuUnVXdjJSbXlFLTZ3eTAwcXZwRjZlZm1weG5uYnRCdDZSS1EwMzdMWmtKcDVJRm54UGUwNjNuLVNNY1lBbUZ3RmhKYXJCMTNnUzlEMUt4em1ZVkJIWE9Vd3hhejdmQU1zaWFUWXZsUWg1RXo5NFZNT0hrVXFXRDNrV2lsMUVLOVBvNWpKVTZQMEFsM1NLUkFJTEdfdGNudDlVVzZOUk9BdXVIYtIB_gFBVV95cUxPMDJxYWptQ3pXSnlEUDdXVmtvVm1Da2xWNDJpVUVBVHR0VnpqUHhNM3dOazNHSnB2MFR4T0ZXR2NIYVdSQTl3WVFYZGcybWs5M0xMM041SFg5Z3dzMW0xdFEwdmYyazNGT010amdDNmk2V3o3T19ZMFpNNkNXby1lRXJSRW9CelJGRUF0RUVtMXlqNlZDZTJ0U1ZaQzA5c0paVF9QOXg1LVF6U1ZpdWh5Q1ZfNlBvSW9ybzFvMU9NNE9oOGJxSVJaOU45TnVWVGhfRHMyOTd4VXdPME42Vmt4VTVrVTBPR3VHWklpeDFwcjhmb0pkV1RMNmw1ZnA3Zw?oc=5"
+    },
     {
       "source": "Reuters World & AP News (Jeopolitik)",
       "title": "Almanya’nın borçlanma maliyetlerinde 15 yıllık rekor! Jeopolitik riskler finansal dengeleri zorluyor - Ekonomim",
