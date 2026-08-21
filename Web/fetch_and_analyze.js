@@ -488,18 +488,22 @@ function sendEmail(user, pass, to, subject, html) {
   });
 }
 
-// Generate premium dark-mode HTML template for daily newsletter (Critical developments only)
+// Generate premium dark-mode HTML template for daily newsletter (Top 5 critical developments)
 function generateHtmlEmail(date, events) {
   const relevantEvents = events.filter(e => e.isRelevant && e.analysis);
-  const criticalEvents = relevantEvents.filter(e => e.analysis.isCritical).slice(0, 5);
+  
+  // Prioritize critical items, and complete up to 5 top developments of the day
+  const criticalItems = relevantEvents.filter(e => e.analysis.isCritical);
+  const nonCriticalItems = relevantEvents.filter(e => !e.analysis.isCritical);
+  const topEvents = [...criticalItems, ...nonCriticalItems].slice(0, 5);
   
   let criticalHtml = "";
-  if (criticalEvents.length > 0) {
+  if (topEvents.length > 0) {
     criticalHtml = `
       <div style="background-color: #1a1515; border-left: 4px solid #ef4444; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
         <h3 style="color: #ef4444; margin-top: 0; font-family: sans-serif; font-size: 16px; margin-bottom: 15px;">🚨 Günün Kritik Gelişmeleri</h3>
         <ol style="margin: 0; padding-left: 20px; color: #f8fafc; font-family: sans-serif; font-size: 13px; line-height: 1.6;">
-          ${criticalEvents.map(e => `
+          ${topEvents.map(e => `
             <li style="margin-bottom: 15px; border-bottom: 1px dashed rgba(255, 255, 255, 0.08); padding-bottom: 12px;">
               <strong><a href="${e.link || '#'}" style="color: #ef4444; text-decoration: underline; font-size: 14px;">📌 ${e.title}</a></strong>
               <div style="color: #f8fafc; font-size: 12px; margin-top: 6px; background: rgba(255, 255, 255, 0.02); padding: 8px; border-radius: 4px; border: 1px dashed rgba(255, 255, 255, 0.04);">
@@ -562,16 +566,19 @@ async function run() {
     process.exit(1);
   }
 
-  // Load previously processed events from existing data_parsed.json for historical cross-day deduplication
+  // Load historical memory from history_parsed.json (or fallback to data_parsed.json) for cross-day duplicate prevention
+  const historyPath = path.join(__dirname, 'history_parsed.json');
+  const dataPath = path.join(__dirname, 'data_parsed.json');
   let historicalEvents = [];
   const historicalKeywordSets = [];
+  
   try {
-    const targetPath = path.join(__dirname, 'data_parsed.json');
-    if (fs.existsSync(targetPath)) {
-      const existingData = JSON.parse(fs.readFileSync(targetPath, 'utf-8'));
+    let sourceFile = fs.existsSync(historyPath) ? historyPath : (fs.existsSync(dataPath) ? dataPath : null);
+    if (sourceFile) {
+      const existingData = JSON.parse(fs.readFileSync(sourceFile, 'utf-8'));
       if (existingData && Array.isArray(existingData.events)) {
         historicalEvents = existingData.events;
-        existingData.events.forEach(event => {
+        historicalEvents.forEach(event => {
           const text = (event.title || "") + " " + (event.body || "") + " " + ((event.analysis && event.analysis.summary) || "");
           const kw = getKeywords(text);
           if (kw.size > 0) {
@@ -581,7 +588,7 @@ async function run() {
       }
     }
   } catch (err) {
-    console.warn("UYARI: Geçmiş veritabanı okunamadı, tarihsel tekillik kontrolü atlanıyor:", err.message);
+    console.warn("UYARI: Geçmiş hafıza veritabanı okunamadı, tarihsel tekillik kontrolü atlanıyor:", err.message);
   }
 
   console.log("Haberler ve RSS kaynakları taranıyor (son 24 saat)...");
@@ -681,7 +688,7 @@ Kabul edilen her haber için 'analysis' objesi içinde şu bilgileri doldur:
 - turkeyImpact: Türkiye açısından etkisi
 - financialImpact: Finansal etkisi
 - longTerm: Uzun vadeli olası sonuçları
-- isCritical: Eğer en kritik 5 gelişmeden biriyse true, değilse false yap.
+- isCritical: Bu haber günün piyasalarını, dış politikasını, hukuki düzenini veya makroekonomisini doğrudan etkileyen yüksek öncelikli/önemli bir gelişme ise true, tali/rutin bir gelişme ise false yap.
 - whyImportant: Bu gelişmenin neden önemli olduğu (en az 2 cümle).
 - whoAffected: Bu gelişmenin kimleri veya hangi sektörleri/ülkeleri etkilediği (en az 2 cümle).
 - followUp: Önümüzdeki günlerde bu gelişmeye dair nelerin takip edilmesi gerektiği (en az 2 cümle).
@@ -774,26 +781,27 @@ ${JSON.stringify(batch, null, 2)}
   // Today's complete events list
   const todaysFullEvents = [...finalRelevantEvents, ...formattedSkipped];
 
-  // Combine today's events with unique historical events (semantic clustering)
-  const allHistoricalCombined = [...todaysFullEvents, ...historicalEvents];
-  const finalDeduplicatedEvents = clusterAndDeduplicate(allHistoricalCombined);
-
-  // Limit database size to last 80 unique events to keep the file lightweight and fresh
-  const limitedEventsList = finalDeduplicatedEvents.slice(0, 80);
-
-  // Structure final json
+  // 1. Structure final json for the website (STRICTLY TODAY'S FRESH EVENTS ONLY)
   const outputData = {
     date: dateToday,
-    events: limitedEventsList
+    events: todaysFullEvents
   };
 
   try {
-    const targetPath = path.join(__dirname, 'data_parsed.json');
-    fs.writeFileSync(targetPath, JSON.stringify(outputData, null, 2), 'utf-8');
-    console.log(`BAŞARILI: Güncel sabah bülteni analizi '${targetPath}' dosyasına yazıldı!`);
+    fs.writeFileSync(dataPath, JSON.stringify(outputData, null, 2), 'utf-8');
+    console.log(`BAŞARILI: Güncel sabah bülteni analizi '${dataPath}' dosyasına yazıldı!`);
   } catch (err) {
-    console.error("HATA: Dosyaya yazma sırasında bir hata oluştu:", err);
+    console.error("HATA: data_parsed.json dosyasına yazma sırasında bir hata oluştu:", err);
     process.exit(1);
+  }
+
+  // 2. Update robot's long-term memory database (history_parsed.json) for cross-day deduplication
+  try {
+    const updatedHistory = clusterAndDeduplicate([...todaysFullEvents, ...historicalEvents]).slice(0, 150);
+    fs.writeFileSync(historyPath, JSON.stringify({ lastUpdated: dateToday, events: updatedHistory }, null, 2), 'utf-8');
+    console.log(`BAŞARILI: Robot hafıza veritabanı '${historyPath}' dosyasına ${updatedHistory.length} haber ile güncellendi!`);
+  } catch (err) {
+    console.warn("UYARI: history_parsed.json hafıza dosyası yazılamadı:", err.message);
   }
 
   // Trigger email dispatch if configured in secrets
