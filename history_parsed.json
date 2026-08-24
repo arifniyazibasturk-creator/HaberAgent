@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-24",
+  "lastUpdated": "2026-08-24",
   "events": [
     {
       "source": "Türkiye Cumhuriyeti Resmî Gazete",
@@ -579,6 +579,48 @@
       "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNRTg5ZmQzSnBETWlTZzJQNkJ2b1AydHNIYUs3S0JrcWZTVzRUZDRfeVUtMU94cVdscEtPN3AwZkZsd1Q2Y24ycm13ZW1ZdVBpWFVzSlhHd1h0M3dyUGRBQlpBMHVTeDZQcXh2QjF2UVEzZ1EtTnBzRzlqak5GX2dZcHBpalVJRFAxcV9OZWVIVmtGUXU0SUtKMGdFczJybG9FVF9oMVlB0gGrAUFVX3lxTFA0eTNvbWpiTzlGY3p4cnJZNzlGZ1dkTWRoOWxheXUwdGhlaGp2NjR3akdlRTlEem5zY2ZuU3hZMHZiOUdPR3Bxbk41dExUdTBnY0RwUkVUbGJ5cDZHZ0x3ME5NOEE0U05KeHJyRE5mUGNXUXNpcFRDYVBGX0RjNDRnNTJfajNKQ3hNZmRpNDRZZTROQ1NLb3g4WU8tcXROQ2tOT09jcHgwbWFYZw?oc=5",
       "isRelevant": false,
       "analysis": null
+    },
+    {
+      "source": "Reuters World & AP News (Jeopolitik)",
+      "title": "Zelenskiy NATO genel sekreteri Rutte ile Rusya’nın provokasyonlarını ve PURL girişimini görüştü - Ukrhaber",
+      "body": "Zelenskiy NATO genel sekreteri Rutte ile Rusya’nın provokasyonlarını ve PURL girişimini görüştü",
+      "category": "Uluslararası İlişkiler",
+      "subType": "Genel",
+      "timestamp": "2026-08-23T19:45:08.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "Ukrayna Devlet Başkanı Volodimir Zelenskiy, NATO Genel Sekreteri ile yaptığı görüşmede Rusya'nın sahadaki provokasyonlarını ve PURL girişimini ele aldı. Görüşmede, Ukrayna'nın güvenlik ihtiyaçları ve NATO ile yürütülen ortak stratejik adımlar değerlendirildi.",
+        "geopoliticalImpact": "Ukrayna-Rusya savaşının seyrine ve NATO'nun bölgedeki caydırıcılık politikalarına doğrudan etkileri bulunmaktadır. İttifakın Kiev yönetimine olan desteğinin teyit edilmesi açısından önem taşır.",
+        "turkeyImpact": "Türkiye, Karadeniz bölgesindeki güvenliği ve iki ülke ile olan dengeli diplomatik ilişkileri göz önüne alarak bu tür üst düzey temasları yakından takip etmektedir.",
+        "financialImpact": "Küresel piyasalarda risk iştahını ve savunma sanayi şirketlerinin hisse hareketlerini dolaylı yoldan etkileme potansiyeline sahiptir.",
+        "longTerm": "NATO ile Ukrayna arasındaki entegrasyon sürecinin derinleşmesine ve savaşın bölgesel güvenlik mimarisi üzerindeki kalıcı etkilerinin şekillenmesine zemin hazırlayabilir.",
+        "isCritical": true,
+        "whyImportant": "Uluslararası güvenliğin kilit aktörleri arasındaki bu tür zirveler, savaşın yönünü ve diplomatik çözüm arayışlarını doğrudan etkilemektedir. PURL girişimi ve Rusya'nın provokasyonları küresel istikrar açısından kritik başlıklardır.",
+        "whoAffected": "Başta Ukrayna ve Rusya olmak üzere tüm NATO üyesi ülkeler, Doğu Avrupa devletleri ve küresel enerji ile emtia piyasaları bu durumdan etkilenecektir.",
+        "followUp": "NATO'nun Ukrayna'ya yönelik yeni yardım paketleri, PURL girişiminin somut çıktıları ve cephe hattındaki askeri gelişmeler yakından izlenmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMiygJBVV95cUxPbHNFWEhucE5uZHN4UlFoOEdVa1kzYXV2YnBxbEs2VlBOSVdvLThSMGZkVGlNVlVOTzlKdTFKX29qdkVLMkJqZ0I3czduc2h3elZxVFVSNWJGbDdUWXZOZlBtelhaazBGR1dZSFNvbDh4M2lCaXJJUl84bmE3VXlMM1dSY1ZYZ1hSckN0Y1RLb0tQdmZYVGUwV0pKbWh5UC1tOEVkaENWdjJkajZaMGk1RjFPdC0yVXdrSUJpajE3VmRUTGdRcGx3UDZiNHd0LXVDTlhMOEl1X3lWNUR4T0RDN1R3LS1ELUNvbEhBRXZpbTVoRjdaanBUTkxYdmJtaXB3amthMm5TVTF6aWFScTVZWms0amJxTnVCUTR3WnFJTzRUSmlBVGZUMV9ZdGVpOVBlWHI3ZUo4VWROWm83b2xLVmc4RGNuT2lpUlHSAcoCQVVfeXFMT2xzRVhIbnBObmRzeFJRaDhHVWtZM2F1dmJwcWxLNlZQTklXby04UjBmZFRpTVZVTk85SnUxSl9vanZFSzJCamdCN3M3bnNod3pWcVRVUjViRmw3VFl2TmZQbXpYWmswRkdXWUhTb2w4eDNpQmlySVJfOG5hN1V5TDNXUmNWWGdYUnJDdGNUS29LUHZmWFRlMFdKSm1oeVAtbThFZGhDVnYyZGo2WjBpNUYxT3QtMlV3a0lCaWoxN1ZkVExnUXBsd1A2YjR3dC11Q05YTDhJdV95VjVEeE9EQzdUdy0tRC1Db2xIQUV2aW01aEY3WmpwVE5MWHZibWlwd2prYTJuU1UxemlhUnE1WVprNGpicU51QlE0d1pxSU80VEppQVRmVDFfWXRlaTlQZVhyN2VKOFVkTlpvN29sS1ZnOERjbk9paVJR?oc=5"
+    },
+    {
+      "source": "Reuters Markets & Financial Times (Ekonomi)",
+      "title": "JP Morgan global temel araştırma eş başkanı James Sullivan, Hazine’nin kısa vadeli tahviller ihraç ederek uzun vadeli tahviller satın alması stratejisinin kısa vadede rahatlama sağlayabileceğini ancak uzun vadede alttaki borcun aynı şekilde kalacağını söyledi - instagram.com",
+      "body": "JP Morgan global temel araştırma eş başkanı James Sullivan, Hazine’nin kısa vadeli tahviller ihraç ederek uzun vadeli tahviller satın alması stratejisinin kısa vadede rahatlama sağlayabileceğini ancak uzun vadede alttaki borcun aynı şekilde kalacağını söyledi",
+      "category": "Finans ve Ekonomi",
+      "subType": "Genel",
+      "timestamp": "2026-08-24T04:44:52.000Z",
+      "isRelevant": true,
+      "analysis": {
+        "summary": "JP Morgan Global Temel Araştırma Eş Başkanı James Sullivan, hazinelerin kısa vadeli tahvil ihracıyla uzun vadeli borçları geri alması operasyonlarının likiditeyi kısa vadede rahatlatacağını ancak toplam borç yükünü azaltmayacağını belirtti. Uzman, bu mali manevranın yapısal sorunlara kalıcı bir çözüm sunmadığını vurguladı.",
+        "geopoliticalImpact": "Küresel ekonomik dengeler ve büyük ekonomilerin mali disiplin politikaları üzerinde dolaylı yönlendirici etkileri bulunmaktadır.",
+        "turkeyImpact": "Türkiye gibi gelişmekte olan ülkelerin borçlanma maliyetlerini ve küresel tahvil piyasasındaki faiz trendlerini yakından ilgilendirmektedir.",
+        "financialImpact": "Tahvil getirilerinde dalgalanmalara yol açabilir, yatırımcıların kısa ve uzun vadeli vade yapısı tercihlerini yeniden şekillendirebilir.",
+        "longTerm": "Küresel borç krizlerinin derinleşmesine karşı merkez bankaları ve hazinelerin uygulayacağı mali politikaların sürdürülebilirliğini sorgulatacaktır.",
+        "isCritical": false,
+        "whyImportant": "Küresel finans kuruluşlarının üst düzey yöneticilerinin yaptığı bu tür stratejik değerlendirmeler, borç yönetimi politikaları hakkında piyasalara yön vermektedir. Tahvil piyasasındaki vade arbitrajı tartışmalarına ışık tutmaktadır.",
+        "whoAffected": "Küresel hazineler, tahvil yatırımcıları, uluslararası kredi derecelendirme kuruluşları ve gelişmekte olan piyasa fonları bu durumdan etkilenir.",
+        "followUp": "Gelişmiş ülke hazinelerinin tahvil ihraç takvimleri ve faiz oranlarındaki değişimler takip edilmelidir."
+      },
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5aNGhZWEp1NDk3ZW95Ul9xRmFQUTd0ckxsSldKSDcwajJBbHN0ZXZ0RGQ4YXNweXZUbkdnN2Q3UmdVTTdkMXRLRHQ4WmpoVUplcHc?oc=5"
     }
   ]
 }
