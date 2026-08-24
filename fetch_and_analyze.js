@@ -219,24 +219,29 @@ function clusterAndDeduplicate(newsList) {
   const clusters = [];
 
   for (const news of newsList) {
-    const text = (news.title || "") + " " + (news.body || "") + " " + ((news.analysis && news.analysis.summary) || "");
+    const text = (news.title || "") + " " + (news.body || "");
     const keywords = getKeywords(text);
+    if (keywords.size === 0) continue;
     let addedToCluster = false;
 
     for (const cluster of clusters) {
-      const sim = getSimilarity(keywords, cluster.keywords);
-      const containment = getContainment(keywords, cluster.keywords);
+      // Must belong to the same category to be clustered as duplicate
+      if (cluster.representative.category !== news.category) continue;
 
-      // If keywords share >= 30% similarity or >= 45% containment, treat as duplicate coverage of the same event
-      if (sim >= 0.30 || containment >= 0.45) {
+      const repKeywords = cluster.repKeywords;
+      const sim = getSimilarity(keywords, repKeywords);
+      const containment = getContainment(keywords, repKeywords);
+
+      // Only merge if similarity is high (same event reported by different sources)
+      if (sim >= 0.45 || (containment >= 0.70 && Math.min(keywords.size, repKeywords.size) >= 4)) {
         cluster.items.push(news);
-        for (const kw of keywords) cluster.keywords.add(kw);
         
         // Pick the representative with the richest, most detailed title and body
         const curScore = (news.title || "").length + (news.body || "").length + ((news.analysis && news.analysis.summary) || "").length;
         const bestScore = (cluster.representative.title || "").length + (cluster.representative.body || "").length + ((cluster.representative.analysis && cluster.representative.analysis.summary) || "").length;
         if (curScore > bestScore) {
           cluster.representative = news;
+          cluster.repKeywords = keywords;
         }
         addedToCluster = true;
         break;
@@ -246,7 +251,7 @@ function clusterAndDeduplicate(newsList) {
     if (!addedToCluster) {
       clusters.push({
         representative: news,
-        keywords: new Set(keywords),
+        repKeywords: keywords,
         items: [news]
       });
     }
@@ -579,7 +584,7 @@ async function run() {
       if (existingData && Array.isArray(existingData.events)) {
         historicalEvents = existingData.events;
         historicalEvents.forEach(event => {
-          const text = (event.title || "") + " " + (event.body || "") + " " + ((event.analysis && event.analysis.summary) || "");
+          const text = (event.title || "") + " " + (event.body || "");
           const kw = getKeywords(text);
           if (kw.size > 0) {
             historicalKeywordSets.push(kw);
@@ -626,8 +631,8 @@ async function run() {
     for (const histKw of historicalKeywordSets) {
       const sim = getSimilarity(eventKeywords, histKw);
       const cont = getContainment(eventKeywords, histKw);
-      // If 40%+ similar to an event from previous days, treat as already reported
-      if (sim >= 0.40 || cont >= 0.60) {
+      // Strictly require strong similarity to drop as duplicate of past days
+      if (sim >= 0.60 || (cont >= 0.85 && Math.min(eventKeywords.size, histKw.size) >= 5)) {
         isHistoricalDuplicate = true;
         break;
       }

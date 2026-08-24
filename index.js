@@ -400,7 +400,9 @@ function isResmiGazeteItemRelevant(item) {
 // Get filtered items for the active bulletin
 function getProcessedEvents() {
   let items = state.events.map(item => {
-    const isRelevant = item.analysis != null && isResmiGazeteItemRelevant(item);
+    const isRelevant = item.isRelevant !== undefined 
+      ? (item.isRelevant && item.analysis != null) 
+      : (item.analysis != null && isResmiGazeteItemRelevant(item));
     return {
       ...item,
       isRelevant
@@ -408,7 +410,11 @@ function getProcessedEvents() {
   });
 
   if (state.filters.selectedSource && state.filters.selectedSource !== "all") {
-    items = items.filter(item => item.source === state.filters.selectedSource);
+    const sel = state.filters.selectedSource.toLowerCase();
+    items = items.filter(item => {
+      const src = (item.source || "").toLowerCase();
+      return src === sel || src.includes(sel) || sel.includes(src);
+    });
   }
 
   // Deduplicate on UI level by normalized title key
@@ -601,9 +607,17 @@ function renderSources() {
   
   sourcesContainer.innerHTML = "";
   SOURCES.forEach(source => {
-    const count = state.events.filter(e => e.source === source).length;
+    const sourceLower = source.toLowerCase();
+    const count = state.events.filter(e => {
+      const src = (e.source || "").toLowerCase();
+      return src === sourceLower || src.includes(sourceLower) || sourceLower.includes(src);
+    }).length;
     const isResmiGazete = source.includes("Resmî Gazete");
-    const filteredCount = state.events.filter(e => e.source === source && !isResmiGazeteItemRelevant(e)).length;
+    const filteredCount = state.events.filter(e => {
+      const src = (e.source || "").toLowerCase();
+      const match = src === sourceLower || src.includes(sourceLower) || sourceLower.includes(src);
+      return match && !isResmiGazeteItemRelevant(e);
+    }).length;
     
     const li = document.createElement("li");
     li.className = "source-item-container";
@@ -1139,10 +1153,10 @@ async function loadBulletinData() {
     const response = await fetch('data_parsed.json');
     if (!response.ok) throw new Error("Dosya okunamadı");
     const data = await response.json();
-    if (data.date && data.events) {
+    if (data.date && Array.isArray(data.events) && data.events.length > 0) {
       state.currentDate = data.date;
       state.events = data.events;
-      console.log("Dinamik bülten verisi başarıyla yüklendi:", data.date);
+      console.log("Dinamik bülten verisi başarıyla yüklendi:", data.date, `(${data.events.length} haber)`);
     }
   } catch (err) {
     console.warn("Dinamik bülten yüklenemedi, yerel mock veri havuzu kullanılıyor:", err.message);

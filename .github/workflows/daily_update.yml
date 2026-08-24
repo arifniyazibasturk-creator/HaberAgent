@@ -1,8 +1,8 @@
 name: Daily Geopolitical & Financial Assistant Update
 
 on:
-  repository_dispatch:
-    types: [daily_update]
+  schedule:
+    - cron: '*/5 * * * *' # Every 5 minutes (for testing)
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 permissions:
@@ -23,16 +23,12 @@ jobs:
       - name: Run Scraper and Analyzer
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GMAIL_USER: ${{ secrets.GMAIL_USER }}
-          GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
-          TO_EMAIL: ${{ secrets.TO_EMAIL }}
         run: |
-          cd Web
           node fetch_and_analyze.js
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Web/data_parsed.json
+          git add data_parsed.json history_parsed.json
           git diff-index --quiet HEAD || (git commit -m "chore: auto-update daily morning bulletin [skip ci]" && git push)
