@@ -88,12 +88,13 @@ function fetchUrl(url, maxRedirects = 5) {
   });
 }
 
-// Custom lightweight XML/RSS parser with strict 28-hour publication age cutoff
+// Custom lightweight XML/RSS parser - only keeps articles published today (UTC date)
 function parseRss(xmlText, defaultCategory, defaultSource) {
   const items = [];
   const matches = xmlText.matchAll(/<item>([\s\S]*?)<\/item>/g);
   const now = Date.now();
-  const MAX_AGE_MS = 28 * 60 * 60 * 1000; // 28 hours max to strictly eliminate stale news from previous days
+  const MAX_AGE_MS = 28 * 60 * 60 * 1000; // hard cap: never older than 28h regardless
+  const todayUTC = new Date().toISOString().substring(0, 10); // "YYYY-MM-DD"
   
   for (const match of matches) {
     const content = match[1];
@@ -108,8 +109,14 @@ function parseRss(xmlText, defaultCategory, defaultSource) {
       let body = descMatch ? decodeHtmlEntities(descMatch[1].replace(/<[^>]*>/g, '').trim()) : "";
       let pubDate = pubDateMatch ? new Date(pubDateMatch[1].trim()) : new Date();
       
-      // Strict date check: drop anything older than 28 hours
+      // Hard cap: drop anything older than 28 hours
       if (!isNaN(pubDate.getTime()) && (now - pubDate.getTime()) > MAX_AGE_MS) {
+        continue;
+      }
+
+      // Date filter: only keep articles published today (UTC) to avoid yesterday's news
+      const articleDateUTC = pubDate.toISOString().substring(0, 10);
+      if (articleDateUTC !== todayUTC) {
         continue;
       }
       
