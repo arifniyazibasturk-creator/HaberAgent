@@ -571,37 +571,14 @@ async function run() {
     process.exit(1);
   }
 
-  // Load historical memory from history_parsed.json (or fallback to data_parsed.json) for cross-day duplicate prevention
-  const historyPath = path.join(__dirname, 'history_parsed.json');
   const dataPath = path.join(__dirname, 'data_parsed.json');
-  let historicalEvents = [];
-  const historicalKeywordSets = [];
-  
-  try {
-    let sourceFile = fs.existsSync(historyPath) ? historyPath : (fs.existsSync(dataPath) ? dataPath : null);
-    if (sourceFile) {
-      const existingData = JSON.parse(fs.readFileSync(sourceFile, 'utf-8'));
-      if (existingData && Array.isArray(existingData.events)) {
-        historicalEvents = existingData.events;
-        historicalEvents.forEach(event => {
-          const text = (event.title || "") + " " + (event.body || "");
-          const kw = getKeywords(text);
-          if (kw.size > 0) {
-            historicalKeywordSets.push(kw);
-          }
-        });
-      }
-    }
-  } catch (err) {
-    console.warn("UYARI: Geçmiş hafıza veritabanı okunamadı, tarihsel tekillik kontrolü atlanıyor:", err.message);
-  }
 
   console.log("Haberler ve RSS kaynakları taranıyor (son 24 saat)...");
   let allEvents = [];
 
   for (const feed of FEEDS) {
     try {
-      console.log(`Taranyor: ${feed.name}`);
+      console.log(`Taranıyor: ${feed.name}`);
       const url = "https://news.google.com/rss/search?q=" + encodeURIComponent(feed.query) + "&hl=tr&gl=TR&ceid=TR:tr";
       const xml = await fetchUrl(url);
       const items = parseRss(xml, feed.category, feed.name);
@@ -618,32 +595,8 @@ async function run() {
   }
 
   // Step 1: Pre-Gemini Semantic Clustering (merges same story from multiple newspapers)
-  const preClusteredEvents = clusterAndDeduplicate(allEvents);
-  console.log(`İlk tarama: ${allEvents.length} haber -> Farklı ajans/başlık kümeleme sonrası: ${preClusteredEvents.length} özgün haber.`);
-
-  // Step 2: Cross-day Historical Deduplication (drops stories already reported in previous days)
-  const freshEvents = [];
-  for (const event of preClusteredEvents) {
-    const text = (event.title || "") + " " + (event.body || "");
-    const eventKeywords = getKeywords(text);
-    let isHistoricalDuplicate = false;
-
-    for (const histKw of historicalKeywordSets) {
-      const sim = getSimilarity(eventKeywords, histKw);
-      const cont = getContainment(eventKeywords, histKw);
-      // Strictly require strong similarity to drop as duplicate of past days
-      if (sim >= 0.60 || (cont >= 0.85 && Math.min(eventKeywords.size, histKw.size) >= 5)) {
-        isHistoricalDuplicate = true;
-        break;
-      }
-    }
-
-    if (!isHistoricalDuplicate) {
-      freshEvents.push(event);
-    }
-  }
-
-  console.log(`Geçmiş günlerle karşılaştırma sonrası kalan taze ve yeni haber sayısı: ${freshEvents.length}`);
+  const freshEvents = clusterAndDeduplicate(allEvents);
+  console.log(`İlk tarama: ${allEvents.length} haber -> Farklı ajans/başlık kümeleme sonrası: ${freshEvents.length} özgün haber.`);
 
   // Split events into potentially relevant (for AI) and irrelevant (direct output)
   const toAnalyze = freshEvents.filter(isItemPotentiallyRelevant);
@@ -800,14 +753,7 @@ ${JSON.stringify(batch, null, 2)}
     process.exit(1);
   }
 
-  // 2. Update robot's long-term memory database (history_parsed.json) for cross-day deduplication
-  try {
-    const updatedHistory = clusterAndDeduplicate([...todaysFullEvents, ...historicalEvents]).slice(0, 150);
-    fs.writeFileSync(historyPath, JSON.stringify({ lastUpdated: dateToday, events: updatedHistory }, null, 2), 'utf-8');
-    console.log(`BAŞARILI: Robot hafıza veritabanı '${historyPath}' dosyasına ${updatedHistory.length} haber ile güncellendi!`);
-  } catch (err) {
-    console.warn("UYARI: history_parsed.json hafıza dosyası yazılamadı:", err.message);
-  }
+
 
   // Trigger email dispatch if configured in secrets
   const gmailUser = process.env.GMAIL_USER;

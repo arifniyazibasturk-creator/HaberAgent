@@ -31,5 +31,5 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data_parsed.json history_parsed.json
+          git add data_parsed.json
           git diff-index --quiet HEAD || (git commit -m "chore: auto-update daily morning bulletin [skip ci]" && git push)
