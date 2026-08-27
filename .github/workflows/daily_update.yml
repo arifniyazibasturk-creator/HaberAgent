@@ -1,7 +1,9 @@
 name: Daily Geopolitical & Financial Assistant Update
 
 on:
-  workflow_dispatch: # Triggered via cron-job.org webhook / API or manual run
+  schedule:
+    - cron: '0 6 * * *'  # Her gün 06:00 UTC = 09:00 TR
+  workflow_dispatch: # Manuel tetikleme veya cron-job.org backup
 
 permissions:
   contents: write
