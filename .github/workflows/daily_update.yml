@@ -1,11 +1,9 @@
 name: Daily Geopolitical & Financial Assistant Update
 
 on:
-  schedule:
-    - cron: '0 6 * * *'  # Her gün 06:00 UTC = 09:00 TR
-  workflow_dispatch: # Manuel tetikleme
+  workflow_dispatch: # Manuel tetikleme (GitHub arayüzünden)
   repository_dispatch:
-    types: [daily_update] # cron-job.org /dispatches tetikleyicisi
+    types: [daily_update] # cron-job.org webhook tetikleyicisi
 
 permissions:
   contents: write
